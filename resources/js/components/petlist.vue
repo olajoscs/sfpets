@@ -1,27 +1,39 @@
 <template>
     <table>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </thead>
 
-        <tr v-for="pet in petList">
-            <td>{{ pet.name }}</td>
-            <td>{{ pet.description }}</td>
-        </tr>
+        <tbody>
+            <tr v-for="pet in petList">
+                <pet :name="pet.name"
+                     :description="pet.description"
+                     :id="pet.id"></pet>
+            </tr>
+        </tbody>
     </table>
 </template>
 
 <script>
     import Axios from 'axios';
+    import Pet from './pet';
 
     export default {
         name: "PetList",
 
         data: () => {
             return {
-                petList: []
+                petList: [],
             }
+        },
+
+        components: {
+            Pet
         },
 
         created() {
