@@ -10,11 +10,9 @@
         </thead>
 
         <tbody>
-            <tr v-for="pet in petList">
-                <pet :name="pet.name"
-                     :description="pet.description"
-                     :id="pet.id"></pet>
-            </tr>
+            <pet v-for="pet in petList"
+                 v-bind:key="pet.id"
+                 v-bind="pet"></pet>
         </tbody>
     </table>
 </template>

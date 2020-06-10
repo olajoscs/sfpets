@@ -4,15 +4,15 @@
         <td>{{ this.name }}</td>
         <td>{{ this.description }}</td>
         <td>
-            <label>
-                <input type="checkbox" @click="markAsOwned"/>
-                Megvan
-            </label>
+            <button @click="markAsOwned">Megvan</button>
+            <button @click="markAsNotOwned">Nincs meg</button>
         </td>
     </tr>
 </template>
 
 <script>
+    import OwnedPetRepository from '../services/OwnedPetRepository';
+
     export default {
         name: "Pet",
 
@@ -28,7 +28,11 @@
 
         methods: {
             markAsOwned: function() {
-                console.log(this.id);
+                OwnedPetRepository.addOwned(this.id);
+            },
+
+            markAsNotOwned: function() {
+                OwnedPetRepository.removeOwned(this.id);
             }
         }
     };
