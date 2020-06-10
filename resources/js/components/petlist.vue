@@ -20,6 +20,8 @@
 <script>
     import Axios from 'axios';
     import Pet from './pet';
+    import OwnedPetRepository from '../services/OwnedPetRepository';
+    import AvailablePetRepository from '../services/AvailablePetRepository';
 
     export default {
         name: "PetList",
@@ -37,7 +39,16 @@
         created() {
             Axios.get('/pet-list')
                 .then((response) => {
-                    this.petList = response.data;
+                    const petList = response.data;
+                    const ownedPets = OwnedPetRepository.getAll();
+                    const availablePets = AvailablePetRepository.getAll();
+
+                    this.petList = petList.map((pet) => {
+                        pet.isOwned = ownedPets.indexOf(pet.id) !== -1;
+                        pet.isAvailable = availablePets.indexOf(pet.id) !== -1;
+
+                        return pet;
+                    })
                 })
                 .catch((err) => {
                     console.log('sikertelen');
