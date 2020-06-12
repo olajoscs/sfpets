@@ -12,36 +12,11 @@
             </thead>
 
             <tbody>
-                <pet v-for="pet in availableAndNotOwnedPets"
+                <pet v-for="pet in availablePets"
                      v-bind:key="pet.id"
                      v-bind="pet"
-                     v-on:markAsOwned="markAsOwned"
-                     v-on:markAsNotOwned="markAsNotOwned"
-                     v-on:markAsAvailable="markAsAvailable"
-                     v-on:markAsNotAvailable="markAsNotAvailable"
-                ></pet>
-            </tbody>
-        </table>
-
-        Available and owned
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th></th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <pet v-for="pet in availableAndOwnedPets"
-                     v-bind:key="pet.id"
-                     v-bind="pet"
-                     v-on:markAsOwned="markAsOwned"
-                     v-on:markAsNotOwned="markAsNotOwned"
-                     v-on:markAsAvailable="markAsAvailable"
-                     v-on:markAsNotAvailable="markAsNotAvailable"
+                     @markAsOwned="markAsOwned"
+                     @markAsAvailable="markAsAvailable"
                 ></pet>
             </tbody>
         </table>
@@ -49,6 +24,27 @@
         Not available
         <table>
             <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <pet v-for="pet in notAvailablePets"
+                 v-bind:key="pet.id"
+                 v-bind="pet"
+                 @markAsOwned="markAsOwned"
+                 @markAsAvailable="markAsAvailable"
+            ></pet>
+            </tbody>
+        </table>
+
+        Owned
+        <table>
+            <thead>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
@@ -58,13 +54,11 @@
             </thead>
 
             <tbody>
-                <pet v-for="pet in notAvailablePets"
+                <pet v-for="pet in ownedPets"
                      v-bind:key="pet.id"
                      v-bind="pet"
-                     v-on:markAsOwned="markAsOwned"
-                     v-on:markAsNotOwned="markAsNotOwned"
-                     v-on:markAsAvailable="markAsAvailable"
-                     v-on:markAsNotAvailable="markAsNotAvailable"
+                     @markAsOwned="markAsOwned"
+                     @markAsAvailable="markAsAvailable"
                 ></pet>
             </tbody>
         </table>
@@ -91,11 +85,11 @@
         },
 
         computed: {
-            availableAndNotOwnedPets() {
+            availablePets() {
                 return this.petList.filter((pet) => pet.isAvailable && !pet.isOwned);
             },
 
-            availableAndOwnedPets() {
+            ownedPets() {
                 return this.petList.filter((pet) => pet.isAvailable && pet.isOwned);
             },
 
@@ -109,20 +103,24 @@
                 return this.petList.filter((pet) => pet.id === petId).pop();
             },
 
-            markAsOwned(petId) {
-                this.getPet(petId).isOwned = true;
+            markAsOwned(petId, isOwned) {
+                this.getPet(petId).isOwned = isOwned;
+
+                if (isOwned) {
+                    OwnedPetRepository.addPet(this.id);
+                } else {
+                    OwnedPetRepository.removePet(this.id);
+                }
             },
 
-            markAsNotOwned(petId) {
-                this.getPet(petId).isOwned = false;
-            },
+            markAsAvailable(petId, isAvailable) {
+                this.getPet(petId).isAvailable = isAvailable;
 
-            markAsAvailable(petId) {
-                this.getPet(petId).isAvailable = true;
-            },
-
-            markAsNotAvailable(petId) {
-                this.getPet(petId).isAvailable = false;
+                if (isOwned) {
+                    AvailablePetRepository.addPet(this.id);
+                } else {
+                    AvailablePetRepository.removePet(this.id);
+                }
             },
         },
 

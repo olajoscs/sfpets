@@ -4,20 +4,17 @@
         <td>{{ name }}</td>
         <td>{{ description }}</td>
         <td>
-            <button v-if="isOwnedInternal" @click="markAsNotOwned">Mégsincs meg</button>
-            <button v-else @click="markAsOwned">Megvan</button>
+            <button v-if="isOwned" @click="markAsOwned(false)">Mégsincs meg</button>
+            <button v-else-if="isAvailable" @click="markAsOwned(true)">Megvan</button>
         </td>
         <td>
-            <button v-if="isAvailableInternal" @click="markAsNotAvailable">Mégse elérhető</button>
-            <button v-else @click="markAsAvailable">Már elérhető</button>
+            <button v-if="isAvailable" @click="markAsAvailable(false)">Mégse elérhető</button>
+            <button v-else @click="markAsAvailable(true)">Már elérhető</button>
         </td>
     </tr>
 </template>
 
 <script>
-    import OwnedPetRepository from '../services/OwnedPetRepository';
-    import AvailablePetRepository from '../services/AvailablePetRepository';
-
     export default {
         name: "Pet",
 
@@ -30,36 +27,17 @@
         ],
 
         data: function () {
-            return {
-                isAvailableInternal: this.isAvailable,
-                isOwnedInternal: this.isOwned
-            };
+            return {};
         },
 
         methods: {
-            markAsOwned: function() {
-                this.isOwnedInternal = !this.isOwnedInternal; // TODO: Is this needed?
-                OwnedPetRepository.addPet(this.id); // TODO: Here or in the list component
-                this.$emit('markAsOwned', this.id);
+            markAsOwned: function(isOwned) {
+                this.$emit('markAsOwned', this.id, isOwned);
             },
 
-            markAsNotOwned: function() {
-                this.isOwnedInternal = !this.isOwnedInternal; // TODO: Is this needed?
-                OwnedPetRepository.removePet(this.id); // TODO: Here or in the list component
-                this.$emit('markAsNotOwned', this.id);
+            markAsAvailable: function(isAvailable) {
+                this.$emit('markAsAvailable', this.id, isAvailable);
             },
-
-            markAsAvailable: function() {
-                this.isAvailableInternal = !this.isAvailableInternal; // TODO: Is this needed?
-                AvailablePetRepository.addPet(this.id); // TODO: Here or in the list component
-                this.$emit('markAsAvailable', this.id);
-            },
-
-            markAsNotAvailable: function() {
-                this.isAvailableInternal = !this.isAvailableInternal; // TODO: Is this needed?
-                AvailablePetRepository.removePet(this.id); // TODO: Here or in the list component
-                this.$emit('markAsNotAvailable', this.id);
-            }
         }
     };
 </script>
