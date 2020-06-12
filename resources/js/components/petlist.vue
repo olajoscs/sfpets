@@ -1,20 +1,74 @@
 <template>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th></th>
-            </tr>
-        </thead>
+    <div>
+        Available and not owned
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
 
-        <tbody>
-            <pet v-for="pet in petList"
-                 v-bind:key="pet.id"
-                 v-bind="pet"></pet>
-        </tbody>
-    </table>
+            <tbody>
+                <pet v-for="pet in availableAndNotOwnedPets"
+                     v-bind:key="pet.id"
+                     v-bind="pet"
+                     v-on:markAsOwned="markAsOwned"
+                     v-on:markAsNotOwned="markAsNotOwned"
+                     v-on:markAsAvailable="markAsAvailable"
+                     v-on:markAsNotAvailable="markAsNotAvailable"
+                ></pet>
+            </tbody>
+        </table>
+
+        Available and owned
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <pet v-for="pet in availableAndOwnedPets"
+                     v-bind:key="pet.id"
+                     v-bind="pet"
+                     v-on:markAsOwned="markAsOwned"
+                     v-on:markAsNotOwned="markAsNotOwned"
+                     v-on:markAsAvailable="markAsAvailable"
+                     v-on:markAsNotAvailable="markAsNotAvailable"
+                ></pet>
+            </tbody>
+        </table>
+
+        Not available
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <pet v-for="pet in notAvailablePets"
+                     v-bind:key="pet.id"
+                     v-bind="pet"
+                     v-on:markAsOwned="markAsOwned"
+                     v-on:markAsNotOwned="markAsNotOwned"
+                     v-on:markAsAvailable="markAsAvailable"
+                     v-on:markAsNotAvailable="markAsNotAvailable"
+                ></pet>
+            </tbody>
+        </table>
+    </div>
 </template>
 
 <script>
@@ -34,6 +88,42 @@
 
         components: {
             Pet
+        },
+
+        computed: {
+            availableAndNotOwnedPets() {
+                return this.petList.filter((pet) => pet.isAvailable && !pet.isOwned);
+            },
+
+            availableAndOwnedPets() {
+                return this.petList.filter((pet) => pet.isAvailable && pet.isOwned);
+            },
+
+            notAvailablePets() {
+                return this.petList.filter((pet) => !pet.isAvailable);
+            },
+        },
+
+        methods: {
+            getPet(petId) {
+                return this.petList.filter((pet) => pet.id === petId).pop();
+            },
+
+            markAsOwned(petId) {
+                this.getPet(petId).isOwned = true;
+            },
+
+            markAsNotOwned(petId) {
+                this.getPet(petId).isOwned = false;
+            },
+
+            markAsAvailable(petId) {
+                this.getPet(petId).isAvailable = true;
+            },
+
+            markAsNotAvailable(petId) {
+                this.getPet(petId).isAvailable = false;
+            },
         },
 
         created() {

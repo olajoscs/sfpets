@@ -38,23 +38,27 @@
 
         methods: {
             markAsOwned: function() {
-                this.isOwnedInternal = !this.isOwnedInternal;
-                OwnedPetRepository.addPet(this.id);
+                this.isOwnedInternal = !this.isOwnedInternal; // TODO: Is this needed?
+                OwnedPetRepository.addPet(this.id); // TODO: Here or in the list component
+                this.$emit('markAsOwned', this.id);
             },
 
             markAsNotOwned: function() {
-                this.isOwnedInternal = !this.isOwnedInternal;
-                OwnedPetRepository.removePet(this.id);
+                this.isOwnedInternal = !this.isOwnedInternal; // TODO: Is this needed?
+                OwnedPetRepository.removePet(this.id); // TODO: Here or in the list component
+                this.$emit('markAsNotOwned', this.id);
             },
 
             markAsAvailable: function() {
-                this.isAvailableInternal = !this.isAvailableInternal;
-                AvailablePetRepository.addPet(this.id);
+                this.isAvailableInternal = !this.isAvailableInternal; // TODO: Is this needed?
+                AvailablePetRepository.addPet(this.id); // TODO: Here or in the list component
+                this.$emit('markAsAvailable', this.id);
             },
 
             markAsNotAvailable: function() {
-                this.isAvailableInternal = !this.isAvailableInternal;
-                AvailablePetRepository.removePet(this.id);
+                this.isAvailableInternal = !this.isAvailableInternal; // TODO: Is this needed?
+                AvailablePetRepository.removePet(this.id); // TODO: Here or in the list component
+                this.$emit('markAsNotAvailable', this.id);
             }
         }
     };
