@@ -1,20 +1,20 @@
 <template>
     <div id="app">
         <h1>{{ pageTitle }}</h1>
-        <pet-list></pet-list>
+        <pet-list-list></pet-list-list>
     </div>
 </template>
 
 
 <script>
-    import PetList from './petlist';
+    import PetListList from './petlistlist';
 
     export default {
         el: '#app',
         name: "app",
 
         components: {
-            PetList
+            PetListList
         },
 
         data: () => {
