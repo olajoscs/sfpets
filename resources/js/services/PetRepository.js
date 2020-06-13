@@ -9,6 +9,14 @@ class PetRepository {
         }
     }
 
+    setPet(petId, value) {
+        if (!!value) {
+            this.addPet(petId);
+        } else {
+            this.removePet(petId);
+        }
+    }
+
     /**
      * Add the pet to the owned list
      * @param petId
