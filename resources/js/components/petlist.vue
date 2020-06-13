@@ -105,12 +105,12 @@
 
             markAsOwned(petId, isOwned) {
                 this.getPet(petId).isOwned = isOwned;
-                OwnedPetRepository.setPet(petId, isOwned);
+                OwnedPetRepository.setPetStatus(petId, isOwned);
             },
 
             markAsAvailable(petId, isAvailable) {
                 this.getPet(petId).isAvailable = isAvailable;
-                AvailablePetRepository.setPet(petId, isAvailable);
+                AvailablePetRepository.setPetStatus(petId, isAvailable);
             },
         },
 

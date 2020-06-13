@@ -9,8 +9,13 @@ class PetRepository {
         }
     }
 
-    setPet(petId, value) {
-        if (!!value) {
+    /**
+     * Set status of a pet
+     * @param petId
+     * @param status
+     */
+    setPetStatus(petId, status) {
+        if (status) {
             this.addPet(petId);
         } else {
             this.removePet(petId);
