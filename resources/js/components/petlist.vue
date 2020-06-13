@@ -116,7 +116,7 @@
             markAsAvailable(petId, isAvailable) {
                 this.getPet(petId).isAvailable = isAvailable;
 
-                if (isOwned) {
+                if (isAvailable) {
                     AvailablePetRepository.addPet(this.id);
                 } else {
                     AvailablePetRepository.removePet(this.id);
