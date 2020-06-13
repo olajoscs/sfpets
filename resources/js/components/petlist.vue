@@ -1,5 +1,8 @@
 <template>
-    <div>
+    <div v-if="this.loading">
+        <loading></loading>
+    </div>
+    <div v-else>
         Available and not owned
         <table>
             <thead>
@@ -66,6 +69,7 @@
 </template>
 
 <script>
+    import Loading from './loading';
     import Axios from 'axios';
     import Pet from './pet';
     import OwnedPetRepository from '../services/OwnedPetRepository';
@@ -77,11 +81,13 @@
         data: () => {
             return {
                 petList: [],
+                loading: false,
             }
         },
 
         components: {
-            Pet
+            Pet,
+            Loading
         },
 
         computed: {
@@ -115,6 +121,7 @@
         },
 
         created() {
+            this.loading = true;
             Axios.get('/pet-list')
                 .then((response) => {
                     const petList = response.data;
@@ -126,7 +133,9 @@
                         pet.isAvailable = availablePets.indexOf(pet.id) !== -1;
 
                         return pet;
-                    })
+                    });
+
+                    this.loading = false;
                 })
                 .catch((err) => {
                     console.log('sikertelen');
