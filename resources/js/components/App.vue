@@ -7,7 +7,7 @@
 
 
 <script>
-    import PetListList from './petlistlist';
+    import PetListList from './PetListList';
 
     export default {
         el: '#app',

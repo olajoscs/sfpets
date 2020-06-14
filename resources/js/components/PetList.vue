@@ -24,7 +24,7 @@
 </template>
 
 <script>
-    import Pet from './pet';
+    import Pet from './Pet';
 
     export default {
         name: "PetList",

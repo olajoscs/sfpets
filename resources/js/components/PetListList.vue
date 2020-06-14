@@ -21,11 +21,11 @@
 </template>
 
 <script>
-    import Loading from './loading';
+    import Loading from './Loading';
     import Axios from 'axios';
     import OwnedPetRepository from '../services/OwnedPetRepository';
     import AvailablePetRepository from '../services/AvailablePetRepository';
-    import PetList from './petlist';
+    import PetList from './PetList';
 
     export default {
         name: "PetListList",
