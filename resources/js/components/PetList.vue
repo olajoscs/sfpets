@@ -1,7 +1,10 @@
 <template>
     <div>
         <h2>{{ title }}</h2>
-        <table>
+        <div v-if="pets.length === 0">
+            No pets available to see here
+        </div>
+        <table v-else>
             <thead>
                 <tr>
                     <th>ID</th>
