@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
 /**
- * Class PetCategory
+ * Class Location
  *
  *
  */
-class PetCategory extends Model
+class Location extends Model
 {
     use HasTranslations;
 
