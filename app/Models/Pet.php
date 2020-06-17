@@ -7,6 +7,7 @@ namespace App\Models;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Translatable\HasTranslations;
 
 /**
@@ -30,7 +31,9 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder|Pet whereProperties($value)
  * @method static Builder|Pet whereRank($value)
  * @mixin Eloquent
- * @property-read array $translations
+ * @property-read array       $translations
+ * @property-read PetCategory $category
+ * @property-read Location    $location
  */
 class Pet extends Model
 {
@@ -40,4 +43,22 @@ class Pet extends Model
         'name',
         'description'
     ];
+
+
+    public function location(): BelongsTo
+    {
+        return $this->belongsTo(Location::class, 'location_id', 'id', Location::class);
+    }
+
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(PetCategory::class, 'category_id', 'id', PetCategory::class);
+    }
+
+
+    public function getProperties(): PetProperties
+    {
+        return new PetProperties((object)json_decode($this->properties));
+    }
 }
