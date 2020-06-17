@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
@@ -13,11 +14,11 @@ use Spatie\Translatable\HasTranslations;
  * @property int $id
  * @property array $name
  * @property-read array $translations
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PetCategory newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PetCategory newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PetCategory query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PetCategory whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PetCategory whereName($value)
+ * @method static Builder|PetCategory newModelQuery()
+ * @method static Builder|PetCategory newQuery()
+ * @method static Builder|PetCategory query()
+ * @method static Builder|PetCategory whereId($value)
+ * @method static Builder|PetCategory whereName($value)
  * @mixin \Eloquent
  */
 class PetCategory extends Model

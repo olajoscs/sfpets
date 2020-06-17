@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
@@ -13,11 +14,11 @@ use Spatie\Translatable\HasTranslations;
  * @property int $id
  * @property array $name
  * @property-read array $translations
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Location newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Location newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Location query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Location whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Location whereName($value)
+ * @method static Builder|Location newModelQuery()
+ * @method static Builder|Location newQuery()
+ * @method static Builder|Location query()
+ * @method static Builder|Location whereId($value)
+ * @method static Builder|Location whereName($value)
  * @mixin \Eloquent
  */
 class Location extends Model

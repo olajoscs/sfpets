@@ -30,6 +30,7 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder|Pet whereProperties($value)
  * @method static Builder|Pet whereRank($value)
  * @mixin Eloquent
+ * @property-read array $translations
  */
 class Pet extends Model
 {
