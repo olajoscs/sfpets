@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Models\Pet;
 use Illuminate\Support\Collection;
 
 /**
@@ -15,21 +14,20 @@ use Illuminate\Support\Collection;
 class PetListService
 {
     private PetRepository $petRepository;
-    private PetAvailabilityChecker $petAvailabilityChecker;
+    private ResponsePetFactory $petDecorator;
 
 
-    public function __construct(PetRepository $petRepository, PetAvailabilityChecker $petAvailabilityChecker)
+    public function __construct(PetRepository $petRepository, ResponsePetFactory $petDecorator)
     {
         $this->petRepository = $petRepository;
-        $this->petAvailabilityChecker = $petAvailabilityChecker;
+        $this->petDecorator = $petDecorator;
     }
 
 
-    public function getAvailableList(\DateTimeImmutable $date): Collection
+    public function getPets(\DateTimeImmutable $date): Collection
     {
-        $petList = $this->petRepository->getAll();
-        $filteredPetList = $petList->filter(fn(Pet $pet) => $this->petAvailabilityChecker->isAvailableAt($pet, $date));
+        $pets = $this->petRepository->getAll();
 
-        return $filteredPetList;
+        return $this->petDecorator->createPets($pets, $date);
     }
 }

@@ -12,7 +12,7 @@ use Spatie\Translatable\HasTranslations;
  * Class Location
  *
  * @property int $id
- * @property array $name
+ * @property string $name
  * @property-read array $translations
  * @method static Builder|Location newModelQuery()
  * @method static Builder|Location newQuery()

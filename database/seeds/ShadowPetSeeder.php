@@ -101,8 +101,8 @@ class ShadowPetSeeder extends Seeder
                 ]),
                 'location_id' => $this->getLocationId('Black Water Swamp'),
                 'description' => json_encode([
-                    'en' => 'a boszorkányok órájában (0:00 - 1:00)',
-                    'hu' => 'during witching hour (0:00 - 1:00)'
+                    'en' => 'during witching hour (0:00 - 1:00)',
+                    'hu' => 'a boszorkányok órájában (0:00 - 1:00)'
                 ]),
                 'properties' => json_encode([]),
                 'rank' => 600,

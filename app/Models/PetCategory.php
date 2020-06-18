@@ -12,7 +12,7 @@ use Spatie\Translatable\HasTranslations;
  * Class PetCategory
  *
  * @property int $id
- * @property array $name
+ * @property string $name
  * @property-read array $translations
  * @method static Builder|PetCategory newModelQuery()
  * @method static Builder|PetCategory newQuery()

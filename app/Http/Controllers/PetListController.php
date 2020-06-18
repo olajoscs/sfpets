@@ -23,23 +23,8 @@ class PetListController extends Controller
 
     public function getList(): JsonResponse
     {
-        $petList = $this->petListService->getAvailableList($this->dateProvider->getToday());
+        $pets = $this->petListService->getPets($this->dateProvider->getToday());
 
-        return \Response::json($petList);
-
-        return \Response::json([
-            [
-                'id' => 1,
-                'name' => 'Toothey',
-                'canBeFound' => true,
-                'description' => 'Description Toothey'
-            ],
-            [
-                'id' => 2,
-                'name' => 'Slurp',
-                'canBeFound' => false,
-                'description' => 'Description Slurp'
-            ],
-        ]);
+        return \Response::json($pets);
     }
 }
