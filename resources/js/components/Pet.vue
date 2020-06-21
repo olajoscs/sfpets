@@ -4,12 +4,12 @@
         <td>{{ name }}</td>
         <td>{{ description }}</td>
         <td>
-            <button v-if="isOwned" @click="markAsOwned(false)">Mégsincs meg</button>
-            <button v-else-if="isAvailable" @click="markAsOwned(true)">Megvan</button>
+            <button v-if="isFound" @click="markAsFound(false)">Mégsincs meg</button>
+            <button v-else-if="isDiscovered" @click="markAsFound(true)">Megvan</button>
         </td>
         <td>
-            <button v-if="isAvailable" @click="markAsAvailable(false)">Mégse elérhető</button>
-            <button v-else @click="markAsAvailable(true)">Már elérhető</button>
+            <button v-if="isDiscovered" @click="markAsDiscovered(false)">Mégse elérhető</button>
+            <button v-else @click="markAsDiscovered(true)">Már elérhető</button>
         </td>
     </tr>
 </template>
@@ -22,8 +22,8 @@
             'id',
             'name',
             'description',
-            'isAvailable',
-            'isOwned'
+            'isDiscovered',
+            'isFound'
         ],
 
         data: function () {
@@ -31,12 +31,12 @@
         },
 
         methods: {
-            markAsOwned: function(isOwned) {
-                this.$emit('markAsOwned', this.id, isOwned);
+            markAsFound: function(isFound) {
+                this.$emit('markAsFound', this.id, isFound);
             },
 
-            markAsAvailable: function(isAvailable) {
-                this.$emit('markAsAvailable', this.id, isAvailable);
+            markAsDiscovered: function(isDiscovered) {
+                this.$emit('markAsDiscovered', this.id, isDiscovered);
             },
         }
     };

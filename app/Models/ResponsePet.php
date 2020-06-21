@@ -16,6 +16,6 @@ class ResponsePet
     public string $description;
     public string $location;
     public string $category;
-    public bool $canBeFound;
+    public bool $available;
     public int $rank;
 }

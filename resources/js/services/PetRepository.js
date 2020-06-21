@@ -23,7 +23,7 @@ class PetRepository {
     }
 
     /**
-     * Add the pet to the owned list
+     * Add the pet to the found list
      * @param petId
      */
     addPet(petId) {
@@ -37,7 +37,7 @@ class PetRepository {
     }
 
     /**
-     * Return all the owned pets
+     * Return all the found pets
      * @returns Array
      */
     getAll() {
@@ -53,7 +53,7 @@ class PetRepository {
     }
 
     /**
-     * Remowed the pet from the owned list
+     * Remowed the pet from the found list
      * @param petId
      */
     removePet(petId) {

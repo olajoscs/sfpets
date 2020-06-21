@@ -47,7 +47,7 @@ class ResponsePetFactory
         $responsePet->description = $pet->description;
         $responsePet->location = $pet->location->name;
         $responsePet->category = $pet->category->name;
-        $responsePet->canBeFound = $this->petAvailabilityChecker->isAvailableAt($pet, $date);
+        $responsePet->available = $this->petAvailabilityChecker->isAvailableAt($pet, $date);
         $responsePet->rank = $pet->rank;
 
         return $responsePet;

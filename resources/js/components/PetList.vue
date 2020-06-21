@@ -2,7 +2,7 @@
     <div>
         <h2>{{ title }}</h2>
         <div v-if="pets.length === 0">
-            No pets available to see here
+            No pets to see here
         </div>
         <table v-else>
             <thead>
@@ -18,8 +18,8 @@
                 <pet v-for="pet in pets"
                      v-bind:key="pet.id"
                      v-bind="pet"
-                     @markAsOwned="markAsOwned"
-                     @markAsAvailable="markAsAvailable"
+                     @markAsFound="markAsFound"
+                     @markAsDiscovered="markAsDiscovered"
                 ></pet>
             </tbody>
         </table>
@@ -42,12 +42,12 @@
         },
 
         methods: {
-            markAsOwned: function(petId, isOwned) {
-                this.$emit('markAsOwned', petId, isOwned);
+            markAsFound: function(petId, isFound) {
+                this.$emit('markAsFound', petId, isFound);
             },
 
-            markAsAvailable: function(petId, isAvailable) {
-                this.$emit('markAsAvailable', petId, isAvailable);
+            markAsDiscovered: function(petId, isDiscovered) {
+                this.$emit('markAsDiscovered', petId, isDiscovered);
             },
         }
     };
