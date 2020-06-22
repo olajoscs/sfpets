@@ -270,7 +270,7 @@ class ShadowPetSeeder extends Seeder
                 'location_id' => $this->getLocationId('Gnarogrim'),
                 'description' => json_encode([
                     'en' => 'when Hall of fame top 1.000 or 50.000 honor',
-                    'hu' => 'követelmény: Dicsőség casrnoka top 1000-ben vagy 50 000 dicsőség'
+                    'hu' => 'követelmény: Dicsőség csarnoka top 1000-ben vagy 50 000 dicsőség'
                 ]),
                 'properties' => json_encode([]),
                 'rank' => 1600,
