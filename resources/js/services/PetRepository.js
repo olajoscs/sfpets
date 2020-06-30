@@ -23,7 +23,7 @@ class PetRepository {
     }
 
     /**
-     * Add the pet to the found list
+     * Add the pet to the list
      * @param petId
      */
     addPet(petId) {
@@ -53,7 +53,7 @@ class PetRepository {
     }
 
     /**
-     * Remowed the pet from the found list
+     * Remove the pet from the list
      * @param petId
      */
     removePet(petId) {

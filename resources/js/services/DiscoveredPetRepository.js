@@ -1,5 +1,8 @@
 import PetRepository from './PetRepository';
 
+/**
+ * Handles the data layer of the discovered pets
+ */
 class DiscoveredPetRepository extends PetRepository {
     constructor() {
         super();
