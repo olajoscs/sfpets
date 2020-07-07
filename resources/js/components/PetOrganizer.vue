@@ -3,29 +3,16 @@
         <loading></loading>
     </div>
     <div v-else>
-        <pet-list :title="'Discovered pets'"
-                  :pets="discoveredPets"
-                  @markAsFound="markAsFound"
-                  @markAsDiscovered="markAsDiscovered"></pet-list>
-
-        <pet-list :title="'Not discovered pets'"
-                  :pets="notDiscoveredPets"
-                  @markAsFound="markAsFound"
-                  @markAsDiscovered="markAsDiscovered"></pet-list>
-
-        <pet-list :title="'Found pets'"
-                  :pets="foundPets"
-                  @markAsFound="markAsFound"
-                  @markAsDiscovered="markAsDiscovered"></pet-list>
+        <pet-list-group :title="'All pets'" :pets="this.allPets"></pet-list-group>
+        <pet-list-group :title="'Discovered pets'" :pets="this.discoveredPets"></pet-list-group>
+        <pet-list-group :title="'Found pets'" :pets="this.foundPets"></pet-list-group>
     </div>
 </template>
 
 <script>
     import Loading from './Loading';
-    import Axios from 'axios';
-    import FoundPetRepository from '../services/FoundPetRepository';
-    import DiscoveredPetRepository from '../services/DiscoveredPetRepository';
-    import PetList from './PetList';
+    import { mapGetters, mapActions } from "vuex";
+    import PetListGroup from './PetListGroup';
 
     export default {
         name: "PetOrganizer",
@@ -38,63 +25,26 @@
         },
 
         components: {
-            PetList,
+            PetListGroup,
             Loading
         },
 
         computed: {
-            discoveredPets() {
-                return this.pets.filter((pet) => pet.isDiscovered && !pet.isFound);
-            },
-
-            foundPets() {
-                return this.pets.filter((pet) => pet.isDiscovered && pet.isFound);
-            },
-
-            notDiscoveredPets() {
-                return this.pets.filter((pet) => !pet.isDiscovered);
-            },
+            ...mapGetters(['allPets', 'discoveredPets', 'foundPets']),
         },
 
         methods: {
-            getPet(petId) {
-                return this.pets.filter((pet) => pet.id === petId).pop();
-            },
-
-            markAsFound(petId, isFound) {
-                this.getPet(petId).isFound = isFound;
-                FoundPetRepository.setPetStatus(petId, isFound);
-            },
-
-            markAsDiscovered(petId, isDiscovered) {
-                this.getPet(petId).isDiscovered = isDiscovered;
-                DiscoveredPetRepository.setPetStatus(petId, isDiscovered);
-            },
+            ...mapActions(['fetchPets'])
         },
 
         created() {
             this.loading = true;
-            Axios.get('/pet-list')
-                .then((response) => {
-                    const pets = response.data;
-                    const foundPets = FoundPetRepository.getAll();
-                    const discoveredPets = DiscoveredPetRepository.getAll();
-
-                    this.pets = pets.map((pet) => {
-                        pet.isFound = foundPets.indexOf(pet.id) !== -1;
-                        pet.isDiscovered = discoveredPets.indexOf(pet.id) !== -1;
-
-                        return pet;
-                    });
-
-                    this.loading = false;
-                })
-                .catch((err) => {
-                    console.log('sikertelen');
-                    console.error(err);
-                });
+            (async () => {
+                await this.fetchPets();
+                this.loading = false;
+            })();
         }
-    };
+    }
 </script>
 
 <style scoped>

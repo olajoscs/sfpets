@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h2>{{ title }}</h2>
-        <div v-if="pets.length === 0">
+        <h3>{{ title }}</h3>
+        <div v-if="petIds.length === 0">
             No pets to see here
         </div>
         <table v-else>
@@ -10,16 +10,15 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Description</th>
+                    <th>Location</th>
                     <th></th>
                 </tr>
             </thead>
 
             <tbody>
-                <pet v-for="pet in pets"
-                     v-bind:key="pet.id"
-                     v-bind="pet"
-                     @markAsFound="markAsFound"
-                     @markAsDiscovered="markAsDiscovered"
+                <pet v-for="petId in petIds"
+                     :key="petId"
+                     :id="petId"
                 ></pet>
             </tbody>
         </table>
@@ -34,7 +33,7 @@
 
         props: [
             'title',
-            'pets'
+            'petIds',
         ],
 
         components: {

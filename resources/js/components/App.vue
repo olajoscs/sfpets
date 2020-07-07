@@ -10,7 +10,6 @@
     import PetOrganizer from './PetOrganizer';
 
     export default {
-        el: '#app',
         name: "app",
 
         components: {
@@ -21,7 +20,7 @@
             return {
                 pageTitle: 'Shakes & fidget pets'
             }
-        }
+        },
     };
 </script>
 
