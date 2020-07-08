@@ -31,7 +31,6 @@
 
         computed: {
             ...mapGetters(['getPet']),
-            // TODO: Does this matter, or is getPet invoked every time when pet?
             pet() {
                 return this.getPet(this.id);
             }
