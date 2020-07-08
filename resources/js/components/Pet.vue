@@ -17,8 +17,6 @@
 
 <script>
     import {mapGetters, mapActions} from 'vuex';
-    import FoundPetRepository from '../services/FoundPetRepository';
-    import DiscoveredPetRepository from '../services/DiscoveredPetRepository';
 
     export default {
         name: "Pet",
@@ -42,17 +40,12 @@
         methods: {
             ...mapActions(['setFound', 'setDiscovered']),
 
-            // FIXME: Vuex mutation instead of direct state update
             markAsFound: function(isFound) {
-                this.pet.isFound = isFound;
-                FoundPetRepository.setPetStatus(this.pet.id, isFound);
-                this.setFound(this.pet.id);
+                this.setFound({petId: this.pet.id, isFound});
             },
 
             markAsDiscovered: function(isDiscovered) {
-                this.pet.isDiscovered = isDiscovered;
-                DiscoveredPetRepository.setPetStatus(this.pet.id, isDiscovered);
-                this.setDiscovered(this.pet.id);
+                this.setDiscovered(this.pet.id, isDiscovered);
             },
         }
     };

@@ -2,16 +2,20 @@ import Axios from 'axios';
 import DiscoveredPetRepository from '../../services/DiscoveredPetRepository';
 import FoundPetRepository from '../../services/FoundPetRepository';
 
-const state = {
+function getPet(state, petId) {
+    return state.pets.find(pet => pet.id === petId);
+}
+
+const petState = {
     pets: []
 };
 
 
 const getters = {
-    allPets: localState => localState.pets,
-    discoveredPets: localState => localState.pets.filter(pet => pet.isDiscovered && !pet.isFound && pet.available),
-    foundPets: localState => localState.pets.filter(pet => pet.isFound),
-    getPet: localState => petId => localState.pets.find(pet => pet.id === petId),
+    allPets: state => state.pets,
+    discoveredPets: state => state.pets.filter(pet => pet.isDiscovered && !pet.isFound && pet.available),
+    foundPets: state => state.pets.filter(pet => pet.isFound),
+    getPet: state => petId => state.pets.find(pet => pet.id === petId),
 };
 
 
@@ -23,15 +27,11 @@ const actions = {
     },
 
     async setDiscovered({commit}, petId) {
-        console.log('setDiscovered');
-        console.log({petId});
-        console.log(arguments);
+        commit('setDiscovered', {petId, isFound});
     },
 
-    async setFound({commit}, petId) {
-        console.log('setFound');
-        console.log({petId});
-        console.log(arguments);
+    async setFound({commit}, {petId, isFound}) {
+        commit('setFound', {petId, isFound});
     },
 };
 
@@ -47,12 +47,22 @@ const mutations = {
 
             return pet;
         });
+    },
+
+    setFound: (state, {petId, isFound}) => {
+        FoundPetRepository.setPetStatus(petId, isFound);
+        getPet(state, petId).isFound = isFound;
+    },
+
+    setDiscovered: (state, {petId, isDiscovered}) => {
+        DiscoveredPetRepository.setPetStatus(petId, isDiscovered);
+        getPet(state, petId).isDiscovered = isDiscovered;
     }
 };
 
 
 export default {
-    state,
+    state: petState,
     getters,
     actions,
     mutations

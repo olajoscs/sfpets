@@ -39,16 +39,6 @@
         components: {
             Pet
         },
-
-        methods: {
-            markAsFound: function(petId, isFound) {
-                this.$emit('markAsFound', petId, isFound);
-            },
-
-            markAsDiscovered: function(petId, isDiscovered) {
-                this.$emit('markAsDiscovered', petId, isDiscovered);
-            },
-        }
     };
 </script>
 
