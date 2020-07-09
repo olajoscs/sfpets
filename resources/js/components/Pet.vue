@@ -44,7 +44,7 @@
             },
 
             markAsDiscovered: function(isDiscovered) {
-                this.setDiscovered(this.pet.id, isDiscovered);
+                this.setDiscovered({petId: this.pet.id, isDiscovered});
             },
         }
     };

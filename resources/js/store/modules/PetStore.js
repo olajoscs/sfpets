@@ -15,7 +15,7 @@ const getters = {
     allPets: state => state.pets,
     discoveredPets: state => state.pets.filter(pet => pet.isDiscovered && !pet.isFound && pet.available),
     foundPets: state => state.pets.filter(pet => pet.isFound),
-    getPet: state => petId => state.pets.find(pet => pet.id === petId),
+    getPet: state => petId => getPet(state, petId),
 };
 
 
@@ -26,8 +26,8 @@ const actions = {
         commit('setPets', response.data);
     },
 
-    async setDiscovered({commit}, petId) {
-        commit('setDiscovered', {petId, isFound});
+    async setDiscovered({commit}, {petId, isDiscovered}) {
+        commit('setDiscovered', {petId, isDiscovered});
     },
 
     async setFound({commit}, {petId, isFound}) {
