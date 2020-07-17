@@ -12,6 +12,7 @@
                     <th>Description</th>
                     <th>Location</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
 
