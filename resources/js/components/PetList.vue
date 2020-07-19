@@ -4,25 +4,12 @@
         <div v-if="petIds.length === 0">
             No pets to see here
         </div>
-        <table v-else>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Location</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <pet v-for="petId in petIds"
-                     :key="petId"
-                     :id="petId"
-                ></pet>
-            </tbody>
-        </table>
+        <div v-else>
+            <pet v-for="petId in petIds"
+                 :key="petId"
+                 :id="petId"
+            ></pet>
+        </div>
     </div>
 </template>
 

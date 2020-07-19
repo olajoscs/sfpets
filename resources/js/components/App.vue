@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" class="container">
         <h1>{{ pageTitle }}</h1>
         <pet-organizer></pet-organizer>
     </div>
