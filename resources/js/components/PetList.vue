@@ -4,12 +4,12 @@
         <div v-if="petIds.length === 0">
             No pets to see here
         </div>
-        <div v-else>
+        <ul class="collection" v-else>
             <pet v-for="petId in petIds"
                  :key="petId"
                  :id="petId"
             ></pet>
-        </div>
+        </ul>
     </div>
 </template>
 
