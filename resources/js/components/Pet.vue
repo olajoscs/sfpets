@@ -7,22 +7,30 @@
             {{ pet.description }}
         </p>
         <div class="secondary-content">
-            <button v-if="pet.isFound" @click="markAsFound(false)"
-                    class="waves-effect waves-light btn-small red lighten-3">
+            <a v-if="pet.isFound" @click="markAsFound(false)"
+                    class="btn-small red lighten-3 tooltipped"
+                    data-tooltip="Mégsincs megszerezve"
+                    data-position="top">
                 <i class="material-icons">check</i>
-            </button>
-            <button v-else-if="pet.isDiscovered" @click="markAsFound(true)"
-                    class="waves-effect waves-light btn-small">
+            </a>
+            <a v-else-if="pet.isDiscovered" @click="markAsFound(true)"
+                    class="btn-small tooltipped"
+                    data-tooltip="Megszereztem"
+                    data-position="top">
                 <i class="material-icons">check</i>
-            </button>
-            <button v-if="pet.isDiscovered" @click="markAsDiscovered(false)"
-                    class="waves-effect waves-light btn-small red lighten-3">
+            </a>
+            <a v-if="pet.isDiscovered" @click="markAsDiscovered(false)"
+                    class="btn-small red lighten-3 tooltipped"
+                    data-tooltip="Mégsincs felfedezve"
+                    data-position="top">
                 <i class="material-icons">search</i>
-            </button>
-            <button v-else @click="markAsDiscovered(true)"
-                    class="waves-effect waves-light btn-small">
+            </a>
+            <a v-else @click="markAsDiscovered(true)"
+                    class="btn-small tooltipped"
+                    data-tooltip="Felfedeztem"
+                    data-position="top">
                 <i class="material-icons">search</i>
-            </button>
+            </a>
         </div>
     </li>
 </template>
@@ -63,7 +71,4 @@
 </script>
 
 <style scoped>
-    .row .col {
-        height:60px;
-    }
 </style>

@@ -27,4 +27,5 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: true
 // });
 
-require('materialize-sass');
+require('../../node_modules/materialize-css/dist/js/materialize.min');
+

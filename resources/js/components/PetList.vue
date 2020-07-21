@@ -22,6 +22,7 @@
         props: [
             'title',
             'petIds',
+            'type',
         ],
 
         components: {

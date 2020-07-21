@@ -21,6 +21,10 @@
                 pageTitle: 'Shakes & fidget pets'
             }
         },
+
+        created: function() {
+            console.log('created');
+        },
     };
 </script>
 

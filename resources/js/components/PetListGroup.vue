@@ -5,6 +5,7 @@
                   :pet-ids="petIds"
                   :title="category"
                   :key="category"
+                  :type="type"
         ></pet-list>
     </div>
 </template>
@@ -22,6 +23,7 @@
         props: [
             'title',
             'pets',
+            'type',
         ],
 
         computed: {

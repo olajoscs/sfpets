@@ -24,14 +24,17 @@ const actions = {
         const response = await Axios.get('/pet-list');
 
         commit('setPets', response.data);
+        commit('reOrder');
     },
 
     async setDiscovered({commit}, {petId, isDiscovered}) {
         commit('setDiscovered', {petId, isDiscovered});
+        commit('reOrder');
     },
 
     async setFound({commit}, {petId, isFound}) {
         commit('setFound', {petId, isFound});
+        commit('reOrder');
     },
 };
 
@@ -49,14 +52,24 @@ const mutations = {
         });
     },
 
+    setDiscovered: (state, {petId, isDiscovered}) => {
+        DiscoveredPetRepository.setPetStatus(petId, isDiscovered);
+        getPet(state, petId).isDiscovered = isDiscovered;
+    },
+
     setFound: (state, {petId, isFound}) => {
         FoundPetRepository.setPetStatus(petId, isFound);
         getPet(state, petId).isFound = isFound;
     },
 
-    setDiscovered: (state, {petId, isDiscovered}) => {
-        DiscoveredPetRepository.setPetStatus(petId, isDiscovered);
-        getPet(state, petId).isDiscovered = isDiscovered;
+    reOrder: (state) => {
+        state.pets.sort((a, b) => {
+            if (a.isDiscovered !== b.isDiscovered) {
+                return Math.sign(a.isDiscovered - b.isDiscovered);
+            }
+
+            return Math.sign(a.id - b.id);
+        });
     }
 };
 
