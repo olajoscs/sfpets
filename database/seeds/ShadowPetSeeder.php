@@ -116,8 +116,8 @@ class ShadowPetSeeder extends Seeder
                 ]),
                 'location_id' => $this->getLocationId('Evernight Forest'),
                 'description' => json_encode([
-                    'en' => 'nyári napokon',
-                    'hu' => 'on summer days'
+                    'en' => 'on summer days',
+                    'hu' => 'nyári napokon'
                 ]),
                 'properties' => json_encode([
                     'season' => 'summer'
@@ -317,7 +317,7 @@ class ShadowPetSeeder extends Seeder
             [
                 'name' => json_encode([
                     'en' => 'Devilsatt',
-                    'hu' => '',
+                    'hu' => 'Árnyördi',
                 ]),
                 'location_id' => $this->getLocationId('Plains of Oz\'korr'),
                 'description' => json_encode([
@@ -332,7 +332,7 @@ class ShadowPetSeeder extends Seeder
             [
                 'name' => json_encode([
                     'en' => 'Poisnake',
-                    'hu' => '',
+                    'hu' => 'Mérgekígy',
                 ]),
                 'location_id' => $this->getLocationId('Sunburn Desert'),
                 'description' => json_encode([

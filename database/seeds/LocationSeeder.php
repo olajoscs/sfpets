@@ -21,7 +21,7 @@ class LocationSeeder extends Seeder
             [
                 'name' => json_encode([
                     'en' => 'Flooded Caldwell',
-                    'hu' => 'Scarpa | Scarpa-sziget | elárasztott Scarpa',
+                    'hu' => 'Scarpa',
                 ]),
             ],
             [
@@ -63,7 +63,7 @@ class LocationSeeder extends Seeder
             [
                 'name' => json_encode([
                     'en' => 'Plains of Oz\'Korr',
-                    'hu' => 'Oz\'Korr mezeje | Oz\'korr fennsíkja',
+                    'hu' => 'Oz\'Korr mezeje',
                 ]),
             ],
             [
@@ -105,7 +105,7 @@ class LocationSeeder extends Seeder
             [
                 'name' => json_encode([
                     'en' => 'Skull Island',
-                    'hu' => 'Halálfej-sziget | koponya-sziget',
+                    'hu' => 'Halálfej/Koponya-sziget',
                 ]),
             ],
             [
