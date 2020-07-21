@@ -4,6 +4,7 @@
     </div>
     <div v-else>
         <pet-list-group :title="'All pets'" :pets="this.allPets" :type="'all'"></pet-list-group>
+        <hr>
         <pet-list-group :title="'Discovered pets'" :pets="this.discoveredPets" :type="'discovered'"></pet-list-group>
         <pet-list-group :title="'Found pets'" :pets="this.foundPets" :type="'found'"></pet-list-group>
     </div>
@@ -49,5 +50,9 @@
 </script>
 
 <style scoped>
-
+    hr {
+        border-top: 1px solid #ddd;
+        margin: 1.5em 0;
+        display: block;
+    }
 </style>

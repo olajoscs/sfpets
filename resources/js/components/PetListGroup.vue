@@ -57,6 +57,11 @@
 </script>
 
 <style scoped>
+    h4 {
+        font-size: 1.5em;
+        margin: 0.3em 0;
+    }
+
     .collapsible-body {
         padding: 0;
     }
