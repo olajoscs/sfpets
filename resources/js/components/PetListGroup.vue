@@ -1,13 +1,21 @@
 <template>
-    <div>
-        <h2>{{ title }}</h2>
-        <pet-list v-for="(petIds, category) in categorizedIds"
-                  :pet-ids="petIds"
-                  :title="category"
-                  :key="category"
-                  :type="type"
-        ></pet-list>
-    </div>
+    <ul :class="{'collapsible': shouldBeCollapsible}">
+        <li>
+            <div :class="{'collapsible-header': shouldBeCollapsible}">
+                <div class="row">
+                    <h4>{{ title }}</h4>
+                </div>
+            </div>
+            <div :class="{'collapsible-body': shouldBeCollapsible}">
+                <pet-list v-for="(petIds, category) in categorizedIds"
+                          :pet-ids="petIds"
+                          :title="category"
+                          :key="category"
+                          :type="type"
+                ></pet-list>
+            </div>
+        </li>
+    </ul>
 </template>
 
 <script>
@@ -38,11 +46,37 @@
                 });
 
                 return categorizedIds;
+            },
+
+            shouldBeCollapsible() {
+                console.log(this.type);
+                return this.type === 'all';
             }
         },
     };
 </script>
 
 <style scoped>
+    .collapsible-body {
+        padding: 0;
+    }
 
+    .collapsible-header h4:after {
+        content: '\25C0';
+        color: black;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+        font-size: 0.5em;
+    }
+
+    .active .collapsible-header h4:after {
+        content: "\25BC";
+    }
+
+    .row {
+        padding: 0;
+        width: 100%;
+        margin: 0;
+    }
 </style>
