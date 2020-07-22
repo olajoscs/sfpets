@@ -68,7 +68,7 @@ const mutations = {
                 return Math.sign(a.isDiscovered - b.isDiscovered);
             }
 
-            return Math.sign(a.id - b.id);
+            return Math.sign(a.rank- b.rank);
         });
     }
 };

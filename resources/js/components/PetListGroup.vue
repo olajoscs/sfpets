@@ -49,7 +49,6 @@
             },
 
             shouldBeCollapsible() {
-                console.log(this.type);
                 return this.type === 'all';
             }
         },
