@@ -1,14 +1,9 @@
 <?php
 
-use App\Models\Location;
-use App\Models\PetCategory;
-use Illuminate\Database\Seeder;
+declare(strict_types=1);
 
-class ShadowPetSeeder extends Seeder
+class ShadowPetSeeder extends PetSeeder
 {
-    private ?array $locations = null;
-    private ?array $categories = null;
-
     /**
      * Run the database seeds.
      *
@@ -344,25 +339,5 @@ class ShadowPetSeeder extends Seeder
                 'category_id' => $this->getCategoryId('shadow'),
             ],
         ]);
-    }
-
-
-    private function getLocationId(string $enLocationName): int
-    {
-        if ($this->locations === null) {
-            $this->locations = Location::all()->keyBy(fn(Location $location) => mb_strtolower($location->translate('name', 'en')))->all();
-        }
-
-        return $this->locations[mb_strtolower($enLocationName)]->id;
-    }
-
-
-    private function getCategoryId(string $enCategoryName): int
-    {
-        if ($this->categories === null) {
-            $this->categories = PetCategory::all()->keyBy(fn(PetCategory $petCategory) => $petCategory->translate('name', 'en'))->all();
-        }
-
-        return $this->categories[$enCategoryName]->id;
     }
 }
