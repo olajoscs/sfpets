@@ -87,6 +87,12 @@ class PetAvailabilityChecker
             case 'whitsun':
                 return $this->isWhitsun($date);
 
+            case 'valentine':
+                return $this->isValentine($date);
+
+            case 'new-year':
+                return $this->isNewYear($date);
+
             default:
                 throw new \Exception('Invalid special: ' . $special);
         }
@@ -127,5 +133,19 @@ class PetAvailabilityChecker
         $march21 = (new \DateTimeImmutable())->setDate((int)$date->format('Y'), 3, 21)->setTime(0, 0, 0);
 
         return $march21->modify($easterDays . ' days');
+    }
+
+
+    private function isValentine(\DateTimeImmutable $date): bool
+    {
+        return (int)$date->format('m') === 2 && (int)$date->format('d') === 14;
+    }
+
+
+    private function isNewYear(\DateTimeImmutable $date): bool
+    {
+        return
+            ((int)$date->format('m') === 12 && (int)$date->format('d') === 31) ||
+            ((int)$date->format('m') === 1 && (int)$date->format('d') === 1);
     }
 }

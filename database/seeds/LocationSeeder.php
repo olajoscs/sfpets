@@ -143,7 +143,13 @@ class LocationSeeder extends Seeder
                     'en' => 'Gem mine',
                     'hu' => 'Drágakőbánya',
                 ])
-            ]
+            ],
+            [
+                'name' => json_encode([
+                    'en' => 'Weapon shop',
+                    'hu' => 'Fegyverbolt',
+                ])
+            ],
         ]);
     }
 }

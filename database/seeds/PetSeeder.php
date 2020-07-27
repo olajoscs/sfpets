@@ -29,12 +29,38 @@ use Illuminate\Database\Seeder;
  * @property int $location_Shadowrock
  * @property int $location_Gnarogrim
  * @property int $location_Gem
+ * @property int $location_Weapon
  */
 abstract class PetSeeder extends Seeder
 {
-
     private ?array $locations = null;
     private ?array $categories = null;
+
+    private array $locationMap = [
+        'Nevermoor' => 'Nevermoor',
+        'Flooded' => 'Flooded Caldwell',
+        'BlackWater' => 'Black Water Swamp',
+        'Tusk' => 'Tusk Mountain',
+        'Busted' => 'Busted Lands',
+        'Moldy' => 'Moldy Forest',
+        'Split' => 'Split Canyon',
+        'Sunburn' => 'Sunburn Desert',
+        'Plains' => 'Plains of Oz\'Korr',
+        'Sprawling' => 'Sprawling Jungle',
+        'Stumble' => 'Stumble Steppe',
+        'BlackForest' => 'Black Forest',
+        'Magmaron' => 'Magmaron',
+        'Evernight' => 'Evernight Forest',
+        'Maerwynn' => 'Maerwynn',
+        'Skull' => 'Skull Island',
+        'Northrunt' => 'Northrunt',
+        'Rotten' => 'Rotten Lands',
+        'Erogenion' => 'Erogenion',
+        'Shadowrock' => 'Shadowrock Mountain',
+        'Gnarogrim' => 'Gnarogrim',
+        'Gem' => 'Gem mine',
+        'Weapon' => 'Weapon shop',
+    ];
 
 
     protected function getLocationId(string $enLocationName): int
@@ -61,35 +87,10 @@ abstract class PetSeeder extends Seeder
 
     public function __get($name)
     {
-        $locations = [
-            'Nevermoor' => 'Nevermoor',
-            'Flooded' => 'Flooded Caldwell',
-            'BlackWater' => 'Black Water Swamp',
-            'Tusk' => 'Tusk Mountain',
-            'Busted' => 'Busted Lands',
-            'Moldy' => 'Moldy Forest',
-            'Split' => 'Split Canyon',
-            'Sunburn' => 'Sunburn Desert',
-            'Plains' => 'Plains of Oz\'Korr',
-            'Sprawling' => 'Sprawling Jungle',
-            'Stumble' => 'Stumble Steppe',
-            'BlackForest' => 'Black Forest',
-            'Magmaron' => 'Magmaron',
-            'Evernight' => 'Evernight Forest',
-            'Maerwynn' => 'Maerwynn',
-            'Skull' => 'Skull Island',
-            'Northrunt' => 'Northrunt',
-            'Rotten' => 'Rotten Lands',
-            'Erogenion' => 'Erogenion',
-            'Shadowrock' => 'Shadowrock Mountain',
-            'Gnarogrim' => 'Gnarogrim',
-            'Gem' => 'Gem mine',
-        ];
-
         $parts = explode('_', $name);
 
         if ($parts[0] === 'location') {
-            return $this->getLocationId($locations[$parts[1]]);
+            return $this->getLocationId($this->locationMap[$parts[1]]);
         }
 
         throw new \Exception('Invalid location name: ' . $parts[1]);
