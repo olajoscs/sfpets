@@ -45,14 +45,13 @@ class PetAvailabilityChecker
         $properties = $pet->getProperties();
 
         return
-            $this->isDayAllowed($properties->day, $date) &&
-            $this->isSeasonAllowed($properties->season, $date) &&
-            $this->isSpecialAllowed($properties->special, $date) &&
-            true;
+            $this->isAvailableByDay($properties->day, $date) &&
+            $this->isAvailableBySeason($properties->season, $date) &&
+            $this->isAvailableBySpecial($properties->special, $date);
     }
 
 
-    private function isDayAllowed(?string $day, \DateTimeImmutable $date): bool
+    private function isAvailableByDay(?string $day, \DateTimeImmutable $date): bool
     {
         if ($day === null) {
             return true;
@@ -62,7 +61,7 @@ class PetAvailabilityChecker
     }
 
 
-    private function isSeasonAllowed(?string $season, \DateTimeImmutable $date): bool
+    private function isAvailableBySeason(?string $season, \DateTimeImmutable $date): bool
     {
         if ($season === null) {
             return true;
@@ -72,7 +71,7 @@ class PetAvailabilityChecker
     }
 
 
-    private function isSpecialAllowed(?string $special, \DateTimeImmutable $date): bool
+    private function isAvailableBySpecial(?string $special, \DateTimeImmutable $date): bool
     {
         if ($special === null) {
             return true;
@@ -80,10 +79,53 @@ class PetAvailabilityChecker
 
         switch ($special) {
             case 'halloween':
-                return (int)$date->format('m') === 10 && (int)$date->format('d') === 31;
+                return $this->isHalloween($date);
+
+            case 'easter':
+                return $this->isEaster($date);
+
+            case 'whitsun':
+                return $this->isWhitsun($date);
 
             default:
                 throw new \Exception('Invalid special: ' . $special);
         }
+    }
+
+
+    private function isHalloween(\DateTimeImmutable $date): bool
+    {
+        return (int)$date->format('m') === 10 && (int)$date->format('d') === 31;
+    }
+
+
+    private function isEaster(\DateTimeImmutable $date): bool
+    {
+        $easterSunday = $this->createEasterSunday($date);
+        $easterMonday = $easterSunday->modify('+1 day');
+
+        return $date == $easterSunday || $date == $easterMonday;
+    }
+
+
+    /**
+     * https://hu.wikipedia.org/wiki/P%C3%BCnk%C3%B6sd
+     */
+    private function isWhitsun(\DateTimeImmutable $date): bool
+    {
+        $easterSunday = $this->createEasterSunday($date);
+        $whitsunSunday = $easterSunday->modify('+7 weeks');
+        $whitsunMonday = $whitsunSunday->modify('+1 day');
+
+        return $date == $whitsunSunday || $date == $whitsunMonday;
+    }
+
+
+    private function createEasterSunday(\DateTimeImmutable $date): \DateTimeImmutable
+    {
+        $easterDays = easter_days((int)$date->format('Y'));
+        $march21 = (new \DateTimeImmutable())->setDate((int)$date->format('Y'), 3, 21)->setTime(0, 0, 0);
+
+        return $march21->modify($easterDays . ' days');
     }
 }

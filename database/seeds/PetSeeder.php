@@ -28,6 +28,7 @@ use Illuminate\Database\Seeder;
  * @property int $location_Erogenion
  * @property int $location_Shadowrock
  * @property int $location_Gnarogrim
+ * @property int $location_Gem
  */
 abstract class PetSeeder extends Seeder
 {
@@ -82,6 +83,7 @@ abstract class PetSeeder extends Seeder
             'Erogenion' => 'Erogenion',
             'Shadowrock' => 'Shadowrock Mountain',
             'Gnarogrim' => 'Gnarogrim',
+            'Gem' => 'Gem mine',
         ];
 
         $parts = explode('_', $name);
