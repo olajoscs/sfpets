@@ -13,91 +13,71 @@ class LightPetSeeder extends PetSeeder
     {
         DB::table('pets')->insert([
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Pónek',
-                        'en' => 'Shaggyll',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Pónek',
+                    'en' => 'Shaggyll',
+                ]),
                 'location_id' => $this->location_Stumble,
-                'description' => json_encode(
-                    [
-                        'en' => 'during the day',
-                        'hu' => 'nappal',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'during the day',
+                    'hu' => 'nappal',
+                ]),
                 'properties' => json_encode([]),
                 'rank' => 100,
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Medklopsz',
-                        'en' => 'Jellclops',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Medklopsz',
+                    'en' => 'Jellclops',
+                ]),
                 'location_id' => $this->location_Moldy,
-                'description' => json_encode(
-                    [
-                        'en' => 'at night',
-                        'hu' => 'éjjel',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'at night',
+                    'hu' => 'éjjel',
+                ]),
                 'properties' => json_encode([]),
                 'rank' => 200,
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Csangaleng',
-                        'en' => 'Tinck',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Csangaleng',
+                    'en' => 'Tinck',
+                ]),
                 'location_id' => $this->location_Erogenion,
-                'description' => json_encode(
-                    [
-                        'en' => 'during the day',
-                        'hu' => 'nappal',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'during the day',
+                    'hu' => 'nappal',
+                ]),
                 'properties' => json_encode([]),
                 'rank' => 300,
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Fellám',
-                        'en' => 'Cloudning',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Fellám',
+                    'en' => 'Cloudning',
+                ]),
                 'location_id' => $this->location_Shadowrock,
-                'description' => json_encode(
-                    [
-                        'en' => 'during the day',
-                        'hu' => 'nappal',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'during the day',
+                    'hu' => 'nappal',
+                ]),
                 'properties' => json_encode([]),
                 'rank' => 400,
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Kukkacc',
-                        'en' => 'Nevorfull',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Kukkacc',
+                    'en' => 'Nevorfull',
+                ]),
                 'location_id' => $this->location_Sprawling,
-                'description' => json_encode(
-                    [
-                        'en' => 'on spring nights',
-                        'hu' => 'tavaszi éjszakákon',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'on spring nights',
+                    'hu' => 'tavaszi éjszakákon',
+                ]),
                 'properties' => json_encode([
                     'season' => 'spring',
                 ]),
@@ -105,19 +85,15 @@ class LightPetSeeder extends PetSeeder
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Plutoid',
-                        'en' => 'Plutoid',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Plutoid',
+                    'en' => 'Plutoid',
+                ]),
                 'location_id' => $this->location_Nevermoor,
-                'description' => json_encode(
-                    [
-                        'en' => 'on Saturday during the day',
-                        'hu' => 'szombaton',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'on Saturday during the day',
+                    'hu' => 'szombaton',
+                ]),
                 'properties' => json_encode([
                     'day' => 'saturday',
                 ]),
@@ -125,19 +101,15 @@ class LightPetSeeder extends PetSeeder
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Djinntonic',
-                        'en' => 'Djinntonic',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Djinntonic',
+                    'en' => 'Djinntonic',
+                ]),
                 'location_id' => $this->location_Sunburn,
-                'description' => json_encode(
-                    [
-                        'en' => 'on summer days',
-                        'hu' => 'nyári napokon',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'on summer days',
+                    'hu' => 'nyári napokon',
+                ]),
                 'properties' => json_encode([
                     'season' => 'summer',
                 ]),
@@ -145,19 +117,15 @@ class LightPetSeeder extends PetSeeder
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Blaxta',
-                        'en' => 'Blaxta',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Blaxta',
+                    'en' => 'Blaxta',
+                ]),
                 'location_id' => $this->location_Flooded,
-                'description' => json_encode(
-                    [
-                        'en' => 'on fall days',
-                        'hu' => 'őszi napokon',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'on fall days',
+                    'hu' => 'őszi napokon',
+                ]),
                 'properties' => json_encode([
                     'season' => 'fall',
                 ]),
@@ -165,19 +133,15 @@ class LightPetSeeder extends PetSeeder
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Dzsinneri',
-                        'en' => 'Lampcess',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Dzsinneri',
+                    'en' => 'Lampcess',
+                ]),
                 'location_id' => $this->location_Skull,
-                'description' => json_encode(
-                    [
-                        'en' => 'on Monday night',
-                        'hu' => 'hétfő éjjel',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'on Monday night',
+                    'hu' => 'hétfő éjjel',
+                ]),
                 'properties' => json_encode([
                     'day' => 'monday',
                 ]),
@@ -185,19 +149,15 @@ class LightPetSeeder extends PetSeeder
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Sziklag',
-                        'en' => 'Teslarr',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Sziklag',
+                    'en' => 'Teslarr',
+                ]),
                 'location_id' => $this->location_Busted,
-                'description' => json_encode(
-                    [
-                        'en' => 'on Tuesday during the day',
-                        'hu' => 'kedden nappal',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'on Tuesday during the day',
+                    'hu' => 'kedden nappal',
+                ]),
                 'properties' => json_encode([
                     'day' => 'tuesday',
                 ]),
@@ -205,19 +165,15 @@ class LightPetSeeder extends PetSeeder
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Sütter',
-                        'en' => 'Sunnya',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Sütter',
+                    'en' => 'Sunnya',
+                ]),
                 'location_id' => $this->location_Tusk,
-                'description' => json_encode(
-                    [
-                        'en' => 'on Sunday during the day',
-                        'hu' => 'vasárnap nappal',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'on Sunday during the day',
+                    'hu' => 'vasárnap nappal',
+                ]),
                 'properties' => json_encode([
                     'day' => 'saturday',
                 ]),
@@ -225,37 +181,29 @@ class LightPetSeeder extends PetSeeder
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Kecska',
-                        'en' => 'Buckfoxion',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Kecska',
+                    'en' => 'Buckfoxion',
+                ]),
                 'location_id' => $this->location_Northrunt,
-                'description' => json_encode(
-                    [
-                        'en' => 'on Wednesday night',
-                        'hu' => 'szerda éjjel',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'on Wednesday night',
+                    'hu' => 'szerda éjjel',
+                ]),
                 'properties' => json_encode([]),
                 'rank' => 1200,
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Csirpili',
-                        'en' => 'Birdychirp',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Csirpili',
+                    'en' => 'Birdychirp',
+                ]),
                 'location_id' => $this->location_Evernight,
-                'description' => json_encode(
-                    [
-                        'en' => 'on Thursday during the day',
-                        'hu' => 'csütörtök nappal',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'on Thursday during the day',
+                    'hu' => 'csütörtök nappal',
+                ]),
                 'properties' => json_encode([
                     'day' => 'thursday',
                 ]),
@@ -263,19 +211,15 @@ class LightPetSeeder extends PetSeeder
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Szemenszede',
-                        'en' => 'Eyeorwhat',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Szemenszede',
+                    'en' => 'Eyeorwhat',
+                ]),
                 'location_id' => $this->location_BlackWater,
-                'description' => json_encode(
-                    [
-                        'en' => 'on Friday during the day',
-                        'hu' => 'pénteken nappal',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'on Friday during the day',
+                    'hu' => 'pénteken nappal',
+                ]),
                 'properties' => json_encode([
                     'day' => 'friday',
                 ]),
@@ -283,37 +227,29 @@ class LightPetSeeder extends PetSeeder
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Bűvkekorr',
-                        'en' => 'Mesmerit',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Bűvkekorr',
+                    'en' => 'Mesmerit',
+                ]),
                 'location_id' => $this->location_Erogenion,
-                'description' => json_encode(
-                    [
-                        'en' => 'Guild hall of fame top 1000 or 2.500 honor',
-                        'hu' => 'Céh Top 100 vagy 2500 becsület',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'Guild hall of fame top 1000 or 2.500 honor',
+                    'hu' => 'Céh Top 100 vagy 2500 becsület',
+                ]),
                 'properties' => json_encode([]),
                 'rank' => 1500,
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Aggoncs',
-                        'en' => 'Antlar',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Aggoncs',
+                    'en' => 'Antlar',
+                ]),
                 'location_id' => $this->location_Northrunt,
-                'description' => json_encode(
-                    [
-                        'en' => 'in December',
-                        'hu' => 'Decemberben',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'in December',
+                    'hu' => 'Decemberben',
+                ]),
                 'properties' => json_encode([
                     'month' => 'december',
                 ]),
@@ -321,19 +257,15 @@ class LightPetSeeder extends PetSeeder
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Dömpfánt',
-                        'en' => 'Liphant',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Dömpfánt',
+                    'en' => 'Liphant',
+                ]),
                 'location_id' => $this->location_Split,
-                'description' => json_encode(
-                    [
-                        'en' => 'on April\'s fool day',
-                        'hu' => 'Április elseje',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'on April\'s fool day',
+                    'hu' => 'Április elseje',
+                ]),
                 'properties' => json_encode([
                     'date' => [
                         'month' => 4,
@@ -344,19 +276,15 @@ class LightPetSeeder extends PetSeeder
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Fénylovi',
-                        'en' => 'Knilight',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Fénylovi',
+                    'en' => 'Knilight',
+                ]),
                 'location_id' => $this->location_Erogenion,
-                'description' => json_encode(
-                    [
-                        'en' => 'during Epic event',
-                        'hu' => 'Epikus event',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'during Epic event',
+                    'hu' => 'Epikus event',
+                ]),
                 'properties' => json_encode([
                     'event' => 'epic',
                 ]),
@@ -364,37 +292,29 @@ class LightPetSeeder extends PetSeeder
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Heraldon',
-                        'en' => 'Heraldon',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Heraldon',
+                    'en' => 'Heraldon',
+                ]),
                 'location_id' => $this->location_Rotten,
-                'description' => json_encode(
-                    [
-                        'en' => 'After cleaning the tower',
-                        'hu' => 'Torony megtisztítása',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'After cleaning the tower',
+                    'hu' => 'Torony megtisztítása',
+                ]),
                 'properties' => json_encode([]),
                 'rank' => 1900,
                 'category_id' => $this->getCategoryId('light'),
             ],
             [
-                'name' => json_encode(
-                    [
-                        'hu' => 'Unikor',
-                        'en' => 'Unikor',
-                    ]
-                ),
+                'name' => json_encode([
+                    'hu' => 'Unikor',
+                    'en' => 'Unikor',
+                ]),
                 'location_id' => $this->location_Plains,
-                'description' => json_encode(
-                    [
-                        'en' => 'on the last floor of the Light Habitat',
-                        'hu' => 'fény élőhely utolsó szintjéért',
-                    ]
-                ),
+                'description' => json_encode([
+                    'en' => 'on the last floor of the Light Habitat',
+                    'hu' => 'fény élőhely utolsó szintjéért',
+                ]),
                 'properties' => json_encode([]),
                 'rank' => 2000,
                 'category_id' => $this->getCategoryId('light'),
