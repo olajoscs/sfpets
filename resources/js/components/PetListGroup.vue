@@ -1,5 +1,5 @@
 <template>
-    <ul :class="{'collapsible': shouldBeCollapsible}">
+    <ul class="pet-list-group" :class="{'collapsible': shouldBeCollapsible}">
         <li>
             <div :class="{'collapsible-header': shouldBeCollapsible}">
                 <div class="row">
@@ -74,7 +74,7 @@
         font-size: 0.5em;
     }
 
-    .active .collapsible-header h4:after {
+    .pet-list-group .active .collapsible-header h4:after {
         content: "\25BC";
     }
 

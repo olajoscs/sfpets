@@ -3,11 +3,11 @@
         <div v-if="petIds.length === 0">
             No pets to see here
         </div>
-        <ul v-else class="collection with-header collapsible" :class="{expandable: shouldBeExpandable}">
+        <ul v-else class="pet-list collection with-header collapsible" :class="{expandable: shouldBeExpandable}">
             <li :class="{active: shouldBeExpandable}">
                 <div class="collapsible-header">
                     <div class="row">
-                        <span>{{ title }}</span>
+                        <span>{{ upperFirst(title) }}</span>
                     </div>
                 </div>
                 <div class="collapsible-body">
@@ -25,6 +25,7 @@
 
 <script>
     import Pet from './Pet';
+    import _ from 'lodash';
 
     export default {
         name: "PetList",
@@ -43,6 +44,12 @@
             shouldBeExpandable() {
                 return this.type === 'discovered';
             }
+        },
+
+        methods: {
+            upperFirst(string) {
+                return _.upperFirst(string);
+            }
         }
     };
 </script>
@@ -60,7 +67,7 @@
         margin-left: 5px;
     }
 
-    .active .collapsible-header span:after {
+    .pet-list .active .collapsible-header span:after {
         content: "\25BC";
     }
 
