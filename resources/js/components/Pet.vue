@@ -8,19 +8,23 @@
         </p>
         <div class="secondary-content">
             <a v-if="pet.isFound" @click="markAsFound(false)"
-                    class="btn-small red lighten-3 tooltipped">
+                    class="btn-small red lighten-3"
+                    title="Mégsincs megszerezve">
                 <i class="material-icons">check</i>
             </a>
             <a v-else-if="pet.isDiscovered" @click="markAsFound(true)"
-                    class="btn-small tooltipped">
+                    class="btn-small"
+                    title="Megszereztem">
                 <i class="material-icons">check</i>
             </a>
             <a v-if="pet.isDiscovered" @click="markAsDiscovered(false)"
-                    class="btn-small red lighten-3 tooltipped">
+                    class="btn-small red lighten-3"
+                    title="Mégsincs felfedezve">
                 <i class="material-icons">search</i>
             </a>
             <a v-else @click="markAsDiscovered(true)"
-                    class="btn-small tooltipped">
+                    class="btn-small"
+                    title="Felfedeztem">
                 <i class="material-icons">search</i>
             </a>
         </div>
