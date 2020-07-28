@@ -105,7 +105,7 @@ class LocationSeeder extends Seeder
             [
                 'name' => json_encode([
                     'en' => 'Skull Island',
-                    'hu' => 'Halálfej/Koponya-sziget',
+                    'hu' => 'Halálfej-sziget',
                 ]),
             ],
             [
