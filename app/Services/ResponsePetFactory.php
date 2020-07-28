@@ -49,6 +49,7 @@ class ResponsePetFactory
         $responsePet->category = $pet->category->name;
         $responsePet->available = $this->petAvailabilityChecker->isAvailableAt($pet, $date);
         $responsePet->rank = $pet->rank;
+        $responsePet->categoryId = $pet->category->id;
 
         return $responsePet;
     }

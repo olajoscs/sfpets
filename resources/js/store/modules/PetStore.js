@@ -68,7 +68,11 @@ const mutations = {
                 return Math.sign(a.isDiscovered - b.isDiscovered);
             }
 
-            return Math.sign(a.rank- b.rank);
+            if (a.categoryId !== b.categoryId) {
+                return Math.sign(a.categoryId - b.categoryId);
+            }
+
+            return Math.sign(a.rank - b.rank);
         });
     }
 };
