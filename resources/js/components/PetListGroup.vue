@@ -55,32 +55,34 @@
     };
 </script>
 
-<style scoped>
-    h4 {
-        font-size: 1.5em;
-        margin: 0.3em 0;
-    }
+<style lang="scss" scoped>
+    .pet-list-group {
+        h4 {
+            font-size: 1.5em;
+            margin: 0.3em 0;
+        }
 
-    .collapsible-body {
-        padding: 0;
-    }
+        .collapsible-body {
+            padding: 0;
+        }
 
-    .collapsible-header h4:after {
-        content: '\25C0';
-        color: black;
-        font-weight: bold;
-        float: right;
-        margin-left: 5px;
-        font-size: 0.5em;
-    }
+        .collapsible-header h4:after {
+            content: '\25C0';
+            color: black;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+            font-size: 0.5em;
+        }
 
-    .pet-list-group .active .collapsible-header h4:after {
-        content: "\25BC";
-    }
+        .active .collapsible-header h4:after {
+            content: "\25BC";
+        }
 
-    .row {
-        padding: 0;
-        width: 100%;
-        margin: 0;
+        .row {
+            padding: 0;
+            width: 100%;
+            margin: 0;
+        }
     }
 </style>
