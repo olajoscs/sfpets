@@ -3,10 +3,22 @@
         <loading></loading>
     </div>
     <div v-else>
-        <pet-list-group :title="'All pets'" :pets="this.allPets" :type="'all'"></pet-list-group>
+        <pet-list-group
+            :title="'All pets'"
+            :pets="this.allPets"
+            :type="'all'"></pet-list-group>
         <hr>
-        <pet-list-group :title="'Discovered pets'" :pets="this.discoveredPets" :type="'discovered'"></pet-list-group>
-        <pet-list-group :title="'Found pets'" :pets="this.foundPets" :type="'found'"></pet-list-group>
+        <pet-list-group
+            v-show="this.discoveredPets.length > 0"
+            :title="'Discovered pets'"
+            :pets="this.discoveredPets"
+            :type="'discovered'"></pet-list-group>
+
+        <pet-list-group
+            v-show="this.foundPets.length > 0"
+            :title="'Found pets'"
+            :pets="this.foundPets"
+            :type="'found'"></pet-list-group>
     </div>
 </template>
 
@@ -43,7 +55,6 @@
             (async () => {
                 await this.fetchPets();
                 this.loading = false;
-                setTimeout(() => {M.AutoInit();}, 100);
             })();
         }
     }

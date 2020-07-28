@@ -1,9 +1,6 @@
 <template>
     <div>
-        <div v-if="petIds.length === 0">
-            No pets to see here
-        </div>
-        <ul v-else class="pet-list collection with-header collapsible" :class="{expandable: shouldBeExpandable}">
+        <ul class="pet-list collection with-header collapsible" :class="{expandable: shouldBeExpandable}">
             <li :class="{active: shouldBeExpandable}">
                 <div class="collapsible-header">
                     <div class="row">
@@ -26,6 +23,7 @@
 <script>
     import Pet from './Pet';
     import _ from 'lodash';
+    import helpers from '../helpers';
 
     export default {
         name: "PetList",
@@ -50,6 +48,10 @@
             upperFirst(string) {
                 return _.upperFirst(string);
             }
+        },
+
+        mounted() {
+            helpers.initUiComponents();
         }
     };
 </script>
