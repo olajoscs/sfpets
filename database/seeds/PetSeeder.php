@@ -30,6 +30,8 @@ use Illuminate\Database\Seeder;
  * @property int $location_Gnarogrim
  * @property int $location_Gem
  * @property int $location_Weapon
+ * @property int $location_Magic
+ * @property int $location_Arcane
  */
 abstract class PetSeeder extends Seeder
 {
@@ -60,6 +62,8 @@ abstract class PetSeeder extends Seeder
         'Gnarogrim' => 'Gnarogrim',
         'Gem' => 'Gem mine',
         'Weapon' => 'Weapon shop',
+        'Magic' => 'Magic shop',
+        'Arcane' => 'Arcane Toilet',
     ];
 
 

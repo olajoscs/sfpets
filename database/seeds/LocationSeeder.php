@@ -150,6 +150,18 @@ class LocationSeeder extends Seeder
                     'hu' => 'Fegyverbolt',
                 ])
             ],
+            [
+                'name' => json_encode([
+                    'en' => 'Magic shop',
+                    'hu' => 'Varázsbolt',
+                ])
+            ],
+            [
+                'name' => json_encode([
+                    'en' => 'Arcane Toilet',
+                    'hu' => 'Mágikus klotyó',
+                ])
+            ],
         ]);
     }
 }

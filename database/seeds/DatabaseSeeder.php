@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LightPetSeeder::class);
         $this->call(EarthPetSeeder::class);
         $this->call(FirePetSeeder::class);
+        $this->call(WaterPetSeeder::class);
     }
 }
