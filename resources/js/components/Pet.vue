@@ -8,27 +8,19 @@
         </p>
         <div class="secondary-content">
             <a v-if="pet.isFound" @click="markAsFound(false)"
-                    class="btn-small red lighten-3 tooltipped"
-                    data-tooltip="Mégsincs megszerezve"
-                    data-position="top">
+                    class="btn-small red lighten-3 tooltipped">
                 <i class="material-icons">check</i>
             </a>
             <a v-else-if="pet.isDiscovered" @click="markAsFound(true)"
-                    class="btn-small tooltipped"
-                    data-tooltip="Megszereztem"
-                    data-position="top">
+                    class="btn-small tooltipped">
                 <i class="material-icons">check</i>
             </a>
             <a v-if="pet.isDiscovered" @click="markAsDiscovered(false)"
-                    class="btn-small red lighten-3 tooltipped"
-                    data-tooltip="Mégsincs felfedezve"
-                    data-position="top">
+                    class="btn-small red lighten-3 tooltipped">
                 <i class="material-icons">search</i>
             </a>
             <a v-else @click="markAsDiscovered(true)"
-                    class="btn-small tooltipped"
-                    data-tooltip="Felfedeztem"
-                    data-position="top">
+                    class="btn-small tooltipped">
                 <i class="material-icons">search</i>
             </a>
         </div>
