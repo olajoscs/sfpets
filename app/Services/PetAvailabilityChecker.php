@@ -47,6 +47,7 @@ class PetAvailabilityChecker
         return
             $this->isAvailableByDay($properties->day, $date) &&
             $this->isAvailableBySeason($properties->season, $date) &&
+            $this->isAvailableByEvent($properties->event, $date) &&
             $this->isAvailableBySpecial($properties->special, $date);
     }
 
@@ -68,6 +69,24 @@ class PetAvailabilityChecker
         }
 
         return in_array((int)$date->format('m'), $this->seasons[$season], true);
+    }
+
+
+    /**
+     * TODO: Event calendar or something?
+     *
+     * @param string|null        $event
+     * @param \DateTimeImmutable $date
+     *
+     * @return bool
+     */
+    private function isAvailableByEvent(?string $event, \DateTimeImmutable $date): bool
+    {
+        if ($event === null) {
+            return true;
+        }
+
+        return in_array((int)$date->format('w'), [5, 6, 7], true);
     }
 
 
