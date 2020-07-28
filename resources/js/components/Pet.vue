@@ -68,6 +68,10 @@
             markAsDiscovered: function(isDiscovered, message) {
                 helpers.toast(message);
                 this.setDiscovered({petId: this.pet.id, isDiscovered});
+
+                if (!isDiscovered) {
+                    this.setFound({petId: this.pet.id, isDiscovered});
+                }
             },
         }
     };
