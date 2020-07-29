@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Middleware;
 
+use App\Services\LocaleService;
 use Closure;
 
 /**
@@ -13,16 +14,18 @@ use Closure;
  */
 class SetLocale
 {
+    private LocaleService $localeService;
+
+
+    public function __construct(LocaleService $localeService)
+    {
+        $this->localeService = $localeService;
+    }
+
+
     public function handle($request, Closure $next)
     {
-        $availableLocales = \Config::get('app.locales_available');
-        $locale = \Cookie::get('lang');
-
-        if (in_array($locale, $availableLocales, true)) {
-            \App::setLocale($locale);
-        }
-
-        \Cookie::queue(\Cookie::forever('lang', \App::getLocale()));
+        $this->localeService->setLocaleFromCookie();
 
         return $next($request);
     }

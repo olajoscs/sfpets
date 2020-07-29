@@ -21,7 +21,7 @@ const getters = {
 
 const actions = {
     async fetchPets({commit}) {
-        const response = await Axios.get('/pet-list');
+        const response = await Axios.get('/pets');
 
         commit('setPets', response.data);
         commit('reOrder');

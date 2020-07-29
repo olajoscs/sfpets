@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Mainpage@index');
 
-Route::get('/pet-list', 'PetListController@getList');
+Route::get('/pets', 'PetListController@getList');
+Route::get('/locale/set/{localeCode}', 'LocaleController@setLocale');

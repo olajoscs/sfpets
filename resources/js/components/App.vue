@@ -1,25 +1,27 @@
 <template>
-    <div id="app" class="container">
-        <h1>{{ pageTitle }}</h1>
-        <pet-organizer></pet-organizer>
+    <div id="app">
+        <nav-bar></nav-bar>
+        <div class="container">
+            <pet-organizer></pet-organizer>
+        </div>
     </div>
 </template>
 
 
 <script>
     import PetOrganizer from './PetOrganizer';
+    import NavBar from './NavBar/NavBar';
 
     export default {
         name: "app",
 
         components: {
+            NavBar,
             PetOrganizer
         },
 
         data: () => {
-            return {
-                pageTitle: 'Shakes & fidget pets'
-            }
+            return {}
         },
     };
 </script>
