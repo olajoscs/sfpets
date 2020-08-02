@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+/**
+ * Sets the locale of the app
+ */
 class LocaleService
 {
     private const COOKIE_NAME = 'locale';

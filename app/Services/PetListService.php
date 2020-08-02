@@ -7,20 +7,18 @@ namespace App\Services;
 use Illuminate\Support\Collection;
 
 /**
- * Class PetListService
- *
  * Common service for pet listing
  */
 class PetListService
 {
     private PetRepository $petRepository;
-    private ResponsePetFactory $petDecorator;
+    private ResponsePetFactory $responsePetFactory;
 
 
-    public function __construct(PetRepository $petRepository, ResponsePetFactory $petDecorator)
+    public function __construct(PetRepository $petRepository, ResponsePetFactory $responsePetFactory)
     {
         $this->petRepository = $petRepository;
-        $this->petDecorator = $petDecorator;
+        $this->responsePetFactory = $responsePetFactory;
     }
 
 
@@ -28,6 +26,6 @@ class PetListService
     {
         $pets = $this->petRepository->getAll();
 
-        return $this->petDecorator->createPets($pets, $date);
+        return $this->responsePetFactory->createPets($pets, $date);
     }
 }

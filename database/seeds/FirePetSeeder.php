@@ -25,6 +25,7 @@ class FirePetSeeder extends PetSeeder
                 'properties' => json_encode([]),
                 'rank' => 100,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-1.png',
             ],
             [
                 'name' => json_encode([
@@ -39,6 +40,7 @@ class FirePetSeeder extends PetSeeder
                 'properties' => json_encode([]),
                 'rank' => 200,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-2.png',
             ],
             [
                 'name' => json_encode([
@@ -53,6 +55,7 @@ class FirePetSeeder extends PetSeeder
                 'properties' => json_encode([]),
                 'rank' => 300,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-3.png',
             ],
             [
                 'name' => json_encode([
@@ -67,6 +70,7 @@ class FirePetSeeder extends PetSeeder
                 'properties' => json_encode([]),
                 'rank' => 400,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-4.png',
             ],
             [
                 'name' => json_encode([
@@ -83,6 +87,7 @@ class FirePetSeeder extends PetSeeder
                 ]),
                 'rank' => 500,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-5.png',
             ],
             [
                 'name' => json_encode([
@@ -99,6 +104,7 @@ class FirePetSeeder extends PetSeeder
                 ]),
                 'rank' => 600,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-6.png',
             ],
             [
                 'name' => json_encode([
@@ -115,6 +121,7 @@ class FirePetSeeder extends PetSeeder
                 ]),
                 'rank' => 700,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-7.png',
             ],
             [
                 'name' => json_encode([
@@ -131,6 +138,7 @@ class FirePetSeeder extends PetSeeder
                 ]),
                 'rank' => 800,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-8.png',
             ],
             [
                 'name' => json_encode([
@@ -147,6 +155,7 @@ class FirePetSeeder extends PetSeeder
                 ]),
                 'rank' => 900,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-9.png',
             ],
             [
                 'name' => json_encode([
@@ -163,6 +172,7 @@ class FirePetSeeder extends PetSeeder
                 ]),
                 'rank' => 1000,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-10.png',
             ],
             [
                 'name' => json_encode([
@@ -179,6 +189,7 @@ class FirePetSeeder extends PetSeeder
                 ]),
                 'rank' => 1100,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-11.png',
             ],
             [
                 'name' => json_encode([
@@ -195,6 +206,7 @@ class FirePetSeeder extends PetSeeder
                 ]),
                 'rank' => 1200,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-12.png',
             ],
             [
                 'name' => json_encode([
@@ -211,6 +223,7 @@ class FirePetSeeder extends PetSeeder
                 ]),
                 'rank' => 1300,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-13.png',
             ],
             [
                 'name' => json_encode([
@@ -227,6 +240,7 @@ class FirePetSeeder extends PetSeeder
                 ]),
                 'rank' => 1400,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-14.png',
             ],
             [
                 'name' => json_encode([
@@ -241,6 +255,7 @@ class FirePetSeeder extends PetSeeder
                 'properties' => json_encode([]),
                 'rank' => 1500,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-15.png',
             ],
             [
                 'name' => json_encode([
@@ -257,6 +272,7 @@ class FirePetSeeder extends PetSeeder
                 ]),
                 'rank' => 1600,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-16.png',
             ],
             [
                 'name' => json_encode([
@@ -273,6 +289,7 @@ class FirePetSeeder extends PetSeeder
                 ]),
                 'rank' => 1700,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-17.png',
             ],
             [
                 'name' => json_encode([
@@ -289,6 +306,7 @@ class FirePetSeeder extends PetSeeder
                 ]),
                 'rank' => 1800,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-18.png',
             ],
             [
                 'name' => json_encode([
@@ -303,6 +321,7 @@ class FirePetSeeder extends PetSeeder
                 'properties' => json_encode([]),
                 'rank' => 1900,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-19.png',
             ],
             [
                 'name' => json_encode([
@@ -317,6 +336,7 @@ class FirePetSeeder extends PetSeeder
                 'properties' => json_encode([]),
                 'rank' => 2000,
                 'category_id' => $this->getCategoryId('fire'),
+                'image' => 'fire-20.png',
             ],
         ]);
     }

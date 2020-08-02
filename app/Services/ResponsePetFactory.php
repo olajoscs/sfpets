@@ -9,18 +9,18 @@ use App\Models\ResponsePet;
 use Illuminate\Support\Collection;
 
 /**
- * Class ResponsePetFactory
- *
  * Creates ResponsePet objects, which contains the necessary information for the API response
  */
 class ResponsePetFactory
 {
     private PetAvailabilityChecker $petAvailabilityChecker;
+    private PetImageProvider $petImageProvider;
 
 
-    public function __construct(PetAvailabilityChecker $petAvailabilityChecker)
+    public function __construct(PetAvailabilityChecker $petAvailabilityChecker, PetImageProvider $petImageProvider)
     {
         $this->petAvailabilityChecker = $petAvailabilityChecker;
+        $this->petImageProvider = $petImageProvider;
     }
 
 
@@ -50,6 +50,7 @@ class ResponsePetFactory
         $responsePet->available = $this->petAvailabilityChecker->isAvailableAt($pet, $date);
         $responsePet->rank = $pet->rank;
         $responsePet->categoryId = $pet->category->id;
+        $responsePet->image = $this->petImageProvider->getImageFullPath($pet);
 
         return $responsePet;
     }

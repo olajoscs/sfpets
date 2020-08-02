@@ -19,4 +19,5 @@ class ResponsePet
     public bool $available;
     public int $rank;
     public int $categoryId;
+    public ?string $image;
 }

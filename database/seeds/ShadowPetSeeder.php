@@ -25,6 +25,7 @@ class ShadowPetSeeder extends PetSeeder
                 'properties' => json_encode([]),
                 'rank' => 100,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-1.png',
             ],
 
             [
@@ -40,6 +41,7 @@ class ShadowPetSeeder extends PetSeeder
                 'properties' => json_encode([]),
                 'rank' => 200,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-2.png',
             ],
 
             [
@@ -55,6 +57,7 @@ class ShadowPetSeeder extends PetSeeder
                 'properties' => json_encode([]),
                 'rank' => 300,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-3.png',
             ],
 
             [
@@ -70,6 +73,7 @@ class ShadowPetSeeder extends PetSeeder
                 'properties' => json_encode([]),
                 'rank' => 400,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-4.png',
             ],
 
             [
@@ -87,6 +91,7 @@ class ShadowPetSeeder extends PetSeeder
                 ]),
                 'rank' => 500,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-5.png',
             ],
 
             [
@@ -102,6 +107,7 @@ class ShadowPetSeeder extends PetSeeder
                 'properties' => json_encode([]),
                 'rank' => 600,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-6.png',
             ],
 
             [
@@ -119,6 +125,7 @@ class ShadowPetSeeder extends PetSeeder
                 ]),
                 'rank' => 700,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-7.png',
             ],
 
             [
@@ -136,6 +143,7 @@ class ShadowPetSeeder extends PetSeeder
                 ]),
                 'rank' => 800,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-8.png',
             ],
 
             [
@@ -153,6 +161,7 @@ class ShadowPetSeeder extends PetSeeder
                 ]),
                 'rank' => 900,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-9.png',
             ],
 
             [
@@ -170,6 +179,7 @@ class ShadowPetSeeder extends PetSeeder
                 ]),
                 'rank' => 1000,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-10.png',
             ],
 
             [
@@ -187,6 +197,7 @@ class ShadowPetSeeder extends PetSeeder
                 ]),
                 'rank' => 1100,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-11.png',
             ],
 
             [
@@ -204,6 +215,7 @@ class ShadowPetSeeder extends PetSeeder
                 ]),
                 'rank' => 1200,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-12.png',
             ],
 
             [
@@ -221,6 +233,7 @@ class ShadowPetSeeder extends PetSeeder
                 ]),
                 'rank' => 1300,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-13.png',
             ],
 
             [
@@ -238,6 +251,7 @@ class ShadowPetSeeder extends PetSeeder
                 ]),
                 'rank' => 1400,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-14.png',
             ],
 
             [
@@ -255,6 +269,7 @@ class ShadowPetSeeder extends PetSeeder
                 ]),
                 'rank' => 1500,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-15.png',
             ],
 
             [
@@ -270,6 +285,7 @@ class ShadowPetSeeder extends PetSeeder
                 'properties' => json_encode([]),
                 'rank' => 1600,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-16.png',
             ],
 
             [
@@ -287,6 +303,7 @@ class ShadowPetSeeder extends PetSeeder
                 ]),
                 'rank' => 1700,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-17.png',
             ],
 
             [
@@ -307,6 +324,7 @@ class ShadowPetSeeder extends PetSeeder
                 ]),
                 'rank' => 1800,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-18.png',
             ],
 
             [
@@ -322,6 +340,7 @@ class ShadowPetSeeder extends PetSeeder
                 'properties' => json_encode([]),
                 'rank' => 1900,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-19.png',
             ],
 
             [
@@ -337,6 +356,7 @@ class ShadowPetSeeder extends PetSeeder
                 'properties' => json_encode([]),
                 'rank' => 2000,
                 'category_id' => $this->getCategoryId('shadow'),
+                'image' => 'shadow-20.png',
             ],
         ]);
     }

@@ -7,8 +7,6 @@ namespace App\Services;
 use App\Models\Pet;
 
 /**
- * Class PetAvailabilityChecker
- *
  * Check that a Pet is available at the given date or not
  */
 class PetAvailabilityChecker

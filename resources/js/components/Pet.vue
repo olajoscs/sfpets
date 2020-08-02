@@ -1,6 +1,6 @@
 <template>
     <li class="collection-item avatar" :class="{fade: shouldFade}">
-        <img src="https://picsum.photos/50" alt="" class="circle responsive-img">
+        <img :src="pet.image" alt="" class="circle responsive-img">
         <span class="title"><strong>{{ pet.name }}</strong></span>
         <p>
             {{ pet.location }}<br>

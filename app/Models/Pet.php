@@ -20,6 +20,7 @@ use Spatie\Translatable\HasTranslations;
  * @property mixed $description
  * @property mixed $properties
  * @property int $rank
+ * @property string $image
  * @method static Builder|Pet newModelQuery()
  * @method static Builder|Pet newQuery()
  * @method static Builder|Pet query()
