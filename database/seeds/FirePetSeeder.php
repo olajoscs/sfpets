@@ -151,7 +151,7 @@ class FirePetSeeder extends PetSeeder
             [
                 'name' => json_encode([
                     'en' => 'Tikiricky',
-                    'hu' => 'Piroticky',
+                    'hu' => 'Pirotiky',
                 ]),
                 'location_id' => $this->location_Sprawling,
                 'description' => json_encode([
