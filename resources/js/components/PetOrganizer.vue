@@ -3,11 +3,7 @@
         <loading></loading>
     </div>
     <div v-else>
-        <pet-list-group
-            :title="'All pets'"
-            :pets="this.allPets"
-            :type="'all'"></pet-list-group>
-        <hr>
+        <pet-firsts></pet-firsts>
         <pet-list-group
             v-show="this.discoveredPets.length > 0"
             :title="'Discovered pets'"
@@ -19,6 +15,11 @@
             :title="'Found pets'"
             :pets="this.foundPets"
             :type="'found'"></pet-list-group>
+        <hr>
+        <pet-list-group
+            :title="'All pets'"
+            :pets="this.allPets"
+            :type="'all'"></pet-list-group>
     </div>
 </template>
 
@@ -26,6 +27,7 @@
     import Loading from './Loading';
     import { mapGetters, mapActions } from "vuex";
     import PetListGroup from './PetListGroup';
+    import PetFirsts from './PetFirsts';
 
     export default {
         name: "PetOrganizer",
@@ -39,7 +41,8 @@
 
         components: {
             PetListGroup,
-            Loading
+            Loading,
+            PetFirsts
         },
 
         computed: {
