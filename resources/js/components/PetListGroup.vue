@@ -49,7 +49,9 @@
             },
 
             shouldBeCollapsible() {
-                return this.type === 'all';
+                return true;
+                // TODO: TEST usability
+                // return this.type === 'all' || this.type === 'found';
             }
         },
     };
