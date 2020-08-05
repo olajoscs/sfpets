@@ -1,18 +1,19 @@
 <template>
-    <pet-list :pet-ids="this.firstPets"
-              :title="'First pets'"
-              :type="'firsts'"
-    ></pet-list>
+    <pet-list-group :title="'First pets'"
+                    :type="'firsts'"
+                    :pets="this.firstPets"
+    ></pet-list-group>
 </template>
 
 <script>
     import { mapGetters } from "vuex";
     import PetList from './PetList';
+    import PetListGroup from "./PetListGroup";
 
     export default {
         name: "PetFirsts",
 
-        components: {PetList},
+        components: {PetListGroup, PetList},
 
         data: () => {
             return {};
@@ -22,22 +23,17 @@
             ...mapGetters(['allPets']),
 
             firstPets() {
-                const petIdMap = {};
+                const petMap = {};
 
                 this.allPets.map(pet => {
-                    if (typeof petIdMap[pet.categoryId] === 'undefined' && !pet.isDiscovered) {
-                        petIdMap[pet.categoryId] = pet.id;
+                    if (typeof petMap[pet.categoryId] === 'undefined' && !pet.isDiscovered) {
+                        petMap[pet.categoryId] = pet;
                     }
                 });
 
-                return petIdMap;
+                return Object.values(petMap);
             }
-        },
-
-        methos: {},
-
-        created() {
-        },
+        }
     };
 </script>
 

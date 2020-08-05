@@ -1,8 +1,8 @@
 <template>
     <div>
-        <ul class="pet-list collection with-header collapsible" :class="{expandable: shouldBeExpandable}">
-            <li :class="{active: shouldBeExpandable}">
-                <div class="collapsible-header">
+        <ul class="pet-list collection with-header collapsible" :class="{expandable: shouldBeExpandedAutomatically}">
+            <li :class="{active: shouldBeExpandedAutomatically}">
+                <div v-if="shouldShowCollapsibleHeader" class="collapsible-header">
                     <div class="row">
                         <span>{{ upperFirst(title) }}</span>
                     </div>
@@ -39,8 +39,12 @@
         },
 
         computed: {
-            shouldBeExpandable() {
-                return this.type === 'discovered';
+            shouldBeExpandedAutomatically() {
+                return ['all', 'found'].indexOf(this.type) === -1;
+            },
+
+            shouldShowCollapsibleHeader() {
+                return this.type !== 'firsts';
             }
         },
 

@@ -1,12 +1,12 @@
 <template>
-    <ul class="pet-list-group" :class="{'collapsible': shouldBeCollapsible}">
-        <li>
-            <div :class="{'collapsible-header': shouldBeCollapsible}">
+    <ul class="pet-list-group" :class="{'collapsible': shouldShowCollapsible}">
+        <li :class="{'active': shouldShowCollapsible && shouldBeExpandedAutomatically}">
+            <div :class="{'collapsible-header': shouldShowCollapsible}">
                 <div class="row">
                     <h4>{{ title }}</h4>
                 </div>
             </div>
-            <div :class="{'collapsible-body': shouldBeCollapsible}">
+            <div :class="{'collapsible-body': shouldShowCollapsible}">
                 <pet-list v-for="(petIds, category) in categorizedIds"
                           :pet-ids="petIds"
                           :title="category"
@@ -48,10 +48,12 @@
                 return categorizedIds;
             },
 
-            shouldBeCollapsible() {
+            shouldShowCollapsible() {
                 return true;
-                // TODO: TEST usability
-                // return this.type === 'all' || this.type === 'found';
+            },
+
+            shouldBeExpandedAutomatically() {
+                return this.type === 'firsts';
             }
         },
     };
