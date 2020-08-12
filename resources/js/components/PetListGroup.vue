@@ -38,7 +38,7 @@
             categorizedIds() {
                 const categorizedIds = {};
                 this.pets.map(pet => {
-                    if (typeof categorizedIds[pet.category] === 'undefined') {
+                    if (!categorizedIds[pet.category]) {
                         categorizedIds[pet.category] = [];
                     }
 

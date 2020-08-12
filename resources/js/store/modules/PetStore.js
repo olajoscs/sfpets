@@ -64,9 +64,9 @@ const mutations = {
 
     reOrder: (state) => {
         state.pets.sort((a, b) => {
-            if (a.isDiscovered !== b.isDiscovered) {
-                return Math.sign(a.isDiscovered - b.isDiscovered);
-            }
+            // if (a.isDiscovered !== b.isDiscovered) {
+            //     return Math.sign(a.isDiscovered - b.isDiscovered);
+            // }
 
             if (a.categoryId !== b.categoryId) {
                 return Math.sign(a.categoryId - b.categoryId);

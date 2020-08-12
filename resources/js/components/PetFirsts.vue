@@ -23,15 +23,15 @@
             ...mapGetters(['allPets']),
 
             firstPets() {
-                const petMap = {};
+                const petMap = [];
 
                 this.allPets.map(pet => {
-                    if (typeof petMap[pet.categoryId] === 'undefined' && !pet.isDiscovered) {
+                    if (!petMap[pet.categoryId] && !pet.isDiscovered) {
                         petMap[pet.categoryId] = pet;
                     }
                 });
 
-                return Object.values(petMap);
+                return petMap;
             }
         }
     };
