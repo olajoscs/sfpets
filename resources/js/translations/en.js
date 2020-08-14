@@ -1,6 +1,6 @@
 const ENGLISH_TRANSLATIONS = {
     text: {
-        app_title: 'SF PetTracker',
+        app_title: 'PetTracker',
 
         language_english: 'English',
         language_hungarian: 'Magyar',
