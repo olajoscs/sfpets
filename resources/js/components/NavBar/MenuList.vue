@@ -1,13 +1,13 @@
 <template>
     <ul :class="classes.join(' ')" :id="this.id">
-        <li><a href="/locale/set/hu"><img src="/images/hungary.svg"></a></li>
-        <li><a href="/locale/set/en"><img src="/images/uk.svg"></a></li>
+        <li><a href="/locale/set/hu"><img src="/images/hungary.svg" :alt="$t('text.language_hungarian')"></a></li>
+        <li><a href="/locale/set/en"><img src="/images/uk.svg" :alt="$t('text.language_english')"></a></li>
     </ul>
 </template>
 
 <script>
     export default {
-        name: "MenuList",
+        name: 'MenuList',
 
         props: [
             'classes',

@@ -2,7 +2,7 @@
     <div>
         <nav>
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo center">SFP</a>
+                <a href="#" class="brand-logo center">{{ $t(`text.app_title`) }}</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down center">
                     <menu-list :classes="[]" id="''"></menu-list>
@@ -28,14 +28,7 @@
 
         data: () => {
             return {};
-        },
-
-        computed: {},
-
-        methos: {},
-
-        created() {
-        },
+        }
     };
 </script>
 

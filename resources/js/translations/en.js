@@ -1,0 +1,20 @@
+const ENGLISH_TRANSLATIONS = {
+    text: {
+        app_title: 'SF PetTracker',
+
+        language_english: 'English',
+        language_hungarian: 'Magyar',
+
+        pet_list_firsts_title: 'Possible discoveries',
+        pet_list_discovered_title: 'Today available pets',
+        pet_list_found_title: 'Found pets',
+        pet_list_all_title: 'All pets',
+
+        pet_not_found: 'Not found: {pet}',
+        pet_found: 'Found: {pet}',
+        pet_not_discovered: 'Not discovered: {pet}',
+        pet_discovered: 'Discovered: {pet}',
+    }
+};
+
+export default ENGLISH_TRANSLATIONS;

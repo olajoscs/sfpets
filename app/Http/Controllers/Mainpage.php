@@ -10,6 +10,8 @@ class Mainpage extends Controller
 {
     public function index(): View
     {
-        return view('mainpage');
+        $locale = \App::getLocale();
+
+        return view('mainpage', ['locale' => $locale]);
     }
 }

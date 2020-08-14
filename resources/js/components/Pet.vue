@@ -7,22 +7,22 @@
             {{ pet.description }}
         </p>
         <div class="secondary-content">
-            <a v-if="pet.isFound" @click="markAsFound(false, `Mégsincs megszerezve: ${pet.name}`)"
+            <a v-if="pet.isFound" @click="markAsFound(false, $t('text.pet_not_found', {pet: pet.name}))"
                     class="waves-effect waves-light btn btn-small red lighten-3"
                     title="Mégsincs megszerezve">
                 <i class="material-icons">check</i>
             </a>
-            <a v-else-if="pet.isDiscovered" @click="markAsFound(true, `Megszereztem: ${pet.name}`)"
+            <a v-else-if="pet.isDiscovered" @click="markAsFound(true, $t('text.pet_found', {pet: pet.name}))"
                     class="waves-effect waves-light btn btn-small"
                     title="Megszereztem">
                 <i class="material-icons">check</i>
             </a>
-            <a v-if="pet.isDiscovered" @click="markAsDiscovered(false, `Mégsincs felfedezve: ${pet.name}`)"
+            <a v-if="pet.isDiscovered" @click="markAsDiscovered(false, $t('text.pet_not_discovered', {pet: pet.name}))"
                     class="waves-effect waves-light btn btn-small red lighten-3"
                     title="Mégsincs felfedezve">
                 <i class="material-icons">search</i>
             </a>
-            <a v-else @click="markAsDiscovered(true, `Felfedeztem: ${pet.name}`)"
+            <a v-else @click="markAsDiscovered(true, $t('text.pet_discovered', {pet: pet.name}))"
                     class="waves-effect waves-light btn btn-small"
                     title="Felfedeztem">
                 <i class="material-icons">search</i>

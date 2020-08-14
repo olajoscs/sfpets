@@ -53,7 +53,7 @@
             },
 
             shouldBeExpandedAutomatically() {
-                return this.type === 'firsts';
+                return this.type === 'discovered';
             }
         },
     };

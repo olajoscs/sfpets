@@ -9,6 +9,10 @@
     <body>
         <div id="app"></div>
 
+        <script type="text/javascript">
+            const LOCALE = '{{ $locale }}';
+        </script>
+
         {{-- Load the application scripts --}}
         <script src="{{ mix('js/app.js') }}"></script>
     </body>

@@ -6,18 +6,19 @@
         <pet-firsts></pet-firsts>
         <pet-list-group
             v-show="this.discoveredPets.length > 0"
-            :title="'Discovered pets'"
+            :title="$t('text.pet_list_discovered_title')"
             :pets="this.discoveredPets"
             :type="'discovered'"></pet-list-group>
 
-        <pet-list-group
-            v-show="this.foundPets.length > 0"
-            :title="'Found pets'"
-            :pets="this.foundPets"
-            :type="'found'"></pet-list-group>
+        <!--TODO: Is this list really needed?-->
+        <!--<pet-list-group-->
+            <!--v-show="this.foundPets.length > 0"-->
+            <!--:title="$t('text.pet_list_found_title')"-->
+            <!--:pets="this.foundPets"-->
+            <!--:type="'found'"></pet-list-group>-->
         <hr>
         <pet-list-group
-            :title="'All pets'"
+            :title="$t('text.pet_list_all_title')"
             :pets="this.allPets"
             :type="'all'"></pet-list-group>
     </div>

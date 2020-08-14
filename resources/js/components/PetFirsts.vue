@@ -1,5 +1,5 @@
 <template>
-    <pet-list-group :title="'First pets'"
+    <pet-list-group :title="$t('text.pet_list_firsts_title')"
                     :type="'firsts'"
                     :pets="this.firstPets"
     ></pet-list-group>
