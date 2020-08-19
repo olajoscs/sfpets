@@ -4,6 +4,7 @@ class Helpers {
     }
 
     toast(message) {
+        M.Toast.dismissAll();
         M.toast({html: message})
     }
 }
