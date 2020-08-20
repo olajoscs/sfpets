@@ -25,7 +25,7 @@ class SetLocale
 
     public function handle($request, Closure $next)
     {
-        $this->localeService->setLocaleFromCookie();
+        $this->localeService->setLocaleFromRequest();
 
         return $next($request);
     }

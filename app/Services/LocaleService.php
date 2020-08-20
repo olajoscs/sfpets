@@ -35,15 +35,34 @@ class LocaleService
     }
 
 
+    public function setLocaleFromRequest(): void
+    {
+        if (\Cookie::get(self::COOKIE_NAME)) {
+            $this->setLocaleFromCookie();
+            return;
+        }
+
+        $this->setLocaleFromHeader();
+    }
+
+
     /**
      * Set the locale for the app from the Cookie
      *
      * @return void
      */
-    public function setLocaleFromCookie(): void
+    private function setLocaleFromCookie(): void
     {
         $localeCode = \Cookie::get(self::COOKIE_NAME);
 
         $this->setLocale($localeCode);
+    }
+
+
+    private function setLocaleFromHeader(): void
+    {
+        $locale = \Request::getPreferredLanguage();
+
+        $this->setLocale(substr($locale, 0, 2));
     }
 }
