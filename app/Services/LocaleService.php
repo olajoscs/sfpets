@@ -35,6 +35,11 @@ class LocaleService
     }
 
 
+    /**
+     * Set the locale from the request
+     *
+     * @return void
+     */
     public function setLocaleFromRequest(): void
     {
         if (\Cookie::get(self::COOKIE_NAME)) {
@@ -59,6 +64,11 @@ class LocaleService
     }
 
 
+    /**
+     * Set the locale for the app from the browser useragent
+     *
+     * @return void
+     */
     private function setLocaleFromHeader(): void
     {
         $locale = \Request::getPreferredLanguage();
