@@ -16,6 +16,7 @@ class PetProperties
     public ?string $special;
     public ?string $event;
     public ?\stdClass $date;
+    public ?string $month;
 
 
     public function __construct(\stdClass $object)
@@ -25,5 +26,6 @@ class PetProperties
         $this->special = $object->special ?? null;
         $this->event = $object->event ?? null;
         $this->date = $object->date ?? null;
+        $this->month = $object->month ?? null;
     }
 }

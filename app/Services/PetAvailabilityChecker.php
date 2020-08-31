@@ -28,6 +28,21 @@ class PetAvailabilityChecker
         'fall' => [9, 10, 11],
     ];
 
+    private array $months = [
+        'january' => 1,
+        'february' => 2,
+        'march' => 3,
+        'april' => 4,
+        'may' => 5,
+        'june' => 6,
+        'july' => 7,
+        'august' => 8,
+        'september' => 9,
+        'october' => 10,
+        'november' => 11,
+        'december' => 12,
+    ];
+
 
     /**
      * Check that a Pet is available at the given date or not
@@ -46,6 +61,7 @@ class PetAvailabilityChecker
             $this->isAvailableByDay($properties->day, $date) &&
             $this->isAvailableBySeason($properties->season, $date) &&
             $this->isAvailableByEvent($properties->event, $date) &&
+            $this->isavailableByMonth($properties->month, $date) &&
             $this->isAvailableBySpecial($properties->special, $date);
     }
 
@@ -85,6 +101,16 @@ class PetAvailabilityChecker
         }
 
         return in_array((int)$date->format('w'), [5, 6, 7], true);
+    }
+
+
+    private function isAvailableByMonth(?string $month, \DateTimeImmutable $date): bool
+    {
+        if ($month === null) {
+            return true;
+        }
+
+        return ($this->months[$month] ?? null) === (int)$date->format('m');
     }
 
 
