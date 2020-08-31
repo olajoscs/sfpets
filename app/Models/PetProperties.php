@@ -11,21 +11,24 @@ namespace App\Models;
  */
 class PetProperties
 {
-    public ?string $day;
-    public ?string $season;
-    public ?string $special;
-    public ?string $event;
-    public ?\stdClass $date;
-    public ?string $month;
+    public ?string $day = null;
+    public ?string $season = null;
+    public ?string $special = null;
+    public ?string $event = null;
+    public ?\stdClass $date = null;
+    public ?string $month = null;
 
 
     public function __construct(\stdClass $object)
     {
-        $this->day = $object->day ?? null;
-        $this->season = $object->season ?? null;
-        $this->special = $object->special ?? null;
-        $this->event = $object->event ?? null;
-        $this->date = $object->date ?? null;
-        $this->month = $object->month ?? null;
+        foreach (get_object_vars($object) as $property => $value) {
+            $this->$property = $value;
+        }
+    }
+
+
+    public function __set($name, $value)
+    {
+        throw new \Exception('Invalid property: ' . $name);
     }
 }
