@@ -15,12 +15,14 @@ class ResponsePetFactory
 {
     private PetAvailabilityChecker $petAvailabilityChecker;
     private PetImageProvider $petImageProvider;
+    private PetSureChecker $petSureChecker;
 
 
-    public function __construct(PetAvailabilityChecker $petAvailabilityChecker, PetImageProvider $petImageProvider)
+    public function __construct(PetAvailabilityChecker $petAvailabilityChecker, PetImageProvider $petImageProvider, PetSureChecker $petSureChecker)
     {
         $this->petAvailabilityChecker = $petAvailabilityChecker;
         $this->petImageProvider = $petImageProvider;
+        $this->petSureChecker = $petSureChecker;
     }
 
 
@@ -51,6 +53,7 @@ class ResponsePetFactory
         $responsePet->rank = $pet->rank;
         $responsePet->categoryId = $pet->category->id;
         $responsePet->image = $this->petImageProvider->getImageFullPath($pet);
+        $responsePet->sure = $this->petSureChecker->isSure($pet);
 
         return $responsePet;
     }

@@ -20,4 +20,6 @@ class ResponsePet
     public int $rank;
     public int $categoryId;
     public ?string $image;
+
+    public bool $sure;
 }

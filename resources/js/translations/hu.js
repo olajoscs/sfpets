@@ -14,6 +14,8 @@ const HUNGARIAN_TRANSLATIONS = {
         pet_found: 'Megszerezve: {pet}',
         pet_not_discovered: 'Mégsincs felfedezve: {pet}',
         pet_discovered: 'Felfedezve: {pet}',
+
+        pet_not_sure: 'A mai napon nem biztos, hogy elérhető ez a kedvenc!',
     }
 };
 

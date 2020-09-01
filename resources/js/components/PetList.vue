@@ -12,6 +12,7 @@
                         <pet v-for="petId in petIds"
                              :key="petId"
                              :id="petId"
+                             :list-type="type"
                         ></pet>
                     </ul>
                 </div>

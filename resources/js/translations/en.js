@@ -14,6 +14,8 @@ const ENGLISH_TRANSLATIONS = {
         pet_found: 'Found: {pet}',
         pet_not_discovered: 'Not discovered: {pet}',
         pet_discovered: 'Discovered: {pet}',
+
+        pet_not_sure: 'The availability of this pet is not sure today!',
     }
 };
 

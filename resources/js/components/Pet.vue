@@ -1,12 +1,17 @@
 <template>
     <li class="collection-item avatar" :class="{fade: shouldFade}">
-        <img :src="pet.image" alt="" class="circle responsive-img">
+        <img :src="pet.image" alt="" class="pet-image circle responsive-img">
+        <a class="unsure-mark btn btn-small tooltipped red lighten-4" data-position="bottom" :data-tooltip="$t('text.pet_not_sure')">
+            <i v-if="isUnSure" class="material-icons">error_outline</i>
+        </a>
+
         <span class="title"><strong>{{ pet.name }}</strong></span>
         <p>
             {{ pet.location }}<br>
             {{ pet.description }}
         </p>
         <div class="secondary-content">
+
             <a v-if="pet.isFound" @click="markAsFound(false, $t('text.pet_not_found', {pet: pet.name}))"
                     class="waves-effect waves-light btn btn-small red lighten-3"
                     title="Mégsincs megszerezve">
@@ -40,6 +45,7 @@
 
         props: [
             'id',
+            'listType',
         ],
 
         data: function () {
@@ -54,6 +60,10 @@
 
             shouldFade() {
                 return this.pet.isDiscovered;
+            },
+
+            isUnSure() {
+                return !this.pet.sure && this.listType === 'discovered';
             }
         },
 
@@ -78,4 +88,15 @@
 </script>
 
 <style scoped>
+    .pet-image {
+        position: relative;
+    }
+
+    .unsure-mark {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        padding: 0;
+    }
 </style>
