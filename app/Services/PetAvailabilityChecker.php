@@ -62,6 +62,7 @@ class PetAvailabilityChecker
             $this->isAvailableBySeason($properties->season, $date) &&
             $this->isAvailableByEvent($properties->event, $date) &&
             $this->isavailableByMonth($properties->month, $date) &&
+            $this->isAvailableByDate($properties->date, $date) &&
             $this->isAvailableBySpecial($properties->special, $date);
     }
 
@@ -111,6 +112,19 @@ class PetAvailabilityChecker
         }
 
         return ($this->months[$month] ?? null) === (int)$date->format('m');
+    }
+
+
+    private function isAvailableByDate(?\stdClass $petDate, \DateTimeImmutable $date): bool
+    {
+        if ($petDate === null) {
+            return true;
+        }
+
+        return (
+            ($petDate->month === null || $petDate->month === (int)$date->format('m')) &&
+            ($petDate->day === null || $petDate->day === (int)$date->format('d'))
+        );
     }
 
 
