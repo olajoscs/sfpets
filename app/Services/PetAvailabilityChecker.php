@@ -122,8 +122,8 @@ class PetAvailabilityChecker
         }
 
         return (
-            ($petDate->month === null || $petDate->month === (int)$date->format('m')) &&
-            ($petDate->day === null || $petDate->day === (int)$date->format('d'))
+            (($petDate->month ?? null) === null || $petDate->month === (int)$date->format('m')) &&
+            (($petDate->day ?? null) === null || $petDate->day === (int)$date->format('d'))
         );
     }
 
