@@ -2,8 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Models;
+namespace App\Models\Pet;
 
+use App\Models\Pet\Location;
+use App\Models\Pet\PetCategory;
+use App\Models\Pet\PetProperties;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -35,6 +38,7 @@ use Spatie\Translatable\HasTranslations;
  * @property-read array       $translations
  * @property-read PetCategory $category
  * @property-read Location    $location
+ * @method static Builder|Pet whereImage($value)
  */
 class Pet extends Model
 {

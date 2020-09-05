@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Models\Location;
-use App\Models\PetCategory;
+use App\Models\Pet\Location;
+use App\Models\Pet\PetCategory;
 use Illuminate\Database\Seeder;
 
 /**

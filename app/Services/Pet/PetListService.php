@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Services;
+namespace App\Services\Pet;
 
+use App\Services\Pet\PetRepository;
+use App\Services\Pet\ResponsePetFactory;
 use Illuminate\Support\Collection;
 
 /**

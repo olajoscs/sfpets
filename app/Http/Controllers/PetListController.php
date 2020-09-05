@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Services\DateProvider;
-use App\Services\PetListService;
+use App\Services\Pet\PetListService;
 use Illuminate\Http\JsonResponse;
 
 class PetListController extends Controller

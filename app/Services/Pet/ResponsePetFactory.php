@@ -2,10 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Services;
+namespace App\Services\Pet;
 
-use App\Models\Pet;
-use App\Models\ResponsePet;
+use App\Models\Pet\Pet;
+use App\Models\Pet\ResponsePet;
+use App\Services\Pet\PetAvailabilityChecker;
+use App\Services\Pet\PetImageProvider;
+use App\Services\Pet\PetSureChecker;
 use Illuminate\Support\Collection;
 
 /**

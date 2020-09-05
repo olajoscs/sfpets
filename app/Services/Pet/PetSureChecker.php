@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Services;
+namespace App\Services\Pet;
 
-use App\Models\Pet;
+use App\Models\Pet\Pet;
 
 /**
  * Determines that the availability of the pet is sure or not
@@ -14,7 +14,7 @@ class PetSureChecker
     /**
      * Determine that the availability of the pet is sure or not
      *
-     * @param Pet $pet
+     * @param \App\Models\Pet\Pet $pet
      *
      * @return bool
      */

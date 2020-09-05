@@ -4,8 +4,11 @@ namespace App\Providers;
 
 use App\Services\CurrentDateProvider;
 use App\Services\DateProvider;
-use App\Services\PetRepository;
-use App\Services\PetRepositoryEloquent;
+use App\Services\JWT\JWTAuth;
+use App\Services\Pet\PetRepository;
+use App\Services\Pet\PetRepositoryEloquent;
+use App\Services\User\UserRepository;
+use App\Services\User\UserRepositoryEloquent;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public array $singletons = [
         DateProvider::class => CurrentDateProvider::class,
         PetRepository::class => PetRepositoryEloquent::class,
+        UserRepository::class => UserRepositoryEloquent::class,
     ];
 
 
@@ -23,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(JWTAuth::class);
     }
 
     /**
