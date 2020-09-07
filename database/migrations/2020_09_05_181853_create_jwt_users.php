@@ -14,7 +14,8 @@ class CreateJwtUsers extends Migration
     public function up()
     {
         Schema::create('jwt_users', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->increments('id');
+            $table->uuid('uuid')->unique();
             $table->timestamps();
         });
     }

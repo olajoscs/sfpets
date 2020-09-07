@@ -12,9 +12,9 @@ use Illuminate\Support\Str;
  */
 class UserRepositoryEloquent implements UserRepository
 {
-    public function findById(string $id): ?User
+    public function findByUuid(string $uuid): ?User
     {
-        return User::find($id);
+        return User::where('uuid', $uuid)->first();
     }
 
 
@@ -22,7 +22,7 @@ class UserRepositoryEloquent implements UserRepository
     {
         $user = new User();
 
-        $user->id = Str::uuid()->toString();
+        $user->uuid = Str::uuid()->toString();
 
         $user->save();
 

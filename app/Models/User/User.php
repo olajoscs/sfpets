@@ -9,7 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * App\Models\User\User
  *
- * @property string $id
+ * @property int $id
+ * @property string $uuid
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
@@ -23,8 +24,4 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     protected $table = 'jwt_users';
-    protected $primaryKey = 'id';
-
-    public $incrementing = false;
-    protected $keyType = 'string';
 }

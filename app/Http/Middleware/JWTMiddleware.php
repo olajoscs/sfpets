@@ -46,7 +46,7 @@ class JWTMiddleware
         $user = null;
         if ($token !== null) {
             $parsed = $this->JWTService->decode($token, \Config::get('jwt.secret'));
-            $user = $this->userRepository->findById($parsed->uuid);
+            $user = $this->userRepository->findByUuid($parsed->uuid);
         }
 
         if ($user === null) {
@@ -59,7 +59,7 @@ class JWTMiddleware
 
     private function setJWTTokenCookie(Response $response): Response
     {
-        $generatedToken = $this->JWTService->generate($this->JWTAuth->getUser()->id, \Config::get('jwt.secret'));
+        $generatedToken = $this->JWTService->generate($this->JWTAuth->getUser()->uuid, \Config::get('jwt.secret'));
 
         return $response->cookie(\Cookie::forever(JWTService::COOKIE_NAME, $generatedToken));
     }

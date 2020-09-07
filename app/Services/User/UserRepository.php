@@ -14,11 +14,11 @@ interface UserRepository
     /**
      * Find the user by its id
      *
-     * @param string $id
+     * @param string $uuid
      *
      * @return User|null
      */
-    public function findById(string $id): ?User;
+    public function findByUuid(string $uuid): ?User;
 
 
     /**
