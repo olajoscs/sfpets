@@ -318,7 +318,7 @@ class ShadowPetSeeder extends PetSeeder
                 ]),
                 'properties' => json_encode([
                     'date' => [
-                        'day' => '13',
+                        'day' => 13,
                     ],
                     'day' => 'friday',
                 ]),

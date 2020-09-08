@@ -36,6 +36,8 @@ class JWTService
      */
     public function encode(JWTBody $body, string $key): string
     {
+        JWT::$timestamp = $this->dateProvider->getNow()->getTimestamp();
+
         return JWT::encode($body, $key, self::ALGO);
     }
 
@@ -50,6 +52,7 @@ class JWTService
      */
     public function decode(string $jwt, string $key): JWTBody
     {
+        JWT::$timestamp = $this->dateProvider->getNow()->getTimestamp();
         $decoded = JWT::decode($jwt, $key, [self::ALGO]);
 
         return JWTBody::createFromStdClass($decoded);
