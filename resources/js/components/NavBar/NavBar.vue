@@ -6,10 +6,10 @@
         </ul>
         <nav class="nav">
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo left">{{ $t(`text.app_title`) }}</a>
+                <a href="#/" class="brand-logo left">{{ $t(`text.app_title`) }}</a>
                 <ul class="right">
                     <li>
-                        <a href="#">
+                        <a href="#/users">
                             <i class="material-icons left">account_box</i>
                             <div class="truncate player-name">Árvíztűrő tükörfúrógép</div>
                         </a>

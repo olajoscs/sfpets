@@ -7,9 +7,12 @@ import store from './store/Store';
 import VueI18n from "vue-i18n";
 import ENGLISH_TRANSLATIONS from "./translations/en";
 import HUNGARIAN_TRANSLATIONS from "./translations/hu";
+import VueRouter from 'vue-router';
+import router from './router';
 
 Vue.use(VueI18n);
 Vue.use(Vuex);
+Vue.use(VueRouter);
 
 const TRANSLATIONS = {
     en: ENGLISH_TRANSLATIONS,
@@ -24,6 +27,7 @@ const i18n = new VueI18n({
 new Vue({
     store,
     i18n,
+    router,
     render: h => h(App)
 }).$mount('#app');
 

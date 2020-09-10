@@ -2,7 +2,7 @@
     <div id="app">
         <nav-bar></nav-bar>
         <div class="container">
-            <pet-organizer></pet-organizer>
+            <router-view></router-view>
         </div>
     </div>
 </template>
