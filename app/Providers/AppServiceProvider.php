@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\Character\CharacterRepository;
+use App\Services\Character\CharacterRepositoryEloquent;
 use App\Services\CurrentDateProvider;
 use App\Services\DateProvider;
 use App\Services\JWT\JWTAuth;
@@ -17,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
         DateProvider::class => CurrentDateProvider::class,
         PetRepository::class => PetRepositoryEloquent::class,
         UserRepository::class => UserRepositoryEloquent::class,
+        CharacterRepository::class => CharacterRepositoryEloquent::class,
     ];
 
 
