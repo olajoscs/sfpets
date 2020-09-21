@@ -201,7 +201,9 @@ class LightPetSeeder extends PetSeeder
                     'en' => 'on Wednesday night',
                     'hu' => 'szerda éjjel',
                 ]),
-                'properties' => json_encode([]),
+                'properties' => json_encode([
+                    'day' => 'wednesday',
+                ]),
                 'rank' => 1200,
                 'category_id' => $this->getCategoryId('light'),
                 'image' => 'light-12.png',
