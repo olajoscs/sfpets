@@ -9,7 +9,7 @@
                 <a href="#/" class="brand-logo left">{{ $t(`text.app_title`) }}</a>
                 <ul class="right">
                     <li>
-                        <a href="#/users">
+                        <a href="#/characters">
                             <i class="material-icons left">account_box</i>
                             <div class="truncate player-name">Árvíztűrő tükörfúrógép</div>
                         </a>

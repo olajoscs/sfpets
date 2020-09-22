@@ -16,6 +16,8 @@ const ENGLISH_TRANSLATIONS = {
         pet_discovered: 'Discovered: {pet}',
 
         pet_not_sure: 'The availability of this pet is not sure today!',
+
+        character_list_title: 'Character list',
     }
 };
 

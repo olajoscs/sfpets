@@ -24,13 +24,13 @@
     import { mapGetters, mapActions } from "vuex";
     import PetListGroup from './PetListGroup';
     import PetFirsts from './PetFirsts';
+    import CharacterRepository from './../services/CharacterRepository';
 
     export default {
         name: "PetOrganizer",
 
         data: () => {
             return {
-                pets: [],
                 loading: false,
             }
         },
@@ -50,9 +50,16 @@
         },
 
         created() {
+            const currentCharacterId = CharacterRepository.getCurrentCharacter();
+
+            if (!currentCharacterId) {
+                window.location.href = '#/characters';
+                return;
+            }
+
             this.loading = true;
             (async () => {
-                await this.fetchPets();
+                await this.fetchPets({currentCharacterId});
                 this.loading = false;
             })();
         }

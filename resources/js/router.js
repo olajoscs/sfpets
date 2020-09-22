@@ -1,11 +1,11 @@
 import PetOrganizer from "./components/PetOrganizer";
-import Users from "./components/Users";
+import CharacterList from "./components/CharacterList";
 import VueRouter from "vue-router";
 
 export default new VueRouter({
     routes: [
         {path: '/', component: PetOrganizer},
-        {path: '/users', component: Users},
+        {path: '/characters', component: CharacterList},
     ]
 });
 
