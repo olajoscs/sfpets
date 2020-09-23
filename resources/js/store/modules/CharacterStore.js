@@ -15,7 +15,7 @@ const characterState = {
 const getters = {
     getCharacters: state => state.characters,
     getCharacter: state => characterId => getCharacter(state, characterId),
-    getCurrentCharacterId: state => state.currentCharacterId,
+    getCurrentCharacterId: state => state.currentCharacterId ?? CharacterRepository.getCurrentCharacterId(),
 };
 
 
@@ -26,8 +26,8 @@ const actions = {
         commit('setCharacters', response.data);
     },
 
-    async setCurrentCharacter({commit}, {characterId}) {
-        commit('setCurrentCharacter', {characterId});
+    async setCurrentCharacterId({commit}, {characterId}) {
+        commit('setCurrentCharacterId', {characterId});
     },
 };
 
@@ -37,9 +37,9 @@ const mutations = {
         state.characters = characters;
     },
 
-    setCurrentCharacter: (state, {characterId}) => {
+    setCurrentCharacterId: (state, {characterId}) => {
         state.currentCharacterId = characterId;
-        CharacterRepository.setCurrentCharacter(characterId);
+        CharacterRepository.setCurrentCharacterId(characterId);
     }
 };
 

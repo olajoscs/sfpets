@@ -32,10 +32,10 @@
         },
 
         methods: {
-            ...mapActions(['setCurrentCharacter']),
+            ...mapActions(['setCurrentCharacterId']),
 
             setCharacter() {
-                this.setCurrentCharacter({characterId: this.id});
+                this.setCurrentCharacterId({characterId: this.id});
                 window.location.href = '#/';
             }
         },

@@ -50,7 +50,7 @@
         },
 
         created() {
-            const currentCharacterId = CharacterRepository.getCurrentCharacter();
+            const currentCharacterId = CharacterRepository.getCurrentCharacterId();
 
             if (!currentCharacterId) {
                 window.location.href = '#/characters';

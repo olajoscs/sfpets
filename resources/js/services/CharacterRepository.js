@@ -9,7 +9,7 @@ class CharacterRepository {
      * Mark the character as currejnt character
      * @param characterId int
      */
-    setCurrentCharacter(characterId) {
+    setCurrentCharacterId(characterId) {
         Cookies.set(this.COOKIE_NAME, characterId);
     }
 
@@ -17,7 +17,7 @@ class CharacterRepository {
      * Return the currently selected character ID
      * @returns int
      */
-    getCurrentCharacter() {
+    getCurrentCharacterId() {
         return Cookies.get(this.COOKIE_NAME);
     }
 }
