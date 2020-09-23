@@ -21,7 +21,6 @@ const getters = {
 
 const actions = {
     async fetchPets({commit}, {currentCharacterId}) {
-        console.log(currentCharacterId);
         const response = await Axios.get('/pets?characterId=' + currentCharacterId);
 
         commit('setPets', response.data);
