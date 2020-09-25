@@ -18,7 +18,7 @@ class CharacterRepository {
      * @returns int
      */
     getCurrentCharacterId() {
-        return Cookies.get(this.COOKIE_NAME);
+        return parseInt(Cookies.get(this.COOKIE_NAME));
     }
 }
 

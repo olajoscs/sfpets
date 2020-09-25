@@ -8,7 +8,6 @@ class CharacterService {
     async submit(characterProperties) {
         const result = await this.sendRequest(characterProperties);
 
-        console.log(result);
         if (result.errors) {
             return {
                 status: 'error',

@@ -8,7 +8,7 @@
 
         <div v-else>
             <ul class="collection with-header">
-                <character v-for="character in getCharacters"
+                <character v-for="character in getOrderedCharacters"
                      :key="character.id"
                      :id="character.id"
                 ></character>
@@ -119,8 +119,6 @@
 
                     const character = response.character;
 
-                    console.log(character);
-
                     this.addCharacter({character});
                     this.closeAllModals();
                 })();
@@ -147,7 +145,21 @@
         },
 
         computed: {
-            ...mapGetters(['getCharacters'])
+            ...mapGetters(['getCharacters', 'getCurrentCharacterId']),
+
+            getOrderedCharacters: function() {
+                return this.getCharacters.sort((a, b) => {
+                    if (a.id === this.getCurrentCharacterId) {
+                        return -1;
+                    }
+
+                    if (b.id === this.getCurrentCharacterId) {
+                        return 1;
+                    }
+
+                    return Math.sign(a.id - b.id);
+                });
+            }
         },
 
         created() {
