@@ -14,13 +14,17 @@ class CharacterRepositoryEloquent implements CharacterRepository
 {
     public function findAllFor(int $userId): Collection
     {
-        return Character::where('user_id', $userId)->get();
+        return Character::where('user_id', $userId)->orderBy('created_at', 'asc')->get();
     }
 
 
     public function create(int $userId): Character
     {
-        return new Character(['user_id' => $userId]);
+        $character = new Character();
+
+        $character->user_id = $userId;
+
+        return $character;
     }
 
 

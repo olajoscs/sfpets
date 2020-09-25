@@ -29,6 +29,10 @@ const actions = {
     async setCurrentCharacterId({commit}, {characterId}) {
         commit('setCurrentCharacterId', {characterId});
     },
+
+    async addCharacter({commit}, {character}) {
+        commit('addCharacter', {character});
+    }
 };
 
 
@@ -40,6 +44,10 @@ const mutations = {
     setCurrentCharacterId: (state, {characterId}) => {
         state.currentCharacterId = characterId;
         CharacterRepository.setCurrentCharacterId(characterId);
+    },
+
+    addCharacter: (state, {character}) => {
+        state.characters.push(character);
     }
 };
 

@@ -1,5 +1,5 @@
 <template>
-    <li class="collection-item avatar" :class="{'red lighten-5': getCurrentCharacterId}">
+    <li class="collection-item avatar" :class="{'red lighten-5': getCurrentCharacterId == this.id}">
         <img src="http://lorempixel.com/400/400/" alt="" class="pet-image circle responsive-img">
 
         <span class="title"><strong>{{ character.name }}</strong></span>

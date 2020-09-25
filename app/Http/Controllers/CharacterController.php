@@ -50,11 +50,11 @@ class CharacterController extends Controller
         $user = $this->JWTAuth->getUser();
 
         $validated = $request->validate([
-            'name' => ['required', 'max:255']
+            'name' => ['required', 'max:255', 'min:3']
         ]);
 
         $character = $this->characterService->create($user, $validated);
 
-        return $character;
+        return \Response::json($character);
     }
 }

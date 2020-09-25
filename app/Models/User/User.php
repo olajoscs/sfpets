@@ -36,6 +36,8 @@ class User extends Model
 
     public function characters(): HasMany
     {
-        return $this->hasMany(Character::class, 'user_id', 'id');
+        return $this
+            ->hasMany(Character::class, 'user_id', 'id')
+            ->orderBy('created_at', 'asc');
     }
 }

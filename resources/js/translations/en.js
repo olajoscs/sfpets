@@ -18,6 +18,10 @@ const ENGLISH_TRANSLATIONS = {
         pet_not_sure: 'The availability of this pet is not sure today!',
 
         character_list_title: 'Character list',
+        character_new_title: 'New character',
+        character_new_name: 'Character name',
+        character_new_ok: 'Create',
+        character_new_cancel: 'Cancel',
     }
 };
 
