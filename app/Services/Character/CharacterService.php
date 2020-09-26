@@ -52,8 +52,8 @@ class CharacterService
      */
     public function update(User $user, array $characterProperties): Character
     {
-        $character = $this->characterRepository->find($characterProperties['id']);
-        assert($user->id === $character->user_id);
+        $character = $this->find($user, $characterProperties['id']);
+        assert($character !== null);
 
         $character = $this->updateProperties($character, $characterProperties);
         $character->save();
@@ -72,10 +72,26 @@ class CharacterService
      */
     public function delete(User $user, int $characterId): void
     {
-        $character = $this->characterRepository->find($characterId);
-        assert($user->id === $character->user_id);
+        $character = $this->find($user, $characterId);
+        assert($character !== null);
 
         $character->delete();
+    }
+
+
+    public function find(User $user, int $characterId): ?Character
+    {
+        $character = $this->characterRepository->find($characterId);
+
+        if ($character === null) {
+            return null;
+        }
+
+        if ($character->user_id !== $user->id) {
+            return null;
+        }
+
+        return $character;
     }
 
 

@@ -9,6 +9,11 @@
                class="waves-effect waves-light btn btn-small">
                 <i class="material-icons">check</i>
             </a>
+
+            <a @click="remove"
+               class="waves-effect waves-light btn btn-small red lighten-3">
+                <i class="material-icons">delete_forever</i>
+            </a>
         </div>
     </li>
 </template>
@@ -32,12 +37,18 @@
         },
 
         methods: {
-            ...mapActions(['setCurrentCharacterId']),
+            ...mapActions(['setCurrentCharacterId', 'deleteCharacter']),
 
             setCharacter() {
                 this.setCurrentCharacterId({characterId: this.id});
                 window.location.href = '#/';
-            }
+            },
+
+            remove() {
+                if (confirm('Biztos?')) {
+                    this.deleteCharacter({characterId: this.id});
+                }
+            },
         },
     }
 </script>

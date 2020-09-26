@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Models\Character\Character;
 use App\Services\Character\CharacterService;
 use App\Services\JWT\JWTAuth;
 use Illuminate\Http\JsonResponse;
@@ -56,5 +57,20 @@ class CharacterController extends Controller
         $character = $this->characterService->create($user, $validated);
 
         return \Response::json($character);
+    }
+
+
+    public function delete(Request $request): JsonResponse
+    {
+        $user = $this->JWTAuth->getUser();
+        $request->validate([
+            'id' => ['required', 'min:0', 'exists:' . Character::class . ',id'],
+        ]);
+
+        $characterId = (int)$request->get('id');
+
+        $this->characterService->delete($user, $characterId);
+
+        return \Response::json(null);
     }
 }

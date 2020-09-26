@@ -1,6 +1,6 @@
 import Cookies from '../../../node_modules/js-cookie/src/js.cookie';
 
-class CharacterRepository {
+class CurrentCharacterRepository {
     constructor() {
         this.COOKIE_NAME = 'current-character';
     }
@@ -22,4 +22,4 @@ class CharacterRepository {
     }
 }
 
-export default new CharacterRepository();
+export default new CurrentCharacterRepository();

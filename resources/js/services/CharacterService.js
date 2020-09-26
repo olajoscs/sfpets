@@ -1,4 +1,5 @@
 import Axios from "axios";
+import CurrentCharacterRepository from "./CurrentCharacterRepository";
 
 class CharacterService {
     /**
@@ -35,6 +36,17 @@ class CharacterService {
                 return {errors: err.response.data.errors};
             }
         }
+    }
+
+
+    async deleteCharacter(characterId) {
+        const response = await Axios.delete(`/character?id=${characterId}`);
+
+        if (characterId === CurrentCharacterRepository.getCurrentCharacterId()) {
+            CurrentCharacterRepository.setCurrentCharacterId(null);
+        }
+
+        return response;
     }
 }
 

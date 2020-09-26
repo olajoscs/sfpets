@@ -1,5 +1,6 @@
 import Axios from "axios";
-import CharacterRepository from "../../services/CharacterRepository";
+import CurrentCharacterRepository from "../../services/CurrentCharacterRepository";
+import CharacterService from "../../services/CharacterService";
 
 function getCharacter(state, characterId) {
     return state.characters.find(character => character.id === characterId);
@@ -15,7 +16,7 @@ const characterState = {
 const getters = {
     getCharacters: state => state.characters,
     getCharacter: state => characterId => getCharacter(state, characterId),
-    getCurrentCharacterId: state => state.currentCharacterId || CharacterRepository.getCurrentCharacterId(),
+    getCurrentCharacterId: state => state.currentCharacterId || CurrentCharacterRepository.getCurrentCharacterId(),
 };
 
 
@@ -32,7 +33,13 @@ const actions = {
 
     async addCharacter({commit}, {character}) {
         commit('addCharacter', {character});
-    }
+    },
+
+    async deleteCharacter({commit}, {characterId}) {
+        CharacterService.deleteCharacter(characterId);
+
+        commit('deleteCharacter', {characterId});
+    },
 };
 
 
@@ -43,12 +50,18 @@ const mutations = {
 
     setCurrentCharacterId: (state, {characterId}) => {
         state.currentCharacterId = characterId;
-        CharacterRepository.setCurrentCharacterId(characterId);
+        CurrentCharacterRepository.setCurrentCharacterId(characterId);
     },
 
     addCharacter: (state, {character}) => {
         state.characters.push(character);
-    }
+    },
+
+    deleteCharacter: (state, {characterId}) => {
+        state.characters = state.characters.filter(character => {
+            return character.id !== characterId;
+        });
+    },
 };
 
 

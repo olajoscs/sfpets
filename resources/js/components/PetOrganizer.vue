@@ -24,7 +24,7 @@
     import { mapGetters, mapActions } from "vuex";
     import PetListGroup from './PetListGroup';
     import PetFirsts from './PetFirsts';
-    import CharacterRepository from './../services/CharacterRepository';
+    import CurrentCharacterRepository from './../services/CurrentCharacterRepository';
 
     export default {
         name: "PetOrganizer",
@@ -50,7 +50,7 @@
         },
 
         created() {
-            const currentCharacterId = CharacterRepository.getCurrentCharacterId();
+            const currentCharacterId = CurrentCharacterRepository.getCurrentCharacterId();
 
             if (!currentCharacterId) {
                 window.location.href = '#/characters';
