@@ -124,7 +124,7 @@
                 })();
             },
 
-            showErrors(errors) {
+            showErrors: function(errors) {
                 _.forOwn(errors, (values, key) => {
                     document.querySelectorAll(`#${key}`).forEach((node) => {
                         node.classList.add('invalid');
@@ -133,7 +133,7 @@
                 });
             },
 
-            hideAllError() {
+            hideAllError: function() {
                 document.querySelectorAll('input').forEach((node) => {
                     node.classList.remove('invalid');
                 });

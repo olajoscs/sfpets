@@ -22,7 +22,7 @@
         computed: {
             ...mapGetters(['allPets']),
 
-            firstPets() {
+            firstPets: function() {
                 const petMap = [];
 
                 this.allPets.map(pet => {

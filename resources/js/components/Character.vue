@@ -31,7 +31,7 @@
         computed: {
             ...mapGetters(['getCharacter', 'getCurrentCharacterId']),
 
-            character() {
+            character: function() {
                 return this.getCharacter(this.id);
             }
         },
@@ -39,12 +39,12 @@
         methods: {
             ...mapActions(['setCurrentCharacterId', 'deleteCharacter']),
 
-            setCharacter() {
+            setCharacter: function() {
                 this.setCurrentCharacterId({characterId: this.id});
                 window.location.href = '#/';
             },
 
-            remove() {
+            remove: function() {
                 if (confirm('Biztos?')) {
                     this.deleteCharacter({characterId: this.id});
                 }

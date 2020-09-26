@@ -54,15 +54,15 @@
 
         computed: {
             ...mapGetters(['getPet']),
-            pet() {
+            pet: function() {
                 return this.getPet(this.id);
             },
 
-            shouldFade() {
+            shouldFade: function() {
                 return this.pet.isDiscovered;
             },
 
-            isUnSure() {
+            isUnSure: function() {
                 return !this.pet.sure && this.listType === 'discovered';
             }
         },

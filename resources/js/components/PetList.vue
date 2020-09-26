@@ -40,17 +40,17 @@
         },
 
         computed: {
-            shouldBeExpandedAutomatically() {
+            shouldBeExpandedAutomatically: function() {
                 return ['all', 'found'].indexOf(this.type) === -1;
             },
 
-            shouldShowCollapsibleHeader() {
+            shouldShowCollapsibleHeader: function() {
                 return this.type !== 'firsts';
             }
         },
 
         methods: {
-            upperFirst(string) {
+            upperFirst: function(string) {
                 return _.upperFirst(string);
             }
         },

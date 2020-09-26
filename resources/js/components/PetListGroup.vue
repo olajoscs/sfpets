@@ -35,7 +35,7 @@
         ],
 
         computed: {
-            categorizedIds() {
+            categorizedIds: function() {
                 const categorizedIds = {};
                 this.pets.map(pet => {
                     if (!categorizedIds[pet.category]) {
@@ -48,11 +48,11 @@
                 return categorizedIds;
             },
 
-            shouldShowCollapsible() {
+            shouldShowCollapsible: function() {
                 return true;
             },
 
-            shouldBeExpandedAutomatically() {
+            shouldBeExpandedAutomatically: function() {
                 return this.type === 'discovered';
             }
         },
