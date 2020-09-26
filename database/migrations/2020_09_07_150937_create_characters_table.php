@@ -18,6 +18,7 @@ class CreateCharactersTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('name');
             $table->timestamps();
+            $table->softDeletes();
 
             $table
                 ->foreign('user_id')

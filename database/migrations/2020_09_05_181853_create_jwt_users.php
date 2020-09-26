@@ -17,6 +17,7 @@ class CreateJwtUsers extends Migration
             $table->increments('id');
             $table->uuid('uuid')->unique();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
