@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\Character\CharacterPetRepository;
+use App\Services\Character\CharacterPetRepositoryEloquent;
 use App\Services\Character\CharacterRepository;
 use App\Services\Character\CharacterRepositoryEloquent;
 use App\Services\CurrentDateProvider;
@@ -20,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
         PetRepository::class => PetRepositoryEloquent::class,
         UserRepository::class => UserRepositoryEloquent::class,
         CharacterRepository::class => CharacterRepositoryEloquent::class,
+        CharacterPetRepository::class => CharacterPetRepositoryEloquent::class,
     ];
 
 

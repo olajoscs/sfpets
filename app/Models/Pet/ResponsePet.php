@@ -21,5 +21,8 @@ class ResponsePet
     public int $categoryId;
     public ?string $image;
 
+    public bool $isDiscovered = false;
+    public bool $isFound = false;
+
     public bool $sure;
 }

@@ -12,10 +12,7 @@ use App\Models\User\User;
  */
 class CharacterService
 {
-    /**
-     * @var CharacterRepository
-     */
-    private $characterRepository;
+    private CharacterRepository $characterRepository;
 
 
     public function __construct(CharacterRepository $characterRepository)
@@ -79,6 +76,14 @@ class CharacterService
     }
 
 
+    /**
+     * Find the character of the user
+     *
+     * @param User $user
+     * @param int  $characterId
+     *
+     * @return Character|null
+     */
     public function find(User $user, int $characterId): ?Character
     {
         $character = $this->characterRepository->find($characterId);

@@ -35,7 +35,7 @@ class ResponsePetFactory
      * @param Collection|Pet[]   $pets
      * @param \DateTimeImmutable $date
      *
-     * @return Collection|Pet[]
+     * @return Collection|ResponsePet[]
      */
     public function createPets(Collection $pets, \DateTimeImmutable $date): Collection
     {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\Pet;
 
+use App\Models\Pet\ResponsePet;
 use App\Services\Pet\PetRepository;
 use App\Services\Pet\ResponsePetFactory;
 use Illuminate\Support\Collection;
@@ -24,6 +25,13 @@ class PetListService
     }
 
 
+    /**
+     * Return the ResponsePets with date-dependent properites set
+     *
+     * @param \DateTimeImmutable $date
+     *
+     * @return Collection|ResponsePet[]
+     */
     public function getPets(\DateTimeImmutable $date): Collection
     {
         $pets = $this->petRepository->getAll();
