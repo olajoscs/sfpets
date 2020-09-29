@@ -37,6 +37,8 @@ class PetListController extends Controller
     /**
      * Return the ResponsePet list according to the character progress
      *
+     * @param Request $request
+     *
      * @return JsonResponse
      */
     public function getList(Request $request): JsonResponse
