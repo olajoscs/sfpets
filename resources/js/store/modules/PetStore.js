@@ -27,13 +27,13 @@ const actions = {
         commit('reOrder');
     },
 
-    async setDiscovered({commit}, {petId, isDiscovered}) {
-        commit('setDiscovered', {petId, isDiscovered});
+    async setDiscovered({commit}, {characterId, petId, isDiscovered}) {
+        commit('setDiscovered', {characterId, petId, isDiscovered});
         commit('reOrder');
     },
 
-    async setFound({commit}, {petId, isFound}) {
-        commit('setFound', {petId, isFound});
+    async setFound({commit}, {characterId, petId, isFound}) {
+        commit('setFound', {characterId, petId, isFound});
         commit('reOrder');
     },
 };
@@ -41,33 +41,21 @@ const actions = {
 
 const mutations = {
     setPets: (state, pets) => {
-        const discoveredPets = DiscoveredPetRepository.getAll();
-        const foundPets = FoundPetRepository.getAll();
-
-        state.pets = pets.map((pet) => {
-            pet.isDiscovered = discoveredPets.indexOf(pet.id) !== -1;
-            pet.isFound = foundPets.indexOf(pet.id) !== -1;
-
-            return pet;
-        });
+        state.pets = pets;
     },
 
-    setDiscovered: (state, {petId, isDiscovered}) => {
-        DiscoveredPetRepository.setPetStatus(petId, isDiscovered);
+    setDiscovered: (state, {characterId, petId, isDiscovered}) => {
+        DiscoveredPetRepository.setPetStatus(characterId, petId, isDiscovered);
         getPet(state, petId).isDiscovered = isDiscovered;
     },
 
-    setFound: (state, {petId, isFound}) => {
-        FoundPetRepository.setPetStatus(petId, isFound);
+    setFound: (state, {characterId, petId, isFound}) => {
+        FoundPetRepository.setPetStatus(characterId, petId, isFound);
         getPet(state, petId).isFound = isFound;
     },
 
     reOrder: (state) => {
         state.pets.sort((a, b) => {
-            // if (a.isDiscovered !== b.isDiscovered) {
-            //     return Math.sign(a.isDiscovered - b.isDiscovered);
-            // }
-
             if (a.categoryId !== b.categoryId) {
                 return Math.sign(a.categoryId - b.categoryId);
             }

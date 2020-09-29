@@ -53,7 +53,8 @@
         },
 
         computed: {
-            ...mapGetters(['getPet']),
+            ...mapGetters(['getPet', 'getCurrentCharacterId']),
+
             pet: function() {
                 return this.getPet(this.id);
             },
@@ -72,15 +73,27 @@
 
             markAsFound: function(isFound, message) {
                 helpers.toast(message);
-                this.setFound({petId: this.pet.id, isFound});
+                this.setFound({
+                    characterId: this.getCurrentCharacterId,
+                    petId: this.pet.id,
+                    isFound
+                });
             },
 
             markAsDiscovered: function(isDiscovered, message) {
                 helpers.toast(message);
-                this.setDiscovered({petId: this.pet.id, isDiscovered});
+                this.setDiscovered({
+                    characterId: this.getCurrentCharacterId,
+                    petId: this.pet.id,
+                    isDiscovered
+                });
 
                 if (!isDiscovered) {
-                    this.setFound({petId: this.pet.id, isDiscovered});
+                    this.setFound({
+                        characterId: this.getCurrentCharacterId,
+                        petId: this.pet.id,
+                        isDiscovered
+                    });
                 }
             },
         }

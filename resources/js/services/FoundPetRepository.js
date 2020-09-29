@@ -6,7 +6,7 @@ import PetRepository from './PetRepository';
 class FoundPetRepository extends PetRepository {
     constructor() {
         super();
-        this.key = 'foundPets';
+        this.action = 'found';
     }
 }
 

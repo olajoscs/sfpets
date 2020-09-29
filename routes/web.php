@@ -22,3 +22,6 @@ Route::get('/characters', 'CharacterController@getAll');
 Route::post('/character', 'CharacterController@create');
 Route::put('/character', 'CharacterController@update');
 Route::delete('/character', 'CharacterController@delete');
+
+Route::post('/pet/mark/discovered', 'PetListController@markDiscovered');
+Route::post('/pet/mark/found', 'PetListController@markFound');

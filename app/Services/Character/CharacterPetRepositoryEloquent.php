@@ -29,4 +29,66 @@ class CharacterPetRepositoryEloquent implements CharacterPetRepository
             ->pluck('pet_id')
             ->toArray();
     }
+
+
+    public function markDiscovered(int $characterId, int $petId, bool $isDiscovered): void
+    {
+        if ($isDiscovered) {
+            $this->setDiscovered($characterId, $petId);
+        } else {
+            $this->setNotDiscovered($characterId, $petId);
+        }
+    }
+
+
+    public function markFound(int $characterId, int $petId, bool $isFound): void
+    {
+        if ($isFound) {
+            $this->setFound($characterId, $petId);
+        } else {
+            $this->setNotFound($characterId, $petId);
+        }
+    }
+
+
+    private function setDiscovered(int $characterId, int $petId): void
+    {
+        \DB::connection()
+            ->table('character_pet_discovered')
+            ->updateOrInsert([
+                'character_id' => $characterId,
+                'pet_id' => $petId,
+            ]);
+    }
+
+
+    private function setNotDiscovered(int $characterId, int $petId): void
+    {
+        \DB::connection()
+            ->table('character_pet_discovered')
+            ->where('character_id', '=', $characterId)
+            ->where('pet_id', '=', $petId)
+            ->delete();
+    }
+
+
+    private function setFound(int $characterId, int $petId): void
+    {
+        \DB::connection()
+            ->table('character_pet_found')
+            ->updateOrInsert([
+                'character_id' => $characterId,
+                'pet_id' => $petId,
+            ]);
+    }
+
+
+    private function setNotFound(int $characterId, int $petId): void
+    {
+        \DB::connection()
+            ->table('character_pet_found')
+            ->where('character_id', '=', $characterId)
+            ->where('pet_id', '=', $petId)
+            ->delete();
+    }
 }

@@ -1,3 +1,5 @@
+import Axios from "axios";
+
 /**
  * Abstract parent class for handling localstorage pet actions
  */
@@ -11,60 +13,14 @@ class PetRepository {
 
     /**
      * Set status of a pet
+     * @param characterId
      * @param petId
      * @param status
      */
-    setPetStatus(petId, status) {
-        if (status) {
-            this.addPet(petId);
-        } else {
-            this.removePet(petId);
-        }
-    }
-
-    /**
-     * Add the pet to the list
-     * @param petId
-     */
-    addPet(petId) {
-        const pets = this.getAll();
-
-        if (pets.indexOf(petId) === -1) {
-            pets.push(petId);
-        }
-
-        this.store(pets);
-    }
-
-    /**
-     * Return all the found pets
-     * @returns Array
-     */
-    getAll() {
-        return JSON.parse(localStorage.getItem(this.key)) || [];
-    }
-
-    /**
-     * Store the elements
-     * @param elements
-     */
-    store(elements) {
-        localStorage.setItem(this.key, JSON.stringify(elements.sort()));
-    }
-
-    /**
-     * Remove the pet from the list
-     * @param petId
-     */
-    removePet(petId) {
-        const pets = this.getAll();
-        const index = pets.indexOf(petId);
-
-        if (index !== -1) {
-            pets.splice(index, 1);
-        }
-
-        this.store(pets);
+    setPetStatus(characterId, petId, status) {
+        Axios.post(`/pet/mark/${this.action}`, {
+            characterId, petId, status
+        });
     }
 }
 

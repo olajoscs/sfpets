@@ -27,4 +27,28 @@ interface CharacterPetRepository
      * @return int[]
      */
     public function getFoundPetIds(int $characterId): array;
+
+
+    /**
+     * Set the pet as discovered for the character
+     *
+     * @param int  $characterId
+     * @param int  $petId
+     * @param bool $isDiscovered
+     *
+     * @return void
+     */
+    public function markDiscovered(int $characterId, int $petId, bool $isDiscovered): void;
+
+
+    /**
+     * Set the pet as found for the character
+     *
+     * @param int  $characterId
+     * @param int  $petId
+     * @param bool $isDiscovered
+     *
+     * @return void
+     */
+    public function markFound(int $characterId, int $petId, bool $isDiscovered): void;
 }

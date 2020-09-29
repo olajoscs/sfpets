@@ -42,6 +42,40 @@ class CharacterPetService
 
 
     /**
+     * Set the pet discovery status for the character
+     *
+     * @param int  $characterId
+     * @param int  $petId
+     * @param bool $isDiscovered
+     *
+     * @return void
+     */
+    public function markDiscovered(int $characterId, int $petId, bool $isDiscovered): void
+    {
+        $this->characterPetRepository->markDiscovered($characterId, $petId, $isDiscovered);
+
+        if (!$isDiscovered) {
+            $this->characterPetRepository->markFound($characterId, $petId, false);
+        }
+    }
+
+
+    /**
+     * Set the pet found status for the character
+     *
+     * @param int  $characterId
+     * @param int  $petId
+     * @param bool $isFound
+     *
+     * @return void
+     */
+    public function markFound(int $characterId, int $petId, bool $isFound): void
+    {
+        $this->characterPetRepository->markFound($characterId, $petId, $isFound);
+    }
+
+
+    /**
      * Set the ResponsePet propeties according to the character progress
      *
      * @param Character  $character
