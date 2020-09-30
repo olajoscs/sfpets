@@ -17,11 +17,12 @@ const HUNGARIAN_TRANSLATIONS = {
 
         pet_not_sure: 'A mai napon nem biztos, hogy elérhető ez a kedvenc!',
 
-        character_list_title: 'Karakterek listája',
+        character_list_title: 'Karakterek',
         character_new_title: 'Új karakter',
         character_new_name: 'Karakter neve',
         character_new_ok: 'Létrehozás',
         character_new_cancel: 'Mégse',
+        character_unknown_name: 'Ismeretlen',
     }
 };
 

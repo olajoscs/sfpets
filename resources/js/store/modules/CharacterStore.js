@@ -17,6 +17,7 @@ const getters = {
     getCharacters: state => state.characters,
     getCharacter: state => characterId => getCharacter(state, characterId),
     getCurrentCharacterId: state => state.currentCharacterId || CurrentCharacterRepository.getCurrentCharacterId(),
+    getCurrentCharacter: (state, characterGetters) => getCharacter(state, characterGetters.getCurrentCharacterId) ?? null,
 };
 
 

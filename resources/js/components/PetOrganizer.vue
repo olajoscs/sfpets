@@ -46,7 +46,7 @@
         },
 
         methods: {
-            ...mapActions(['fetchPets'])
+            ...mapActions(['fetchPets', 'fetchCharacters'])
         },
 
         created() {
@@ -58,10 +58,13 @@
             }
 
             this.loading = true;
-            (async () => {
-                await this.fetchPets({currentCharacterId});
+
+            Promise.all([
+                this.fetchPets({currentCharacterId}),
+                this.fetchCharacters()
+            ]).then(() => {
                 this.loading = false;
-            })();
+            });
         }
     }
 </script>

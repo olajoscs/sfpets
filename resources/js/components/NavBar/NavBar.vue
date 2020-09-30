@@ -11,7 +11,10 @@
                     <li>
                         <a href="#/characters">
                             <i class="material-icons left">account_box</i>
-                            <div class="truncate player-name">Árvíztűrő tükörfúrógép</div>
+                            <div class="truncate player-name">
+                                <span v-if="getCurrentCharacter">{{ getCurrentCharacter.name }}</span>
+                                <span v-else>{{ $t(`text.character_unknown_name`) }}</span>
+                            </div>
                         </a>
                     </li>
                     <li>
@@ -30,16 +33,18 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex';
+
     export default {
-        name: "Localization",
-
-        components: {
-
-        },
+        name: "NavBar",
 
         data: () => {
             return {};
-        }
+        },
+
+        computed: {
+            ...mapGetters(['getCurrentCharacter'])
+        },
     };
 </script>
 
