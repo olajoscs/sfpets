@@ -1,6 +1,6 @@
 <template>
     <li class="collection-item avatar" :class="{'red lighten-5': getCurrentCharacterId === this.id}">
-        <img src="http://lorempixel.com/400/400/" alt="" class="pet-image circle responsive-img">
+        <i class="large material-icons pet-image circle responsive-img">person</i>
 
         <span class="title"><strong>{{ character.name }}</strong></span>
 
