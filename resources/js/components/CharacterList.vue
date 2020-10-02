@@ -9,8 +9,9 @@
         <div v-else>
             <ul class="collection with-header">
                 <character v-for="character in getOrderedCharacters"
-                     :key="character.id"
-                     :id="character.id"
+                           @modifyCharacter="modifyCharacter"
+                           :key="character.id"
+                           :id="character.id"
                 ></character>
             </ul>
             <div>
@@ -22,44 +23,8 @@
             </div>
         </div>
 
-        <div id="new-character-modal" class="modal">
+        <new-character-modal ref="newCharacterModal"></new-character-modal>
 
-            <div class="modal-content">
-                <h4>{{ $t('text.character_new_title' )}}</h4>
-                <div class="row">
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <input placeholder=""
-                                       id="name"
-                                       type="text"
-                                       class="validate"
-                                       v-model="newCharacterName"
-                                >
-                                <label for="name">{{ $t('text.character_new_name') }}</label>
-                                <span class="helper-text" data-error=""></span>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div v-if="buttonsLoading" class="modal-footer">
-                <loading></loading>
-            </div>
-
-            <div v-else="buttonsLoading" class="modal-footer">
-                <button @click="submitNewCharacter"
-                        class="waves-effect waves-green btn btn-primary">
-                    {{ $t('text.character_new_ok') }}
-                </button>
-                <button @click="cancelNewCharacter"
-                        class="modal-close waves-effect waves-green btn btn-flat">
-                    {{ $t('text.character_new_cancel') }}
-                </button>
-            </div>
-
-        </div>
     </div>
 
 </template>
@@ -68,7 +33,7 @@
     import {mapActions, mapGetters} from 'vuex';
     import Character from "./Character";
     import Loading from "./Loading";
-    import CharacterService from "./../services/CharacterService";
+    import NewCharacterModal from "./NewCharacterModal";
 
     export default {
         name: "CharacterList",
@@ -77,71 +42,25 @@
             return {
                 characters: [],
                 loading: false,
-                buttonsLoading: false,
-                newCharacterName: '',
-                modals: null,
             };
         },
 
         components: {
+            NewCharacterModal,
             Character,
             Loading
         },
 
         methods: {
-            ...mapActions(['fetchCharacters', 'addCharacter']),
+            ...mapActions(['fetchCharacters']),
 
             openNewCharacterModal: function() {
-                this.modals = M.Modal.init(document.querySelectorAll('#new-character-modal'));
+                this.$refs.newCharacterModal.open();
             },
 
-            closeAllModals: function() {
-                this.modals.forEach((modal) => {
-                    modal.close();
-                });
-            },
-
-            submitNewCharacter: function() {
-                this.buttonsLoading = true;
-                this.hideAllError();
-
-                (async () => {
-                    const response = await CharacterService.submit({name: this.newCharacterName});
-
-                    if (response.status !== 'ok') {
-                        this.showErrors(response.errors);
-                        this.buttonsLoading = false;
-                        return;
-                    }
-
-                    this.newCharacterName = '';
-                    this.buttonsLoading = false;
-
-                    const character = response.character;
-
-                    this.addCharacter({character});
-                    this.closeAllModals();
-                })();
-            },
-
-            showErrors: function(errors) {
-                _.forOwn(errors, (values, key) => {
-                    document.querySelectorAll(`#${key}`).forEach((node) => {
-                        node.classList.add('invalid');
-                        node.parentElement.querySelector('.helper-text').setAttribute('data-error', values.join("<br>"));
-                    })
-                });
-            },
-
-            hideAllError: function() {
-                document.querySelectorAll('input').forEach((node) => {
-                    node.classList.remove('invalid');
-                });
-            },
-
-            cancelNewCharacter: function() {
-                this.newCharacterName = '';
-            },
+            modifyCharacter(character) {
+                console.log(character);
+            }
         },
 
         computed: {
