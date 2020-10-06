@@ -1,39 +1,41 @@
 <template>
     <div id="new-character-modal" class="modal">
-        <div class="modal-content">
-            <h4>{{ $t('text.character_new_title' )}}</h4>
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input placeholder=""
-                                   id="new-name"
-                                   type="text"
-                                   class="validate element-name"
-                                   v-model="newCharacterName"
-                            >
-                            <label for="new-name">{{ $t('text.character_new_name') }}</label>
-                            <span class="helper-text" data-error=""></span>
+        <form @submit.prevent="submitNewCharacter">
+            <div class="modal-content">
+                <h4>{{ $t('text.character_new_title' )}}</h4>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input placeholder=""
+                                       id="new-name"
+                                       type="text"
+                                       class="validate element-name"
+                                       v-model="newCharacterName"
+                                >
+                                <label for="new-name">{{ $t('text.character_new_name') }}</label>
+                                <span class="helper-text" data-error=""></span>
+                            </div>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
 
-        <div v-if="buttonsLoading" class="modal-footer">
-            <loading></loading>
-        </div>
+            <div v-if="buttonsLoading" class="modal-footer">
+                <loading></loading>
+            </div>
 
-        <div v-else="buttonsLoading" class="modal-footer">
-            <button @click="submitNewCharacter"
-                    class="waves-effect waves-green btn btn-primary">
-                {{ $t('text.character_new_ok') }}
-            </button>
-            <button @click="cancelNewCharacter"
-                    class="modal-close waves-effect waves-green btn btn-flat">
-                {{ $t('text.character_new_cancel') }}
-            </button>
-        </div>
+            <div v-else="buttonsLoading" class="modal-footer">
+                <button @click="submitNewCharacter"
+                        class="waves-effect waves-green btn btn-primary">
+                    {{ $t('text.character_new_ok') }}
+                </button>
+                <a @click="cancelNewCharacter"
+                        class="modal-close waves-effect waves-green btn btn-flat">
+                    {{ $t('text.character_new_cancel') }}
+                </a>
+            </div>
+        </form>
     </div>
 </template>
 
