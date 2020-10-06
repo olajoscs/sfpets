@@ -23,6 +23,10 @@ const HUNGARIAN_TRANSLATIONS = {
         character_new_ok: 'Létrehozás',
         character_new_cancel: 'Mégse',
         character_unknown_name: 'Ismeretlen',
+
+        character_modify_title: 'Módosítás',
+        character_modify_ok: 'Módosítás',
+        character_modify_cancel: 'Mégse',
     }
 };
 

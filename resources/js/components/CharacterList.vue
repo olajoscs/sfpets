@@ -24,6 +24,7 @@
         </div>
 
         <new-character-modal ref="newCharacterModal"></new-character-modal>
+        <modify-character-modal ref="modifyCharacterModal"></modify-character-modal>
 
     </div>
 
@@ -34,6 +35,7 @@
     import Character from "./Character";
     import Loading from "./Loading";
     import NewCharacterModal from "./NewCharacterModal";
+    import ModifyCharacterModal from "./ModifyCharacterModal";
 
     export default {
         name: "CharacterList",
@@ -46,6 +48,7 @@
         },
 
         components: {
+            ModifyCharacterModal,
             NewCharacterModal,
             Character,
             Loading
@@ -58,8 +61,12 @@
                 this.$refs.newCharacterModal.open();
             },
 
-            modifyCharacter(character) {
-                console.log(character);
+            modifyCharacter: function(character) {
+                this.openModifyCharacterModal(character);
+            },
+
+            openModifyCharacterModal: function(character) {
+                this.$refs.modifyCharacterModal.open(character);
             }
         },
 

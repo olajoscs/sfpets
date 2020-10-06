@@ -60,6 +60,21 @@ class CharacterController extends Controller
     }
 
 
+    public function update(Request $request): JsonResponse
+    {
+        $user = $this->JWTAuth->getUser();
+
+        $validated = $request->validate([
+            'id' => ['required', 'integer', 'exists:characters'],
+            'name' => ['required', 'max:255', 'min:3'],
+        ]);
+
+        $character = $this->characterService->update($user, $validated);
+
+        return \Response::json($character);
+    }
+
+
     public function delete(Request $request): JsonResponse
     {
         $user = $this->JWTAuth->getUser();

@@ -23,6 +23,10 @@ const ENGLISH_TRANSLATIONS = {
         character_new_ok: 'Create',
         character_new_cancel: 'Cancel',
         character_unknown_name: 'Unknown',
+
+        character_modify_title: 'Modify',
+        character_modify_ok: 'Modify',
+        character_modify_cancel: 'Cancel',
     }
 };
 

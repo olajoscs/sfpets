@@ -7,11 +7,12 @@
                     <div class="row">
                         <div class="input-field col s6">
                             <input placeholder=""
+                                   id="new-name"
                                    type="text"
                                    class="validate element-name"
                                    v-model="newCharacterName"
                             >
-                            <label for="name">{{ $t('text.character_new_name') }}</label>
+                            <label for="new-name">{{ $t('text.character_new_name') }}</label>
                             <span class="helper-text" data-error=""></span>
                         </div>
                     </div>
@@ -61,12 +62,19 @@
             ...mapActions(['addCharacter']),
 
             open: function() {
-                this.openModal('#new-character-modal');
-            },
-
-            openModal: function(selector) {
-                this.modals = M.Modal.init(document.querySelectorAll(selector));
+                this.modals = M.Modal.init(
+                    document.querySelectorAll('#new-character-modal'),
+                    {
+                        onOpenEnd: () => {
+                            document.querySelector('#new-name').focus();
+                        }
+                    }
+                );
                 this.hideAllError();
+
+                this.modals.forEach((modal) => {
+                    modal.open();
+                });
             },
 
             hideAllError: function() {

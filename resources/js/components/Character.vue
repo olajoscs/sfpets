@@ -10,6 +10,11 @@
                 <i class="material-icons">check</i>
             </a>
 
+            <a @click="modify"
+               class="waves-effect waves-light btn btn-small">
+                <i class="material-icons">edit</i>
+            </a>
+
             <a @click="remove"
                class="waves-effect waves-light btn btn-small red lighten-3">
                 <i class="material-icons">delete_forever</i>
@@ -49,6 +54,10 @@
                     this.deleteCharacter({characterId: this.id});
                 }
             },
+
+            modify: function() {
+                this.$emit('modifyCharacter', this.character);
+            }
         },
     }
 </script>
