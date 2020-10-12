@@ -24,7 +24,7 @@
 <script>
     import Pet from './Pet';
     import _ from 'lodash';
-    import helpers from '../helpers';
+    import helpers from '../../helpers';
 
     export default {
         name: "PetList",

@@ -38,7 +38,7 @@
 
 <script>
     import {mapActions, mapGetters} from 'vuex';
-    import helpers from '../helpers';
+    import helpers from '../../helpers';
 
     export default {
         name: "Pet",

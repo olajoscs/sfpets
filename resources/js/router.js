@@ -1,5 +1,5 @@
 import PetOrganizer from "./components/PetOrganizer";
-import CharacterList from "./components/CharacterList";
+import CharacterList from "./components/Character/CharacterList";
 import VueRouter from "vue-router";
 
 export default new VueRouter({

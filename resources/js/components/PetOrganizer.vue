@@ -22,8 +22,8 @@
 <script>
     import Loading from './Loading';
     import { mapGetters, mapActions } from "vuex";
-    import PetListGroup from './PetListGroup';
-    import PetFirsts from './PetFirsts';
+    import PetListGroup from './Pet/PetListGroup';
+    import PetFirsts from './Pet/PetFirsts';
     import CurrentCharacterRepository from './../services/CurrentCharacterRepository';
 
     export default {

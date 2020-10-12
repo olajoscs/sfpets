@@ -1,19 +1,19 @@
 <template>
-    <div id="new-character-modal" class="modal">
-        <form @submit.prevent="submitNewCharacter">
+    <div id="modify-character-modal" class="modal">
+        <form @submit.prevent="submitModifyCharacter" action="">
             <div class="modal-content">
-                <h4>{{ $t('text.character_new_title' )}}</h4>
+                <h4>{{ $t('text.character_modify_title' )}}</h4>
                 <div class="row">
                     <div class="col s12">
                         <div class="row">
                             <div class="input-field col s6">
                                 <input placeholder=""
-                                       id="new-name"
+                                       id="modify-name"
                                        type="text"
                                        class="validate element-name"
-                                       v-model="newCharacterName"
+                                       v-model="character.name"
                                 >
-                                <label for="new-name">{{ $t('text.character_new_name') }}</label>
+                                <label for="modify-name">{{ $t('text.character_new_name') }}</label>
                                 <span class="helper-text" data-error=""></span>
                             </div>
                         </div>
@@ -26,13 +26,13 @@
             </div>
 
             <div v-else="buttonsLoading" class="modal-footer">
-                <button @click="submitNewCharacter"
+                <button type="submit"
                         class="waves-effect waves-green btn btn-primary">
-                    {{ $t('text.character_new_ok') }}
+                    {{ $t('text.character_modify_ok') }}
                 </button>
-                <a @click="cancelNewCharacter"
-                        class="modal-close waves-effect waves-green btn btn-flat">
-                    {{ $t('text.character_new_cancel') }}
+                <a @click="cancelModifyCharacter"
+                    class="modal-close waves-effect waves-green btn btn-flat">
+                    {{ $t('text.character_modify_cancel') }}
                 </a>
             </div>
         </form>
@@ -42,11 +42,11 @@
 
 <script>
     import {mapActions} from 'vuex';
-    import CharacterService from "./../services/CharacterService";
-    import Loading from "./Loading";
+    import CharacterService from "../../services/CharacterService";
+    import Loading from "../Loading";
 
     export default {
-        name: "NewCharacterModal",
+        name: "ModifyCharacterModal",
 
         components: {
             Loading
@@ -54,27 +54,32 @@
 
         data: () => {
             return {
+                characterData: {},
+                modal: null,
                 modals: null,
                 buttonsLoading: false,
-                newCharacterName: '',
+                character: '',
             };
         },
 
         methods: {
             ...mapActions(['addCharacter']),
 
-            open: function() {
+            open: function(character) {
                 this.modals = M.Modal.init(
-                    document.querySelectorAll('#new-character-modal'),
+                    document.querySelectorAll('#modify-character-modal'),
                     {
                         onOpenEnd: () => {
-                            document.querySelector('#new-name').focus();
+                            document.querySelector('#modify-name').focus();
                         }
                     }
                 );
+
+                this.character = character;
+
                 this.hideAllError();
 
-                this.modals.forEach((modal) => {
+                this.modals.forEach(modal => {
                     modal.open();
                 });
             },
@@ -85,12 +90,15 @@
                 });
             },
 
-            submitNewCharacter: function() {
+            submitModifyCharacter: function() {
                 this.buttonsLoading = true;
                 this.hideAllError();
 
                 (async () => {
-                    const response = await CharacterService.submit({name: this.newCharacterName});
+                    const response = await CharacterService.modify({
+                        id: this.character.id,
+                        name: this.character.name
+                    });
 
                     if (response.status !== 'ok') {
                         this.showErrors(response.errors);
@@ -98,12 +106,9 @@
                         return;
                     }
 
-                    this.newCharacterName = '';
+                    this.character = {};
                     this.buttonsLoading = false;
 
-                    const character = response.character;
-
-                    this.addCharacter({character});
                     this.closeAllModals();
                 })();
             },
@@ -117,8 +122,8 @@
                 });
             },
 
-            cancelNewCharacter: function() {
-                this.newCharacterName = '';
+            cancelModifyCharacter: function() {
+                this.characterName = '';
             },
 
             closeAllModals: function() {

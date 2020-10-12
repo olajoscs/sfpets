@@ -33,7 +33,7 @@
 <script>
     import {mapActions, mapGetters} from 'vuex';
     import Character from "./Character";
-    import Loading from "./Loading";
+    import Loading from "../Loading";
     import NewCharacterModal from "./NewCharacterModal";
     import ModifyCharacterModal from "./ModifyCharacterModal";
 
