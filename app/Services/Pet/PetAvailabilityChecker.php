@@ -158,7 +158,7 @@ class PetAvailabilityChecker
 
     private function isHalloween(\DateTimeImmutable $date): bool
     {
-        return (int)$date->format('m') === 10 && (int)$date->format('d') === 31;
+        return (int)$date->format('m') === 10;
     }
 
 
