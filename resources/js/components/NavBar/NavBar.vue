@@ -1,8 +1,16 @@
 <template>
     <div>
         <ul id="dropdown-locale" class="dropdown-content">
-            <li><a href="/locale/set/hu"><img src="/images/hungary.svg" :alt="$t('text.language_hungarian')"></a></li>
-            <li><a href="/locale/set/en"><img src="/images/uk.svg" :alt="$t('text.language_english')"></a></li>
+            <li>
+                <a href="/locale/set/hu">
+                    {{ $t('text.language_hungarian') }}
+                </a>
+            </li>
+            <li>
+                <a href="/locale/set/en">
+                    {{ $t('text.language_english') }}
+                </a>
+            </li>
         </ul>
         <nav class="nav">
             <div class="nav-wrapper">
@@ -22,8 +30,7 @@
                            href="#!"
                            data-activates="dropdown-locale"
                            data-target="dropdown-locale">
-                            <i class="material-icons left locale-icon">flag</i>
-                            <i class="material-icons right locale-dropdown-icon">arrow_drop_down</i>
+                            <i class="material-icons left locale-icon">menu</i>
                         </a>
                     </li>
                 </ul>
@@ -48,7 +55,7 @@
     };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     .locale-icon {
         margin-right: 0;
         padding-right: 15px;
@@ -62,11 +69,17 @@
         width: 50px;
     }
 
-    #dropdown-locale a {
-        padding: 5px 5px 0 5px;
-    }
+    #dropdown-locale li {
+        margin: 0;
+        padding: 0;
 
-    #dropdown-locale a img {
-        width: 40px;
+        a {
+            margin: 0;
+            padding: 13px;
+
+            img {
+                width: 40px;
+            }
+        }
     }
 </style>
