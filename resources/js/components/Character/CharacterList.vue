@@ -88,12 +88,10 @@
             }
         },
 
-        created() {
+        async created() {
             this.loading = true;
-            (async () => {
-                await this.fetchCharacters();
-                this.loading = false;
-            })();
+            await this.fetchCharacters();
+            this.loading = false;
         }
     }
 </script>

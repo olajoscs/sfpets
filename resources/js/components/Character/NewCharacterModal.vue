@@ -85,27 +85,25 @@
                 });
             },
 
-            submitNewCharacter: function() {
+            submitNewCharacter: async function() {
                 this.buttonsLoading = true;
                 this.hideAllError();
 
-                (async () => {
-                    const response = await CharacterService.submit({name: this.newCharacterName});
+                const response = await CharacterService.submit({name: this.newCharacterName});
 
-                    if (response.status !== 'ok') {
-                        this.showErrors(response.errors);
-                        this.buttonsLoading = false;
-                        return;
-                    }
-
-                    this.newCharacterName = '';
+                if (response.status !== 'ok') {
+                    this.showErrors(response.errors);
                     this.buttonsLoading = false;
+                    return;
+                }
 
-                    const character = response.character;
+                this.newCharacterName = '';
+                this.buttonsLoading = false;
 
-                    this.addCharacter({character});
-                    this.closeAllModals();
-                })();
+                const character = response.character;
+
+                this.addCharacter({character});
+                this.closeAllModals();
             },
 
             showErrors: function(errors) {

@@ -90,27 +90,25 @@
                 });
             },
 
-            submitModifyCharacter: function() {
+            submitModifyCharacter: async function() {
                 this.buttonsLoading = true;
                 this.hideAllError();
 
-                (async () => {
-                    const response = await CharacterService.modify({
-                        id: this.character.id,
-                        name: this.character.name
-                    });
+                const response = await CharacterService.modify({
+                    id: this.character.id,
+                    name: this.character.name
+                });
 
-                    if (response.status !== 'ok') {
-                        this.showErrors(response.errors);
-                        this.buttonsLoading = false;
-                        return;
-                    }
-
-                    this.character = {};
+                if (response.status !== 'ok') {
+                    this.showErrors(response.errors);
                     this.buttonsLoading = false;
+                    return;
+                }
 
-                    this.closeAllModals();
-                })();
+                this.character = {};
+                this.buttonsLoading = false;
+
+                this.closeAllModals();
             },
 
             showErrors: function(errors) {
