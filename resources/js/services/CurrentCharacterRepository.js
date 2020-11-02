@@ -6,7 +6,7 @@ class CurrentCharacterRepository {
     }
 
     /**
-     * Mark the character as currejnt character
+     * Mark the character as current character
      * @param characterId int
      */
     setCurrentCharacterId(characterId) {
