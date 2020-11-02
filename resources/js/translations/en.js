@@ -9,6 +9,7 @@ const ENGLISH_TRANSLATIONS = {
         pet_list_discovered_title: 'Today available pets',
         pet_list_found_title: 'Found pets',
         pet_list_all_title: 'All pets',
+        pet_list_no_pets: 'No available pets',
 
         pet_not_found: 'Not found: {pet}',
         pet_found: 'Found: {pet}',

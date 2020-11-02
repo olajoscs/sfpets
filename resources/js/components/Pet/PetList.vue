@@ -45,7 +45,7 @@
             },
 
             shouldShowCollapsibleHeader: function() {
-                return this.type !== 'firsts';
+                return ['firsts'].indexOf(this.type) === -1;
             }
         },
 

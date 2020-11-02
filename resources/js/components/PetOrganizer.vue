@@ -5,7 +5,6 @@
     <div v-else>
         <pet-firsts></pet-firsts>
         <pet-list-group
-            v-show="this.discoveredPets.length > 0"
             :title="$t('text.pet_list_discovered_title')"
             :pets="this.discoveredPets"
             :type="'discovered'"></pet-list-group>

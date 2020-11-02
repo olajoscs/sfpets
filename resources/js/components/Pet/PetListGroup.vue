@@ -1,12 +1,13 @@
 <template>
     <ul class="pet-list-group" :class="{'collapsible': shouldShowCollapsible}">
-        <li :class="{'active': shouldShowCollapsible && shouldBeExpandedAutomatically}">
-            <div :class="{'collapsible-header': shouldShowCollapsible}">
+        <li :class="{'active': shouldShowCollapsible && shouldBeExpandedAutomatically && hasPet}">
+            <div :class="{'collapsible-header': shouldShowCollapsible && hasPet, 'empty-header': !hasPet}">
                 <div class="row">
                     <h4>{{ title }}</h4>
                 </div>
             </div>
-            <div :class="{'collapsible-body': shouldShowCollapsible}">
+            <div v-if="hasPet"
+                 :class="{'collapsible-body': shouldShowCollapsible && hasPet}">
                 <pet-list v-for="(petIds, category) in categorizedIds"
                           :pet-ids="petIds"
                           :title="category"
@@ -14,17 +15,22 @@
                           :type="type"
                 ></pet-list>
             </div>
+            <div v-else>
+                <empty-pet-list-group></empty-pet-list-group>
+            </div>
         </li>
     </ul>
 </template>
 
 <script>
     import PetList from './PetList';
+    import EmptyPetListGroup from "./EmptyPetListGroup";
 
     export default {
         name: "PetListGroup",
 
         components: {
+            EmptyPetListGroup,
             PetList
         },
 
@@ -46,6 +52,10 @@
                 });
 
                 return categorizedIds;
+            },
+
+            hasPet: function () {
+                return this.pets.length > 0;
             },
 
             shouldShowCollapsible: function() {
@@ -87,6 +97,11 @@
             padding: 0;
             width: 100%;
             margin: 0;
+        }
+
+        .empty-header {
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
         }
     }
 </style>

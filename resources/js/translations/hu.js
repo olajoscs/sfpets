@@ -9,6 +9,7 @@ const HUNGARIAN_TRANSLATIONS = {
         pet_list_discovered_title: 'Ma megtalálható kedvencek',
         pet_list_found_title: 'Megtalált kedvencek',
         pet_list_all_title: 'Összes kedvenc',
+        pet_list_no_pets: 'Nincs megjeleníthető kedvenc',
 
         pet_not_found: 'Mégsincs megszerezve: {pet}',
         pet_found: 'Megszerezve: {pet}',
