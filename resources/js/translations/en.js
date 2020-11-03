@@ -2,8 +2,9 @@ const ENGLISH_TRANSLATIONS = {
     text: {
         app_title: 'PetTracker',
 
-        language_english: 'English',
-        language_hungarian: 'Magyar',
+        navbar_language_english: 'English',
+        navbar_language_hungarian: 'Magyar',
+        navbar_current_character: 'Selected: {name}',
 
         pet_list_firsts_title: 'Possible discoveries',
         pet_list_discovered_title: 'Today available pets',

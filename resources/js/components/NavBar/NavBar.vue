@@ -2,13 +2,18 @@
     <div>
         <ul id="dropdown-locale" class="dropdown-content">
             <li>
+                <a href="#/characters">
+                    {{ $t('text.navbar_current_character', {name: getCurrentCharacter ? getCurrentCharacter.name : $t('text.character_unknown_name') })}}
+                </a>
+            </li>
+            <li>
                 <a href="/locale/set/hu">
-                    {{ $t('text.language_hungarian') }}
+                    {{ $t('text.navbar_language_hungarian') }}
                 </a>
             </li>
             <li>
                 <a href="/locale/set/en">
-                    {{ $t('text.language_english') }}
+                    {{ $t('text.navbar_language_english') }}
                 </a>
             </li>
         </ul>
@@ -16,15 +21,6 @@
             <div class="nav-wrapper">
                 <a href="#/" class="brand-logo left">{{ $t(`text.app_title`) }}</a>
                 <ul class="right">
-                    <li>
-                        <a href="#/characters">
-                            <i class="material-icons left">account_box</i>
-                            <div class="truncate player-name">
-                                <span v-if="getCurrentCharacter">{{ getCurrentCharacter.name }}</span>
-                                <span v-else>{{ $t(`text.character_unknown_name`) }}</span>
-                            </div>
-                        </a>
-                    </li>
                     <li>
                         <a class="dropdown-button dropdown-trigger"
                            href="#!"
@@ -56,29 +52,17 @@
 </script>
 
 <style scoped lang="scss">
-    .locale-icon {
-        margin-right: 0;
-        padding-right: 15px;
-    }
 
-    .locale-dropdown-icon {
-        margin-left: 0;
-    }
+    #dropdown-locale {
+        min-width: 100%;
 
-    .player-name {
-        width: 50px;
-    }
-
-    #dropdown-locale li {
-        margin: 0;
-        padding: 0;
-
-        a {
+        li {
             margin: 0;
-            padding: 13px;
+            padding: 0;
 
-            img {
-                width: 40px;
+            a {
+                margin: 0;
+                padding: 1rem;
             }
         }
     }

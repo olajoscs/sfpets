@@ -26,14 +26,14 @@
             </div>
 
             <div v-else="buttonsLoading" class="modal-footer">
+                <a @click="cancelModifyCharacter"
+                   class="modal-close waves-effect waves-green btn btn-flat">
+                    {{ $t('text.character_modify_cancel') }}
+                </a>
                 <button type="submit"
                         class="waves-effect waves-green btn btn-primary">
                     {{ $t('text.character_modify_ok') }}
                 </button>
-                <a @click="cancelModifyCharacter"
-                    class="modal-close waves-effect waves-green btn btn-flat">
-                    {{ $t('text.character_modify_cancel') }}
-                </a>
             </div>
         </form>
     </div>
