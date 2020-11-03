@@ -59,21 +59,15 @@ class JWTService
      */
     public function setUserFromRequest(Request $request): void
     {
-        $token = $this->getTokenFrom($request);
+        $tokenString = $this->getTokenFrom($request);
 
-        $user = null;
-        if ($token !== null) {
-            $parsed = $this->decode($token, \Config::get('jwt.secret'));
-            $token = $this->tokenRepository->getByUuid($parsed->uuid);
+        $token = null;
+        if ($tokenString !== null) {
+            $parsed = $this->decode($tokenString, \Config::get('jwt.secret'));
+            $token = $this->tokenRepository->findByUuid($parsed->uuid);
             $user = $this->userRepository->findById($token->user_id);
-        }
-
-
-        if ($user === null) {
+        } else {
             $user = $this->userRepository->create();
-        }
-
-        if ($token === null) {
             $token = $this->tokenRepository->create($user->id);
         }
 

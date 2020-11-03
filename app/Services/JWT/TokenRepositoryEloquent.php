@@ -22,7 +22,7 @@ class TokenRepositoryEloquent implements TokenRepository
     }
 
 
-    public function getByUuid(string $uuid): Token
+    public function findByUuid(string $uuid): Token
     {
         $token = Token::find($uuid);
 
