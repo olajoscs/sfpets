@@ -25,10 +25,10 @@ class JWTBody
     public $iat;
 
 
-    public function __construct(?string $userId = null, ?\DateTimeImmutable $issuedAt = null)
+    public function __construct(?string $uuid = null, ?\DateTimeImmutable $issuedAt = null)
     {
-        if ($userId !== null) {
-            $this->uuid = $userId;
+        if ($uuid !== null) {
+            $this->uuid = $uuid;
         }
 
         if ($issuedAt !== null) {

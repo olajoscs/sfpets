@@ -9,6 +9,8 @@ use App\Services\Character\CharacterRepositoryEloquent;
 use App\Services\CurrentDateProvider;
 use App\Services\DateProvider;
 use App\Services\JWT\JWTAuth;
+use App\Services\JWT\TokenRepository;
+use App\Services\JWT\TokenRepositoryEloquent;
 use App\Services\Pet\PetRepository;
 use App\Services\Pet\PetRepositoryEloquent;
 use App\Services\User\UserRepository;
@@ -23,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
         UserRepository::class => UserRepositoryEloquent::class,
         CharacterRepository::class => CharacterRepositoryEloquent::class,
         CharacterPetRepository::class => CharacterPetRepositoryEloquent::class,
+        TokenRepository::class => TokenRepositoryEloquent::class
     ];
 
 
