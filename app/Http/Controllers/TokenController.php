@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Models\JWT\Token;
 use App\Services\JWT\JWTAuth;
 use App\Services\JWT\JWTService;
 use Illuminate\Http\JsonResponse;
@@ -36,7 +37,7 @@ class TokenController extends Controller
     {
         $user = $this->JWTAuth->getUser();
 
-        $token = $this->JWTService->generateToken($user);
+        $token = $this->JWTService->generateToken($user, Token::SOURCE_USER);
 
         return response()->json([
             'status' => 'ok',

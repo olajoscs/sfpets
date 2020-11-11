@@ -26,11 +26,12 @@ interface TokenRepository
     /**
      * Create a new Token
      *
-     * @param int $userId
+     * @param int    $userId
+     * @param string $source
      *
      * @return Token
      */
-    public function create(int $userId): Token;
+    public function create(int $userId, string $source): Token;
 
 
     /**

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\JWT;
 
 use App\Models\JWT\JWTBody;
+use App\Models\JWT\Token;
 use App\Models\User\User;
 use App\Services\DateProvider;
 use App\Services\User\UserRepository;
@@ -97,7 +98,7 @@ class JWTService
             $user = $this->userRepository->findById($token->user_id);
         } else {
             $user = $this->userRepository->create();
-            $token = $this->tokenRepository->create($user->id);
+            $token = $this->tokenRepository->create($user->id, Token::SOURCE_AUTOMATIC);
         }
 
         $this->tokenRepository->markAsSeen($token);
@@ -165,9 +166,17 @@ class JWTService
     }
 
 
-    public function generateToken(User $user): string
+    /**
+     * Generate a new token for the user
+     *
+     * @param User   $user
+     * @param string $source
+     *
+     * @return string Encoded token
+     */
+    public function generateToken(User $user, string $source): string
     {
-        $token = $this->tokenRepository->create($user->id);
+        $token = $this->tokenRepository->create($user->id, $source);
 
         return $this->generate($token->uuid);
     }

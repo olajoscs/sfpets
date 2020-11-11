@@ -28,7 +28,7 @@ class TokenRepositoryEloquent implements TokenRepository
     }
 
 
-    public function create(int $userId): Token
+    public function create(int $userId, string $source): Token
     {
         $token = new Token();
 
@@ -36,7 +36,7 @@ class TokenRepositoryEloquent implements TokenRepository
         $token->user_id = $userId;
         $token->created_at = $this->dateProvider->getNow();
         $token->active = true;
-        $token->source = Token::SOURCE_AUTOMATIC;
+        $token->source = $source;
 
         $token->save();
 
