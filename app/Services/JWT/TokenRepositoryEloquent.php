@@ -50,4 +50,17 @@ class TokenRepositoryEloquent implements TokenRepository
 
         $token->save();
     }
+
+
+    public function invalidateOldTokens(): int
+    {
+        return Token::where(
+            'last_seen',
+            '<',
+            $this->dateProvider->getToday()->modify('-' . self::MAX_ACTIVE_AGE)
+        )
+            ->update([
+                'active' => false,
+            ]);
+    }
 }

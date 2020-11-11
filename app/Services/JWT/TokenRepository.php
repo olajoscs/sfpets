@@ -11,6 +11,8 @@ use App\Models\JWT\Token;
  */
 interface TokenRepository
 {
+    public const MAX_ACTIVE_AGE = '30 day';
+
     /**
      * Return the token by the UUID
      *
@@ -39,4 +41,12 @@ interface TokenRepository
      * @return void
      */
     public function markAsSeen(Token $token): void;
+
+
+    /**
+     * Invalidate all the old tokens, which have not been seen for a while
+     *
+     * @return int Invalidated token count
+     */
+    public function invalidateOldTokens(): int;
 }
