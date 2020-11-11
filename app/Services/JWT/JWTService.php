@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\JWT;
 
 use App\Models\JWT\JWTBody;
+use App\Models\User\User;
 use App\Services\DateProvider;
 use App\Services\User\UserRepository;
 use Firebase\JWT\JWT;
@@ -51,16 +52,44 @@ class JWTService
 
 
     /**
-     * Set the authenticated user from the http request
+     * Set the authenticated user from the http request cookie
      *
      * @param Request $request
      *
      * @return void
      */
-    public function setUserFromRequest(Request $request): void
+    public function setUserFromCookie(Request $request): void
     {
         $tokenString = $this->getTokenFrom($request);
 
+        $this->setUser($tokenString);
+    }
+
+
+    /**
+     * Set the authenticated user from the http request body
+     *
+     * @param Request $request
+     *
+     * @return void
+     */
+    public function setUserFromBody(Request $request): void
+    {
+        $tokenString = $request->get('token');
+
+        $this->setUser($tokenString);
+    }
+
+
+    /**
+     * Set the authenticated user from the token from the request
+     *
+     * @param string|null $tokenString
+     *
+     * @return void
+     */
+    private function setUser(?string $tokenString): void
+    {
         $token = null;
         if ($tokenString !== null) {
             $parsed = $this->decode($tokenString, \Config::get('jwt.secret'));
@@ -87,7 +116,7 @@ class JWTService
      */
     public function setJWTTokenCookie(Response $response): Response
     {
-        $generatedToken = $this->generate($this->JWTAuth->getToken()->uuid, \Config::get('jwt.secret'));
+        $generatedToken = $this->generate($this->JWTAuth->getToken()->uuid);
 
         return $response->cookie(\Cookie::forever(self::COOKIE_NAME, $generatedToken));
     }
@@ -113,14 +142,13 @@ class JWTService
     /**
      * Generate the jwt token for the user
      *
-     * @param string $userId
-     * @param string $key
+     * @param string $uuid
      *
      * @return string Encoded token
      */
-    private function generate(string $userId, string $key): string
+    private function generate(string $uuid): string
     {
-        return $this->encode(new JWTBody($userId, $this->dateProvider->getNow()), $key);
+        return $this->encode(new JWTBody($uuid, $this->dateProvider->getNow()), \Config::get('jwt.secret'));
     }
 
 
@@ -134,5 +162,13 @@ class JWTService
     private function getTokenFrom(Request $request): ?string
     {
         return $request->cookie(self::COOKIE_NAME);
+    }
+
+
+    public function generateToken(User $user): string
+    {
+        $token = $this->tokenRepository->create($user->id);
+
+        return $this->generate($token->uuid);
     }
 }

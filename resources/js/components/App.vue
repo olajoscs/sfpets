@@ -9,6 +9,7 @@
 
 
 <script>
+    import {mapActions} from 'vuex';
     import PetOrganizer from './PetOrganizer';
     import NavBar from './NavBar/NavBar';
 
@@ -23,6 +24,16 @@
         data: () => {
             return {}
         },
+
+        methods: {
+            ...mapActions(['fetchCharacters']),
+        },
+
+        async created() {
+            this.loading = true;
+            await this.fetchCharacters();
+            this.loading = false;
+        }
     };
 </script>
 

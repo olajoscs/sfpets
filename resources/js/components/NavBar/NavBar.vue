@@ -16,7 +16,13 @@
                     {{ $t('text.navbar_language_english') }}
                 </a>
             </li>
+            <li>
+                <a href="#/generate-token">
+                    {{ $t('text.navbar_generate_token') }}
+                </a>
+            </li>
         </ul>
+
         <nav class="nav">
             <div class="nav-wrapper">
                 <a href="#/" class="brand-logo left">{{ $t(`text.app_title`) }}</a>
@@ -37,6 +43,7 @@
 
 <script>
     import {mapGetters} from 'vuex';
+    import helpers from "../../helpers";
 
     export default {
         name: "NavBar",
@@ -48,13 +55,18 @@
         computed: {
             ...mapGetters(['getCurrentCharacter'])
         },
+
+        mounted() {
+            helpers.initUiComponents();
+        }
     };
 </script>
 
 <style scoped lang="scss">
 
     #dropdown-locale {
-        min-width: 100%;
+        width: max-content !important;
+        height: max-content !important;
 
         li {
             margin: 0;

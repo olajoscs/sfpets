@@ -25,3 +25,9 @@ Route::delete('/character', 'CharacterController@delete');
 
 Route::post('/pet/mark/discovered', 'PetListController@markDiscovered');
 Route::post('/pet/mark/found', 'PetListController@markFound');
+
+Route::get('token/generate', 'TokenController@generate');
+Route::post('token/apply', 'TokenController@apply');
+
+Route::get('token/generate', 'TokenController@generate');
+Route::post('token/apply', 'TokenController@apply');

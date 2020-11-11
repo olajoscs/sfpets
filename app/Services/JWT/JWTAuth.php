@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Services\JWT;
 
-use App\Exceptions\MultipleUserSetException;
 use App\Models\JWT\Token;
 use App\Models\User\User;
 
@@ -33,14 +32,9 @@ class JWTAuth
      * @param User $user
      *
      * @return void
-     * @throws MultipleUserSetException When the user is already set
      */
     public function setUser(User $user): void
     {
-        if ($this->user !== null) {
-            throw new MultipleUserSetException('User already set: ' . $this->user->id);
-        }
-
         $this->user = $user;
     }
 

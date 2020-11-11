@@ -9,10 +9,12 @@ import ENGLISH_TRANSLATIONS from "./translations/en";
 import HUNGARIAN_TRANSLATIONS from "./translations/hu";
 import VueRouter from 'vue-router';
 import router from './router';
+import VueClipboard from 'vue-clipboard2';
 
 Vue.use(VueI18n);
 Vue.use(Vuex);
 Vue.use(VueRouter);
+Vue.use(VueClipboard);
 
 const TRANSLATIONS = {
     en: ENGLISH_TRANSLATIONS,

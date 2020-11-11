@@ -24,7 +24,7 @@ class JWTMiddleware
 
     public function handle(Request $request, \Closure $next)
     {
-        $this->JWTService->setUserFromRequest($request);
+        $this->JWTService->setUserFromCookie($request);
 
         /** @var Response $response */
         $response = $next($request);

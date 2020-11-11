@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>{{ $t('text.character_list_title') }}</h2>
+        <h4>{{ $t('text.character_list_title') }}</h4>
 
         <div v-if="this.loading">
             <loading></loading>

@@ -4,6 +4,7 @@ const HUNGARIAN_TRANSLATIONS = {
 
         navbar_language_english: 'English',
         navbar_language_hungarian: 'Magyar',
+        navbar_generate_token: 'Belépek más eszközön',
         navbar_current_character: 'Kiválasztva: {name}',
 
         pet_list_firsts_title: 'Lehetséges felfedezések',
@@ -29,6 +30,16 @@ const HUNGARIAN_TRANSLATIONS = {
         character_modify_title: 'Módosítás',
         character_modify_ok: 'Módosítás',
         character_modify_cancel: 'Mégse',
+
+        token_connection_title: 'Eszközök összekapcsolása',
+        token_connection_step_1_title: '1. lépés',
+        token_connection_step_1_1: 'Generálj egy azonosítót, amit egy másik eszközön bemásolva összekötheted azt a karaktereiddel.',
+        token_connection_copy_to_clipboard: 'Másolás vágólapra',
+        token_connection_generate: 'Generálás',
+        token_connection_step_2_title: '2. lépés',
+        token_connection_step_2_1: 'Már generáltál azonosítót egy másik eszközön?',
+        token_connection_step_2_2: 'Másold be ide:',
+        token_connection_connect: 'Összekapcsolás'
     }
 };
 
