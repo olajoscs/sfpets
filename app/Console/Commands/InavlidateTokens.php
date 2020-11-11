@@ -24,7 +24,7 @@ class InavlidateTokens extends Command
     /**
      * @var TokenRepository
      */
-    private /*TokenRepository*/ $tokenRepository;
+    private TokenRepository $tokenRepository;
 
 
     public function __construct(TokenRepository $tokenRepository)
