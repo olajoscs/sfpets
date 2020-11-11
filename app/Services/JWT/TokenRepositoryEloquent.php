@@ -24,9 +24,7 @@ class TokenRepositoryEloquent implements TokenRepository
 
     public function findByUuid(string $uuid): Token
     {
-        $token = Token::find($uuid);
-
-        return $token;
+        return Token::where('active', true)->find($uuid);
     }
 
 
