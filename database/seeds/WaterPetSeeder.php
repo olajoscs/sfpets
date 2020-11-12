@@ -265,7 +265,7 @@ class WaterPetSeeder extends PetSeeder
                 'location_id' => $this->location_Magic,
                 'description' => json_encode([
                     'en' => 'Can\'t be found in the wild, but in your local magic shop',
-                    'hu' => 'Nem a vadonban találod, hanem a helyi varászboltban',
+                    'hu' => 'Nem a vadonban találod, hanem a helyi varázsboltban',
                 ]),
                 'properties' => json_encode([]),
                 'rank' => 1600,
