@@ -63,6 +63,10 @@
                 this.fetchCharacters()
             ]).then(() => {
                 this.loading = false;
+
+                setInterval(() => {
+                    this.fetchPets({currentCharacterId: CurrentCharacterRepository.getCurrentCharacterId()})
+                }, 30000);
             });
         }
     }
