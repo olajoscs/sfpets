@@ -4,6 +4,8 @@
         <div class="container">
             <router-view></router-view>
         </div>
+        <cookie-law>
+        </cookie-law>
     </div>
 </template>
 
@@ -12,13 +14,15 @@
     import {mapActions} from 'vuex';
     import PetOrganizer from './PetOrganizer';
     import NavBar from './NavBar/NavBar';
+    import CookieLaw from './Cookie';
 
     export default {
         name: "app",
 
         components: {
             NavBar,
-            PetOrganizer
+            PetOrganizer,
+            CookieLaw
         },
 
         data: () => {

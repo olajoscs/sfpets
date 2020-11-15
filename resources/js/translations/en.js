@@ -42,7 +42,10 @@ const ENGLISH_TRANSLATIONS = {
         token_connection_step_2_title: 'Step #2',
         token_connection_step_2_1: 'Have you already generated a token on another device?',
         token_connection_step_2_2: 'Copy that token:',
-        token_connection_connect: 'Connect'
+        token_connection_connect: 'Connect',
+
+        cookie_message: 'The app uses only cookies necessary for the standard operation. Selected character, locale, session ID.',
+        cookie_accept: 'Accept',
     }
 };
 
