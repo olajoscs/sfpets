@@ -21,6 +21,9 @@ const ENGLISH_TRANSLATIONS = {
         pet_not_sure: 'The availability of this pet is not sure today!',
 
         character_list_title: 'Characters',
+        character_list_new_title: 'New character',
+        character_list_disclaimer_1: 'The created characters are used in the app only.',
+        character_list_disclaimer_2: 'The app never asks for password, and never connects to any external server.',
         character_new_title: 'New character',
         character_new_name: 'Character name',
         character_new_ok: 'Create',

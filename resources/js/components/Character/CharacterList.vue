@@ -17,9 +17,18 @@
             <div>
                 <button data-target="new-character-modal"
                         @click="openNewCharacterModal"
-                        class="waves-effect waves-light btn btn-small modal-trigger">
-                    <i class="material-icons">add</i>
+                        class="waves-effect waves-light btn modal-trigger">
+                    <i class="material-icons left">add</i>{{ $t('text.character_list_new_title') }}
                 </button>
+            </div>
+            <div>
+                <p class="flow-text">
+                    {{ $t('text.character_list_disclaimer_1') }}
+                </p>
+                <hr>
+                <p class="flow-text">
+                    {{ $t('text.character_list_disclaimer_2') }}
+                </p>
             </div>
         </div>
 
