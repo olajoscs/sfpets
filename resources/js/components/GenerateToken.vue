@@ -62,6 +62,8 @@
 
                 if (response.data.status === 'ok') {
                     location.replace('/');
+                } else {
+                    helpers.toast(this.$t('text.token_connection_invalid_token_code'));
                 }
             },
 

@@ -50,4 +50,24 @@ interface TokenRepository
      * @return int Invalidated token count
      */
     public function invalidateOldTokens(): int;
+
+
+    /**
+     * Return a token which has the code and is not used
+     *
+     * @param string $tokenCode
+     *
+     * @return Token|null
+     */
+    public function findByCode(string $tokenCode): ?Token;
+
+
+    /**
+     * Mark a connection code as used
+     *
+     * @param Token $token
+     *
+     * @return void
+     */
+    public function markCodeAsUsed(Token $token): void;
 }

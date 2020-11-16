@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\InvalidTokenCodeException;
 use App\Models\JWT\Token;
 use App\Services\JWT\JWTAuth;
 use App\Services\JWT\JWTService;
@@ -55,7 +56,14 @@ class TokenController extends Controller
      */
     public function apply(Request $request): JsonResponse
     {
-        $this->JWTService->setUserFromBody($request);
+        try {
+            $this->JWTService->setUserFromBody($request);
+        } catch (InvalidTokenCodeException $exception) {
+            return response()->json([
+                'status' => 'error',
+                'error' => $exception->getMessage()
+            ]);
+        }
 
         return response()->json([
             'status' => 'ok'

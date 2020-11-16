@@ -16,6 +16,8 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $last_seen
  * @property bool $active
  * @property string $source
+ * @property string $connection_code
+ * @property bool $connection_code_used
  *
  * @method static Builder|Token newModelQuery()
  * @method static Builder|Token newQuery()

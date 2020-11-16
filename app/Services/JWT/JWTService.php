@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\JWT;
 
+use App\Exceptions\InvalidTokenCodeException;
 use App\Models\JWT\JWTBody;
 use App\Models\JWT\Token;
 use App\Models\User\User;
@@ -62,8 +63,14 @@ class JWTService
     public function setUserFromCookie(Request $request): void
     {
         $tokenString = $this->getTokenFrom($request);
+        $token = null;
 
-        $this->setUser($tokenString);
+        if ($tokenString !== null) {
+            $parsed = $this->decode($tokenString, \Config::get('jwt.secret'));
+            $token = $this->tokenRepository->findByUuid($parsed->uuid);
+        }
+
+        $this->setUserFromToken($token);
     }
 
 
@@ -73,38 +80,19 @@ class JWTService
      * @param Request $request
      *
      * @return void
+     * @throws InvalidTokenCodeException
      */
     public function setUserFromBody(Request $request): void
     {
-        $tokenString = $request->get('token');
+        $tokenCode = $request->get('token');
+        $token = $this->tokenRepository->findByCode($tokenCode);
 
-        $this->setUser($tokenString);
-    }
-
-
-    /**
-     * Set the authenticated user from the token from the request
-     *
-     * @param string|null $tokenString
-     *
-     * @return void
-     */
-    private function setUser(?string $tokenString): void
-    {
-        $token = null;
-        if ($tokenString !== null) {
-            $parsed = $this->decode($tokenString, \Config::get('jwt.secret'));
-            $token = $this->tokenRepository->findByUuid($parsed->uuid);
-            $user = $this->userRepository->findById($token->user_id);
-        } else {
-            $user = $this->userRepository->create();
-            $token = $this->tokenRepository->create($user->id, Token::SOURCE_AUTOMATIC);
+        if ($token === null) {
+            throw new InvalidTokenCodeException('Invalid token code');
         }
 
-        $this->tokenRepository->markAsSeen($token);
-
-        $this->JWTAuth->setUser($user);
-        $this->JWTAuth->setToken($token);
+        $this->setUserFromToken($token);
+        $this->tokenRepository->markCodeAsUsed($token);
     }
 
 
@@ -120,6 +108,46 @@ class JWTService
         $generatedToken = $this->generate($this->JWTAuth->getToken()->uuid);
 
         return $response->cookie(\Cookie::forever(self::COOKIE_NAME, $generatedToken));
+    }
+
+
+    /**
+     * Generate a new token for the user
+     *
+     * @param User   $user
+     * @param string $source
+     *
+     * @return string Encoded token
+     */
+    public function generateToken(User $user, string $source): string
+    {
+        $token = $this->tokenRepository->create($user->id, $source);
+
+        return $token->connection_code;
+    }
+
+
+    /**
+     * Set the authenticated user from the token - or create a new one
+     *
+     * @param Token|null $token
+     *
+     * @return void
+     */
+    private function setUserFromToken(?Token $token): void
+    {
+        if ($token === null) {
+            $user = $this->userRepository->create();
+            $token = $this->tokenRepository->create($user->id, Token::SOURCE_AUTOMATIC);
+        } else {
+            $user = $this->userRepository->findById($token->user_id);
+            $token = $this->tokenRepository->create($user->id, Token::SOURCE_AUTOMATIC);
+        }
+
+        $this->JWTAuth->setUser($user);
+        $this->JWTAuth->setToken($token);
+
+        $this->tokenRepository->markAsSeen($token);
     }
 
 
@@ -163,21 +191,5 @@ class JWTService
     private function getTokenFrom(Request $request): ?string
     {
         return $request->cookie(self::COOKIE_NAME);
-    }
-
-
-    /**
-     * Generate a new token for the user
-     *
-     * @param User   $user
-     * @param string $source
-     *
-     * @return string Encoded token
-     */
-    public function generateToken(User $user, string $source): string
-    {
-        $token = $this->tokenRepository->create($user->id, $source);
-
-        return $this->generate($token->uuid);
     }
 }

@@ -38,6 +38,10 @@ class TokenRepositoryEloquent implements TokenRepository
         $token->active = true;
         $token->source = $source;
 
+        if ($source === Token::SOURCE_USER) {
+            $token->connection_code = (string)random_int(100000, 999999);
+        }
+
         $token->save();
 
         return $token;
@@ -62,5 +66,20 @@ class TokenRepositoryEloquent implements TokenRepository
             ->update([
                 'active' => false,
             ]);
+    }
+
+
+    public function findByCode(string $tokenCode): ?Token
+    {
+        return Token::where('connection_code', '=', $tokenCode)
+            ->where('connection_code_used', '=', false)
+            ->first();
+    }
+
+
+    public function markCodeAsUsed(Token $token): void
+    {
+        $token->connection_code_used = true;
+        $token->save();
     }
 }

@@ -43,6 +43,7 @@ const HUNGARIAN_TRANSLATIONS = {
         token_connection_step_2_1: 'Már generáltál azonosítót egy másik eszközön?',
         token_connection_step_2_2: 'Másold be ide:',
         token_connection_connect: 'Összekapcsolás',
+        token_connection_invalid_token_code: 'Hibás kód',
 
         cookie_message: 'Az app csak működéshez nélkülözhetetlen sütiket használ. Éppen használt karakter, nyelv, munkamenet azonosító.',
         cookie_accept: 'Értem',
