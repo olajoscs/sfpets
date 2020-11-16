@@ -4,7 +4,7 @@
         <div>
             <h5>{{ $t('text.token_connection_step_1_title') }}</h5>
             <p>{{ $t('text.token_connection_step_1_1') }}</p>
-            <input v-if="token" type="text" v-model="token">
+            <input v-if="token" type="number" v-model="token" readonly>
             <p>
                 <button v-if="token"
                         class="waves-effect waves-green btn btn-primary"
@@ -26,7 +26,7 @@
             <p>
                 {{ $t('text.token_connection_step_2_1') }}<br>
                 {{ $t('text.token_connection_step_2_2') }}
-                <input type="text" v-model="generatedToken">
+                <input type="number" v-model="generatedToken">
                 <button class="waves-effect waves-green btn btn-primary"
                         @click="applyToken">
                     {{ $t('text.token_connection_connect') }}
