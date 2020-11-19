@@ -39,7 +39,7 @@ class TokenRepositoryEloquent implements TokenRepository
         $token->source = $source;
 
         if ($source === Token::SOURCE_USER) {
-            $token->connection_code = (string)random_int(100000, 999999);
+            $token->connection_code = $this->generateRandomCode();
         }
 
         $token->save();
@@ -81,5 +81,21 @@ class TokenRepositoryEloquent implements TokenRepository
     {
         $token->connection_code_used = true;
         $token->save();
+    }
+
+
+    private function generateRandomCode(): string
+    {
+        do {
+            $code = (string)random_int(100000, 999999);
+        } while ($this->checkCodeExists($code));
+
+        return $code;
+    }
+
+
+    private function checkCodeExists(string $code): bool
+    {
+        return $this->findByCode($code) !== null;
     }
 }
