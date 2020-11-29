@@ -101,7 +101,7 @@ class PetAvailabilityChecker
             return true;
         }
 
-        return in_array((int)$date->format('w'), [5, 6, 7], true);
+        return in_array((int)$date->format('N'), [5, 6, 7], true);
     }
 
 
