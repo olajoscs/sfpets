@@ -25,7 +25,7 @@
 
         <nav class="nav">
             <div class="nav-wrapper">
-                <a href="#/" class="brand-logo left">{{ $t(`text.app_title`) }}</a>
+                <a href="#/" class="brand-logo center left-logo">{{ $t(`text.app_title`) }}</a>
                 <ul class="right">
                     <li>
                         <a class="dropdown-button dropdown-trigger"
