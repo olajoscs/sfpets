@@ -1,8 +1,10 @@
 <template>
-    <li class="collection-item avatar" :class="{'red lighten-5': getCurrentCharacterId === this.id}">
-        <i class="large material-icons pet-image circle responsive-img">person</i>
+    <div class="collection-item avatar" :class="{'red lighten-5': getCurrentCharacterId === this.id}">
+        <div @click="setCharacter" class="character-select-div">
+            <i class="large material-icons pet-image circle responsive-img">person</i>
 
-        <span class="title"><strong>{{ character.name }}</strong></span>
+            <span class="title"><strong>{{ character.name }}</strong></span>
+        </div>
 
         <div class="secondary-content">
             <a @click="setCharacter"
@@ -20,7 +22,7 @@
                 <i class="material-icons">delete_forever</i>
             </a>
         </div>
-    </li>
+    </div>
 </template>
 
 <script>
@@ -63,5 +65,8 @@
 </script>
 
 <style scoped>
-
+    .character-select-div {
+        cursor: pointer;
+        height: 4rem;
+    }
 </style>

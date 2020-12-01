@@ -7,13 +7,13 @@
         </div>
 
         <div v-else>
-            <ul class="collection with-header">
+            <div class="collection with-header">
                 <character v-for="character in getOrderedCharacters"
                            @modifyCharacter="modifyCharacter"
                            :key="character.id"
                            :id="character.id"
                 ></character>
-            </ul>
+            </div>
             <div>
                 <button data-target="new-character-modal"
                         @click="openNewCharacterModal"
