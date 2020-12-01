@@ -6,6 +6,8 @@ const HUNGARIAN_TRANSLATIONS = {
         navbar_language_hungarian: 'Magyar',
         navbar_generate_token: 'Belépek más eszközön',
         navbar_current_character: 'Kiválasztva: {name}',
+        navbar_select_other_character: 'Másik karakter választása',
+        navbar_no_current_character: 'Jelenleg nincs karakter választva',
 
         pet_list_firsts_title: 'Lehetséges felfedezések',
         pet_list_discovered_title: 'Ma megtalálható kedvencek',
@@ -28,7 +30,6 @@ const HUNGARIAN_TRANSLATIONS = {
         character_new_name: 'Karakter neve',
         character_new_ok: 'Létrehozás',
         character_new_cancel: 'Mégse',
-        character_unknown_name: 'Ismeretlen',
 
         character_modify_title: 'Módosítás',
         character_modify_ok: 'Módosítás',

@@ -6,6 +6,8 @@ const ENGLISH_TRANSLATIONS = {
         navbar_language_hungarian: 'Magyar',
         navbar_generate_token: 'Login from other device',
         navbar_current_character: 'Selected: {name}',
+        navbar_select_other_character: 'Change character',
+        navbar_no_current_character: 'Currently no character is selected',
 
         pet_list_firsts_title: 'Possible discoveries',
         pet_list_discovered_title: 'Today available pets',
@@ -28,7 +30,6 @@ const ENGLISH_TRANSLATIONS = {
         character_new_name: 'Character name',
         character_new_ok: 'Create',
         character_new_cancel: 'Cancel',
-        character_unknown_name: 'Unknown',
 
         character_modify_title: 'Modify',
         character_modify_ok: 'Modify',

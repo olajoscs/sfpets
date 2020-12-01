@@ -3,7 +3,12 @@
         <ul id="dropdown-locale" class="dropdown-content">
             <li>
                 <a href="#/characters">
-                    {{ $t('text.navbar_current_character', {name: getCurrentCharacter ? getCurrentCharacter.name : $t('text.character_unknown_name') })}}
+                    {{ getCurrentCharacter ? $t('text.navbar_current_character', {name: getCurrentCharacter.name}) : $t('text.navbar_no_current_character') }}
+                </a>
+            </li>
+            <li>
+                <a href="#/characters">
+                    {{ $t('text.navbar_select_other_character') }}
                 </a>
             </li>
             <li>
