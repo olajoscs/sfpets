@@ -26,6 +26,12 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Token whereUuid($value)
  * @method static Builder|Token whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static Builder|Token whereActive($value)
+ * @method static Builder|Token whereConnectionCode($value)
+ * @method static Builder|Token whereConnectionCodeUsed($value)
+ * @method static Builder|Token whereLastSeen($value)
+ * @method static Builder|Token whereSource($value)
+ * @method static Builder|Token whereUserId($value)
  */
 class Token extends \Eloquent
 {

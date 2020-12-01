@@ -29,6 +29,11 @@ use Illuminate\Support\Collection;
  * @property Collection|Character[] $characters
  * @property-read int|null $characters_count
  * @method static Builder|\App\Models\User\User whereUuid($value)
+ * @property Carbon|null $deleted_at
+ * @method static \Illuminate\Database\Query\Builder|User onlyTrashed()
+ * @method static Builder|User whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|User withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|User withoutTrashed()
  */
 class User extends Model
 {

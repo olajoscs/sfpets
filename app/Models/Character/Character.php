@@ -27,10 +27,13 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Character whereName($value)
  * @method static Builder|Character whereUpdatedAt($value)
  * @method static Builder|Character whereUserId($value)
- *
  * @mixin \Eloquent
- *
  * @property User $user
+ * @property Carbon|null $deleted_at
+ * @method static \Illuminate\Database\Query\Builder|Character onlyTrashed()
+ * @method static Builder|Character whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|Character withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Character withoutTrashed()
  */
 class Character extends Model
 {

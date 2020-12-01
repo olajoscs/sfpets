@@ -44,6 +44,8 @@ class Pet extends Model
 {
     use HasTranslations;
 
+    public $timestamps = false;
+
     public array $translatable = [
         'name',
         'description'
