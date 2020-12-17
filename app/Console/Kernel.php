@@ -7,6 +7,7 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
+    private const LOG_PATH = 'storage/logs/';
     /**
      * The Artisan commands provided by your application.
      *
@@ -16,17 +17,29 @@ class Kernel extends ConsoleKernel
         //
     ];
 
+
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
+     *
      * @return void
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('user:invalidate')->dailyAt('0:00');
-        $schedule->command('token:invalidate')->dailyAt('0:10');
+        $time = (new \DateTime())->format('Y-m-d-H-i-s');
+
+        $schedule
+            ->command('user:invalidate')
+            ->dailyAt('0:05')
+            ->sendOutputTo(self::LOG_PATH . 'user-invalidate-' . $time);
+
+        $schedule
+            ->command('token:invalidate')
+            ->dailyAt('0:10')
+            ->sendOutputTo(self::LOG_PATH . 'token-invalidate-' . $time);
     }
+
 
     /**
      * Register the commands for the application.
@@ -35,7 +48,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }
