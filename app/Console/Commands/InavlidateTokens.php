@@ -43,5 +43,7 @@ class InavlidateTokens extends Command
         $updated = $this->tokenRepository->invalidateOldTokens();
 
         $this->comment(sprintf('Invalidated %s tokens', $updated));
+
+        return 0;
     }
 }

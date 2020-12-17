@@ -11,6 +11,8 @@ use App\Models\User\User;
  */
 interface UserRepository
 {
+    public const MAX_ACTIVE_AGE = '30 day';
+
     /**
      * Find the user by its id
      *
@@ -27,4 +29,12 @@ interface UserRepository
      * @return User
      */
     public function create(): User;
+
+
+    /**
+     * Invalidate old users without character
+     *
+     * @return int
+     */
+    public function invalidateUsersWithoutCharacter(): int;
 }
