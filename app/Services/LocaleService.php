@@ -71,7 +71,7 @@ class LocaleService
      */
     private function setLocaleFromHeader(): void
     {
-        $locale = \Request::getPreferredLanguage();
+        $locale = \Request::getPreferredLanguage() ?? '';
 
         $this->setLocale(substr($locale, 0, 2));
     }
