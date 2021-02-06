@@ -23,7 +23,14 @@ class CreatePetsTable extends Migration
             $table->unsignedSmallInteger('rank');
             $table->foreign('location_id')->references('id')->on('locations')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('category_id')->references('id')->on('pet_categories')->onUpdate('cascade')->onDelete('restrict');
+            $table->string('image');
         });
+
+        (new ShadowPetSeeder())->run();
+        (new LightPetSeeder())->run();
+        (new EarthPetSeeder())->run();
+        (new FirePetSeeder())->run();
+        (new WaterPetSeeder())->run();
     }
 
     /**

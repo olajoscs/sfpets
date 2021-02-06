@@ -299,7 +299,7 @@ class EarthPetSeeder extends PetSeeder
                 'location_id' => $this->location_Stumble,
                 'description' => json_encode([
                     'en' => 'Fortress Hall of Fame top 100 or 2.500 honor',
-                    'hu' => 'Erőd disőcség csarnoka top 100 vagy 2500 dicsőség',
+                    'hu' => 'Erőd dicsőcség csarnoka top 100 vagy 2500 dicsőség',
                 ]),
                 'properties' => json_encode([]),
                 'rank' => 1800,

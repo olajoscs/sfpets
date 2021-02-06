@@ -17,6 +17,8 @@ class CreateLocationsTable extends Migration
             $table->id();
             $table->json('name');
         });
+
+        (new LocationSeeder())->run();
     }
 
     /**

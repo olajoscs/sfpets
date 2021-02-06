@@ -17,6 +17,8 @@ class CreatePetCategoriesTable extends Migration
             $table->id();
             $table->json('name');
         });
+
+        (new PetCategorySeeder())->run();
     }
 
     /**

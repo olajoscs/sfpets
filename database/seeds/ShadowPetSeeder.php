@@ -335,7 +335,7 @@ class ShadowPetSeeder extends PetSeeder
                 'location_id' => $this->getLocationId('Plains of Oz\'korr'),
                 'description' => json_encode([
                     'en' => 'when clearing the 13th dungeon of the Shadow World',
-                    'hu' => 'az árnyvilág megtisztítása után',
+                    'hu' => 'az árnyvilági 13. kazamata 10. szintjének megtisztítása után',
                 ]),
                 'properties' => json_encode([]),
                 'rank' => 1900,
