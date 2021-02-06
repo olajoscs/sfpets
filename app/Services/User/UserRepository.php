@@ -37,4 +37,12 @@ interface UserRepository
      * @return int
      */
     public function invalidateUsersWithoutCharacter(): int;
+
+
+    /**
+     * Remove the invalidated users
+     *
+     * @return int Removed user count
+     */
+    public function removeInvalidatedUsers(): int;
 }

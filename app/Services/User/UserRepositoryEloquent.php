@@ -49,4 +49,16 @@ class UserRepositoryEloquent implements UserRepository
 
         return count($userIds);
     }
+
+
+    public function removeInvalidatedUsers(): int
+    {
+        return User::withTrashed()
+            ->where(
+                'jwt_users.created_at', '<', $this->dateProvider->getToday()->modify('-' . self::MAX_ACTIVE_AGE)
+                ->modify('-' . self::MAX_ACTIVE_AGE)
+            )
+            ->whereNotNull('deleted_at')
+            ->delete();
+    }
 }

@@ -53,6 +53,14 @@ interface TokenRepository
 
 
     /**
+     * Remove all the invalidated tokens
+     *
+     * @return int Removed token count
+     */
+    public function removeInvalidatedTokens(): int;
+
+
+    /**
      * Return a token which has the code and is not used
      *
      * @param string $tokenCode

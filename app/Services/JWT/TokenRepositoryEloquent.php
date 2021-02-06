@@ -69,6 +69,17 @@ class TokenRepositoryEloquent implements TokenRepository
     }
 
 
+    public function removeInvalidatedTokens(): int
+    {
+        return Token::where(
+            'last_seen',
+            '<',
+            $this->dateProvider->getToday()->modify('-'. self::MAX_ACTIVE_AGE)->modify('-'. self::MAX_ACTIVE_AGE)
+        )
+            ->delete();
+    }
+
+
     public function findByCode(string $tokenCode): ?Token
     {
         return Token::where('connection_code', '=', $tokenCode)

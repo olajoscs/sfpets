@@ -38,6 +38,16 @@ class Kernel extends ConsoleKernel
             ->command('token:invalidate')
             ->dailyAt('0:10')
             ->sendOutputTo(self::LOG_PATH . 'token-invalidate-' . $time);
+
+        $schedule
+            ->command('token:remove')
+            ->dailyAt('0:15')
+            ->sendOutputTo(self::LOG_PATH . 'token-remove-' . $time);
+
+        $schedule
+            ->command('user:remove')
+            ->dailyAt('0:20')
+            ->sendOutputTo(self::LOG_PATH . 'user-remove-' . $time);
     }
 
 
