@@ -40,7 +40,7 @@ class RemoveInvalidatedTokens extends Command
      */
     public function handle()
     {
-        $updated = $this->tokenRepository->invalidateOldTokens();
+        $updated = $this->tokenRepository->removeInvalidatedTokens();
 
         $this->comment(sprintf('Removed %s tokens', $updated));
 

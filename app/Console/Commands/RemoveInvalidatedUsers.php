@@ -43,7 +43,7 @@ class RemoveInvalidatedUsers extends Command
      */
     public function handle()
     {
-        $updated = $this->userRepository->invalidateUsersWithoutCharacter();
+        $updated = $this->userRepository->removeInvalidatedUsers();
 
         $this->comment(sprintf('Removed %s users', $updated));
 
