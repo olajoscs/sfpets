@@ -7,10 +7,10 @@ namespace App\Http\Controllers;
 use App\Models\Character\Character;
 use App\Services\Character\CharacterPetService;
 use App\Services\Character\CharacterService;
-use App\Services\DateProvider;
 use App\Services\JWT\JWTAuth;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use OlajosCs\DateProvider\DateProvider;
 
 class PetListController extends Controller
 {

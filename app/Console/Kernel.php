@@ -30,6 +30,10 @@ class Kernel extends ConsoleKernel
         $time = (new \DateTime())->format('Y-m-d-H-i-s');
 
         $schedule
+            ->command('log:clean')
+            ->dailyAt('00:00');
+
+        $schedule
             ->command('user:invalidate')
             ->dailyAt('0:05')
             ->sendOutputTo(self::LOG_PATH . 'user-invalidate-' . $time);

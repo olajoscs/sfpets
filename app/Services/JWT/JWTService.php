@@ -8,10 +8,10 @@ use App\Exceptions\InvalidTokenCodeException;
 use App\Models\JWT\JWTBody;
 use App\Models\JWT\Token;
 use App\Models\User\User;
-use App\Services\DateProvider;
 use App\Services\User\UserRepository;
 use Firebase\JWT\JWT;
 use Illuminate\Http\Request;
+use OlajosCs\DateProvider\DateProvider;
 use Symfony\Component\HttpFoundation\Response;
 
 /**

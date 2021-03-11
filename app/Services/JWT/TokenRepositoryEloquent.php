@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Services\JWT;
 
 use App\Models\JWT\Token;
-use App\Services\DateProvider;
 use Illuminate\Support\Str;
+use OlajosCs\DateProvider\DateProvider;
 
 /**
  * Eloquent implementation of the Token repository

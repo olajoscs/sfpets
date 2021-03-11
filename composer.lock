@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc7d636d470eb9325c875e9a03cc143a",
+    "content-hash": "55c089905a7d0ce52bf45dbe5ec8db99",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2492,6 +2492,50 @@
                 "php"
             ],
             "time": "2020-08-30T16:15:20+00:00"
+        },
+        {
+            "name": "olajoscs/dateprovider",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/olajoscs/dateprovider.git",
+                "reference": "c3608f0a8b011abfc07cdc8901eb485d10f9d975"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/olajoscs/dateprovider/zipball/c3608f0a8b011abfc07cdc8901eb485d10f9d975",
+                "reference": "c3608f0a8b011abfc07cdc8901eb485d10f9d975",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0|^8.0"
+            },
+            "require-dev": {
+                "infection/infection": "^0.21.1",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "OlajosCs\\DateProvider\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Csaba Olajos",
+                    "email": "olajoscs@gmail.com"
+                }
+            ],
+            "description": "A simple DateTimeImmutable provider to replace or simulate the \"new DateTimeImmutable\"",
+            "support": {
+                "issues": "https://github.com/olajoscs/dateprovider/issues",
+                "source": "https://github.com/olajoscs/dateprovider/tree/1.0.0"
+            },
+            "time": "2021-02-25T21:31:14+00:00"
         },
         {
             "name": "opis/closure",
@@ -8185,9 +8229,9 @@
     "prefer-lowest": false,
     "platform": {
         "php": "^7.4.0",
-        "ext-json": "*",
-        "ext-calendar": "*"
+        "ext-calendar": "*",
+        "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

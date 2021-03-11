@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Services\User;
 
 use App\Models\User\User;
-use App\Services\DateProvider;
+use OlajosCs\DateProvider\DateProvider;
 
 /**
  * Eloquent implementation of the UserRepository
