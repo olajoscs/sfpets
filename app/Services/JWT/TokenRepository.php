@@ -20,7 +20,7 @@ interface TokenRepository
      *
      * @return Token
      */
-    public function findByUuid(string $uuid): Token;
+    public function findByUuid(string $uuid): ?Token;
 
 
     /**

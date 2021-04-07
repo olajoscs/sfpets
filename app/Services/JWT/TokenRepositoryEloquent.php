@@ -22,7 +22,7 @@ class TokenRepositoryEloquent implements TokenRepository
     }
 
 
-    public function findByUuid(string $uuid): Token
+    public function findByUuid(string $uuid): ?Token
     {
         return Token::where('active', true)->find($uuid);
     }
@@ -58,24 +58,32 @@ class TokenRepositoryEloquent implements TokenRepository
 
     public function invalidateOldTokens(): int
     {
-        return Token::where(
-            'last_seen',
-            '<',
-            $this->dateProvider->getToday()->modify('-' . self::MAX_ACTIVE_AGE)
-        )
-            ->update([
-                'active' => false,
-            ]);
+        return \DB::update(
+            'update jwt_tokens 
+            set active = false 
+            where uuid in (
+                select uuid from (
+                    select distinct uuid
+                    from jwt_tokens jt
+                    inner join jwt_users ju on (jt.user_id = ju.id)
+                    left join characters c on (ju.id = c.user_id)
+                    where jt.active and
+                          c.id is null
+                ) as t1
+            )'
+        );
     }
 
 
     public function removeInvalidatedTokens(): int
     {
-        return Token::where(
-            'last_seen',
-            '<',
-            $this->dateProvider->getToday()->modify('-'. self::MAX_ACTIVE_AGE)->modify('-'. self::MAX_ACTIVE_AGE)
-        )
+        return Token
+            ::where('active', '=', false)
+            ->where(
+                'last_seen',
+                '<',
+                $this->dateProvider->getToday()->modify('-' . self::MAX_ACTIVE_AGE)
+            )
             ->delete();
     }
 
