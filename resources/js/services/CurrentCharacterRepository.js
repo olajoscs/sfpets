@@ -10,7 +10,7 @@ class CurrentCharacterRepository {
      * @param characterId int
      */
     setCurrentCharacterId(characterId) {
-        Cookies.set(this.COOKIE_NAME, characterId);
+        Cookies.set(this.COOKIE_NAME, characterId, {expires: 365});
     }
 
     /**
